@@ -1,7 +1,17 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { GradientBar } from "@/components/ui/gradient-bar"
+
+export const metadata: Metadata = {
+  title: "Page Not Found",
+  description: "The page could not be found on Metropolis Retro.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function NotFound() {
   return (

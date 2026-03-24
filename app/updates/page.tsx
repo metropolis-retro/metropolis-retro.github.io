@@ -1,8 +1,20 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { updates } from "@/lib/content/updates"
+import { pageKeywords } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: "Updates",
+  description:
+    "Read the latest Metropolis Retro announcements, schedule updates, and club news for Brisbane chess events and meetups.",
+  keywords: pageKeywords(["chess club news", "Brisbane chess updates", "event announcements"]),
+  alternates: {
+    canonical: "/updates",
+  },
+}
 
 export default function UpdatesPage() {
   return (

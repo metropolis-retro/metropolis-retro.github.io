@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import {
@@ -6,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { pageKeywords } from "@/lib/seo"
 
 const faqItems = [
   {
@@ -34,6 +36,16 @@ const faqItems = [
       "Use the newsletter form in the footer and check the updates page regularly for venue, timing, and format announcements.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "FAQ",
+  description:
+    "Find answers to common questions about Metropolis Retro meetups, formats, registration, and participation in Brisbane.",
+  keywords: pageKeywords(["chess club faq", "Brisbane chess questions", "meetup rules"]),
+  alternates: {
+    canonical: "/faq",
+  },
+}
 
 export default function FaqPage() {
   return (

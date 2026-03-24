@@ -1,5 +1,7 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { pageKeywords } from "@/lib/seo"
 
 const tiers = [
   {
@@ -36,6 +38,16 @@ const steps = [
   "Choose your preferred meetup rhythm and event format.",
   "Attend your first session and get paired into suitable games.",
 ];
+
+export const metadata: Metadata = {
+  title: "Membership",
+  description:
+    "Explore Metropolis Retro membership paths for casual, competitive, and development-focused chess players in Brisbane.",
+  keywords: pageKeywords(["chess club membership", "Brisbane chess members", "join Metropolis Retro"]),
+  alternates: {
+    canonical: "/membership",
+  },
+}
 
 export default function MembershipPage() {
   return (

@@ -1,8 +1,20 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { events } from "@/lib/content/events"
+import { pageKeywords } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: "Events",
+  description:
+    "Browse upcoming Metropolis Retro chess meetups and tournament formats across Brisbane, including rapid, classical, and workshop sessions.",
+  keywords: pageKeywords(["Brisbane chess events", "rapid chess Brisbane", "chess tournaments Brisbane"]),
+  alternates: {
+    canonical: "/events",
+  },
+}
 
 export default function EventsPage() {
   return (

@@ -1,11 +1,62 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { getEventBySlug } from "@/lib/content/events"
+import { SITE_URL, pageKeywords } from "@/lib/seo"
 
 type EventDetailPageProps = {
   params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: EventDetailPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const event = getEventBySlug(slug)
+
+  if (!event) {
+    return {
+      title: "Event Not Found",
+      description: "The requested event could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }
+  }
+
+  return {
+    title: `${event.title} | Events`,
+    description: event.description,
+    keywords: pageKeywords([
+      event.category,
+      event.format,
+      event.location,
+      ...event.tags,
+      "Brisbane chess event",
+    ]),
+    alternates: {
+      canonical: `/events/${event.slug}`,
+    },
+    openGraph: {
+      title: `${event.title} | Metropolis Retro`,
+      description: event.description,
+      url: `${SITE_URL}/events/${event.slug}`,
+      type: "article",
+      images: [
+        {
+          url: `${SITE_URL}${event.image}`,
+          alt: event.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${event.title} | Metropolis Retro`,
+      description: event.description,
+      images: [`${SITE_URL}${event.image}`],
+    },
+  }
 }
 
 export default async function EventDetailPage({ params }: EventDetailPageProps) {

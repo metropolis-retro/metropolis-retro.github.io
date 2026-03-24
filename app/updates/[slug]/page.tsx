@@ -1,11 +1,60 @@
+import type { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { getUpdateBySlug } from "@/lib/content/updates"
+import { SITE_URL, pageKeywords } from "@/lib/seo"
 
 type UpdateDetailPageProps = {
   params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata({ params }: UpdateDetailPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const update = getUpdateBySlug(slug)
+
+  if (!update) {
+    return {
+      title: "Update Not Found",
+      description: "The requested update could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    }
+  }
+
+  return {
+    title: `${update.title} | Updates`,
+    description: update.excerpt,
+    keywords: pageKeywords([
+      "chess club update",
+      "Brisbane chess news",
+      ...update.slug.split("-"),
+    ]),
+    alternates: {
+      canonical: `/updates/${update.slug}`,
+    },
+    openGraph: {
+      title: `${update.title} | Metropolis Retro`,
+      description: update.excerpt,
+      url: `${SITE_URL}/updates/${update.slug}`,
+      type: "article",
+      images: [
+        {
+          url: `${SITE_URL}${update.image}`,
+          alt: update.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${update.title} | Metropolis Retro`,
+      description: update.excerpt,
+      images: [`${SITE_URL}${update.image}`],
+    },
+  }
 }
 
 export default async function UpdateDetailPage({ params }: UpdateDetailPageProps) {

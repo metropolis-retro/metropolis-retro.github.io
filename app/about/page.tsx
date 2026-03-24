@@ -1,5 +1,7 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { pageKeywords } from "@/lib/seo"
 
 const pillars = [
   {
@@ -25,6 +27,16 @@ const values = [
   "Learning at every level",
   "Consistent weekly rhythm",
 ];
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Metropolis Retro, a Brisbane chess club focused on community, structured improvement, and official events.",
+  keywords: pageKeywords(["about Metropolis Retro", "Brisbane chess community", "club values"]),
+  alternates: {
+    canonical: "/about",
+  },
+}
 
 export default function AboutPage() {
   return (

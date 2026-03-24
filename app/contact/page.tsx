@@ -1,6 +1,18 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { ContactForm } from "@/components/forms/contact-form"
+import { pageKeywords } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact Metropolis Retro for Brisbane meetup details, event registration, and chess club membership questions.",
+  keywords: pageKeywords(["contact chess club", "Brisbane meetup contact", "join chess club Brisbane"]),
+  alternates: {
+    canonical: "/contact",
+  },
+}
 
 export default function ContactPage() {
   return (

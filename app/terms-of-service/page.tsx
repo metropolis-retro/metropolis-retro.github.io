@@ -1,5 +1,17 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { pageKeywords } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Review Metropolis Retro terms for club participation, event changes, and general liability conditions.",
+  keywords: pageKeywords(["terms of service", "chess club terms", "event participation policy"]),
+  alternates: {
+    canonical: "/terms-of-service",
+  },
+}
 
 export default function TermsOfServicePage() {
   return (

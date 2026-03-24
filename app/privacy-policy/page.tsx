@@ -1,5 +1,17 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { pageKeywords } from "@/lib/seo"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the Metropolis Retro privacy policy, including how we collect, use, and retain member communication data.",
+  keywords: pageKeywords(["privacy policy", "chess club privacy", "Metropolis Retro legal"]),
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+}
 
 export default function PrivacyPolicyPage() {
   return (
