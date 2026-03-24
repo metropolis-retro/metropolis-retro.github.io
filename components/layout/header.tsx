@@ -29,6 +29,21 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    const originalBodyOverflow = document.body.style.overflow
+    const originalHtmlOverflow = document.documentElement.style.overflow
+
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+      document.documentElement.style.overflow = "hidden"
+    }
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow
+      document.documentElement.style.overflow = originalHtmlOverflow
+    }
+  }, [isMobileMenuOpen])
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (pathname !== "/") {
       setIsMobileMenuOpen(false)
@@ -79,7 +94,7 @@ export function Header() {
                 e.preventDefault()
                 window.scrollTo({ top: 0, behavior: "smooth" })
               }}
-              className="text-lg font-semibold tracking-tight"
+              className="text-2xl font-semibold tracking-tight"
             >
               Metropolis Retro
             </Link>
@@ -115,7 +130,7 @@ export function Header() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button onClick={() => setIsMobileMenuOpen(true)} className="md:hidden p-2 -mr-2" aria-label="Open menu">
+            <button onClick={() => setIsMobileMenuOpen(true)} className="md:hidden p-2 -mr-2 cursor-pointer" aria-label="Open menu">
               <Menu className="w-5 h-5" />
             </button>
           </nav>
@@ -124,13 +139,13 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-background md:hidden">
-          <div className="flex flex-col h-full p-6">
+        <div className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-background md:hidden">
+          <div className="flex min-h-full flex-col py-4 px-8">
             <div className="flex items-center justify-between">
-              <Link href="/" className="text-lg font-semibold tracking-tight">
+                <Link href="/" className="text-2xl font-semibold tracking-tight">
                 Metropolis Retro
               </Link>
-              <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 -mr-2" aria-label="Close menu">
+              <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 -mr-2 cursor-pointer" aria-label="Close menu">
                 <X className="w-5 h-5" />
               </button>
             </div>
