@@ -1,12 +1,12 @@
 "use client"
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "#works", label: "Upcoming events", number: "01" },
@@ -14,7 +14,7 @@ const navItems = [
   { href: "#testimonials", label: "What members say", number: "03" },
   { href: "#awards", label: "Club milestones", number: "04" },
   { href: "#insights", label: "Latest updates", number: "05" },
-]
+];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -38,24 +38,24 @@ export function Header() {
     e.preventDefault()
     const element = document.querySelector(href)
     if (element) {
-      const headerOffset = 80 // Height of fixed header
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
-      })
+      });
     }
-    setIsMobileMenuOpen(false)
+    setIsMobileMenuOpen(false);
   }
 
   const getNavHref = (href: string) => {
     if (pathname === "/") {
-      return href
+      return href;
     }
 
-    return `/${href}`
+    return `/${href}`;
   }
 
   return (
@@ -94,7 +94,7 @@ export function Header() {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
-                  <span className="text-xs ml-1 opacity-50">({item.number})</span>
+                  {/* <span className="text-xs ml-1 opacity-50">({item.number})</span> */}
                 </Link>
               ))}
             </div>
@@ -110,7 +110,6 @@ export function Header() {
                 }}
               >
                 <span className="relative z-10">Join Club</span>
-                {/* Glow effect on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#203eec] to-[#00d4ff]" />
               </Link>
             </div>
@@ -158,7 +157,6 @@ export function Header() {
                 }}
               >
                 <span className="relative z-10">Join Club</span>
-                {/* Glow effect on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#203eec] to-[#00d4ff]" />
               </Link>
             </div>
@@ -166,5 +164,5 @@ export function Header() {
         </div>
       )}
     </>
-  )
+  );
 }
