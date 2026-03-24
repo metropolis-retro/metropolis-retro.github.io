@@ -20,6 +20,8 @@ const footerLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/events", label: "Events" },
+  { href: "/membership", label: "Membership" },
+  { href: "/faq", label: "FAQ" },
   { href: "/updates", label: "Updates" },
   { href: "/contact", label: "Contact" },
 ]
