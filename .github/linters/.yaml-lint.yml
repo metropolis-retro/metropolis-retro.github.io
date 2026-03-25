@@ -1,0 +1,12 @@
+---
+# https://yamllint.readthedocs.io/en/stable/
+extends: default
+
+rules:
+  comments:
+    ignore-shebangs: true
+    min-spaces-from-content: 1
+    require-starting-space: true
+  line-length:
+    max: 140
+  truthy: false
