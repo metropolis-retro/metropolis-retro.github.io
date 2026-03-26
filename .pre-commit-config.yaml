@@ -34,18 +34,6 @@ repos:
           Zip files are not allowed in the repository as they are hard to
           track and have security implications. Please remove the zip file from the repository.
         files: (?i)\.zip$
-      - id: bun-install
-        name: run bun install
-        description: Ensure that the bun dependencies can install
-        entry: bun install
-        language: system
-        pass_filenames: false
-      - id: bun-audit
-        name: run bun-audit
-        description: Run bun audit
-        entry: bun audit --audit-level=high
-        language: system
-        pass_filenames: false
 
   # GO-based
   # - repo: https://github.com/gitleaks/gitleaks
@@ -81,15 +69,6 @@ repos:
   #      description: check PNG files with oxipng
   #      args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
   #      stages: [manual]
-
-  - repo: https://github.com/pypa/pip-audit
-    rev: v2.10.0
-    hooks:
-      - id: pip-audit
-        name: run pip-audit
-        description: audits Python environments, requirements files and dependency trees for known security \
-          vulnerabilities, and can automatically fix them
-        args: ['.']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0

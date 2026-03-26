@@ -1,0 +1,49 @@
+---
+default_stages: [pre-commit, pre-push]
+minimum_prek_version: "0.2.22"
+default_language_version:
+  python: python3
+  node: 24.14.1
+exclude: |
+  (?x)^(
+    \.git/|
+    \.next/|
+    node_modules/|
+    bun\.lock|
+    next-env\.d\.ts|
+    package-lock\.json$
+  )
+
+repos:
+  - repo: meta
+    hooks:
+      - id: identity
+        name: Run identity
+        description: Run the identity check
+      - id: check-hooks-apply
+        name: run check-hooks-apply
+        description: check that all the hooks apply to the repository
+
+  - repo: local
+    hooks:
+      - id: bun-install
+        name: run bun install
+        description: Ensure that the bun dependencies can install
+        entry: bun install
+        language: system
+        pass_filenames: false
+      - id: bun-audit
+        name: run bun-audit
+        description: Run bun audit
+        entry: bun audit --audit-level=high
+        language: system
+        pass_filenames: false
+
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.10.0
+    hooks:
+      - id: pip-audit
+        name: run pip-audit
+        description: audits Python environments, requirements files and dependency trees for known security \
+          vulnerabilities, and can automatically fix them
+        args: ['.']
