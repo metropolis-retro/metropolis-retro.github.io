@@ -3,13 +3,14 @@ default_stages: [pre-commit, pre-push]
 minimum_prek_version: "0.2.22"
 default_language_version:
   python: python3
-  # node: 24.14.0
+  node: 24.14.1
 exclude: |
   (?x)^(
     \.git/|
     \.next/|
     node_modules/|
-    next-env.d.ts|
+    bun\.lock|
+    next-env\.d\.ts|
     package-lock\.json$
   )
 
@@ -33,18 +34,18 @@ repos:
           Zip files are not allowed in the repository as they are hard to
           track and have security implications. Please remove the zip file from the repository.
         files: (?i)\.zip$
-  # - id: npm-ci
-  #   name: run npm-ci
-  #   description: Install Node dependencies
-  #   entry: npm ci
-  #   language: system
-  #   pass_filenames: false
-  # - id: npm-audit
-  #   name: run npm-audit
-  #   description: Run npm audit
-  #   entry: npm audit --audit-level=high
-  #   language: system
-  #   pass_filenames: false
+      - id: bun-install
+        name: run bun install
+        description: Ensure that the bun dependencies can install
+        entry: bun install
+        language: system
+        pass_filenames: false
+      - id: bun-audit
+        name: run bun-audit
+        description: Run bun audit
+        entry: bun audit --audit-level=high
+        language: system
+        pass_filenames: false
 
   # GO-based
   # - repo: https://github.com/gitleaks/gitleaks
@@ -63,6 +64,32 @@ repos:
         args: ["644"]
         files: \.md$
         stages: [manual]
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 3.6.1
+    hooks:
+      - id: editorconfig-checker
+        name: run editorconfig-checker
+        description: a tool to verify that your files are in harmony with your .editorconfig
+        alias: ec
+
+  - repo: https://github.com/oxipng/oxipng
+    rev: v10.1.0
+    hooks:
+      - id: oxipng
+        name: run oxipng
+        description: check PNG files with oxipng
+        args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
+        stages: [manual]
+
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.10.0
+    hooks:
+      - id: pip-audit
+        name: run pip-audit
+        description: audits Python environments, requirements files and dependency trees for known security \
+          vulnerabilities, and can automatically fix them
+        args: ['.']
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
