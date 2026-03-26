@@ -34,7 +34,12 @@ repos:
           Zip files are not allowed in the repository as they are hard to
           track and have security implications. Please remove the zip file from the repository.
         files: (?i)\.zip$
-
+      - id: bun-install
+        name: run bun install
+        description: Ensure that the bun dependencies can install
+        entry: bun install
+        language: system
+        pass_filenames: false
   # GO-based
   # - repo: https://github.com/gitleaks/gitleaks
   #   rev: v8.30.0
