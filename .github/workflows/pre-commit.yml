@@ -16,6 +16,12 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          # Optional: specify a version, e.g., '1.0.0', 'latest', or 'canary'
+          # If not specified, it checks package.json for the 'packageManager' field
+          bun-version: latest
       - uses: j178/prek-action@79f765515bd648eb4d6bb1b17277b7cb22cb6468 # v2.0.0
         with:
           extra-args: --all-files
