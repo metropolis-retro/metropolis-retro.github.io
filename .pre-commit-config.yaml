@@ -73,14 +73,14 @@ repos:
         description: a tool to verify that your files are in harmony with your .editorconfig
         alias: ec
 
-  - repo: https://github.com/oxipng/oxipng
-    rev: v10.1.0
-    hooks:
-      - id: oxipng
-        name: run oxipng
-        description: check PNG files with oxipng
-        args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
-        stages: [manual]
+  # - repo: https://github.com/oxipng/oxipng
+  #  rev: v10.1.0
+  #  hooks:
+  #    - id: oxipng
+  #      name: run oxipng
+  #      description: check PNG files with oxipng
+  #      args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
+  #      stages: [manual]
 
   - repo: https://github.com/pypa/pip-audit
     rev: v2.10.0
