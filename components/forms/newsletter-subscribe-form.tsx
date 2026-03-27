@@ -33,11 +33,11 @@ export function NewsletterSubscribeForm() {
 
   const statusTone = useMemo(() => {
     if (isSuccess) {
-      return "text-emerald-700 bg-emerald-50 border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/50 dark:border-emerald-800"
+      return "text-emerald-700 bg-emerald-50 border-emerald-200"
     }
 
     if (isError) {
-      return "text-red-700 bg-red-50 border-red-200 dark:text-red-400 dark:bg-red-950/50 dark:border-red-800"
+      return "text-red-700 bg-red-50 border-red-200"
     }
 
     return ""
