@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const navItems = [
   { href: "#events", label: "Upcoming events", number: "01" },
@@ -120,25 +121,29 @@ export function Header() {
               </Link>
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden md:block">
+            {/* CTA Button + Theme Toggle */}
+            <div className="hidden md:flex items-center gap-3">
+              <ThemeToggle />
               <Link
                 href={pathname === "/" ? "#contact" : "/contact"}
                 className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-full text-white transition-all hover:shadow-xl relative overflow-hidden group"
                 style={{
-                  background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-                  boxShadow: "0 4px 20px rgba(32, 62, 236, 0.3)",
+                  background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+                  boxShadow: "0 4px 20px var(--brand-glow)",
                 }}
               >
                 <span className="relative z-10">Join Club</span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#203eec] to-[#00d4ff]" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" style={{ background: "linear-gradient(to right, var(--brand), var(--brand-light))" }} />
               </Link>
             </div>
 
             {/* Mobile Menu Button */}
-            <button onClick={() => setIsMobileMenuOpen(true)} className="md:hidden p-2 -mr-2 cursor-pointer" aria-label="Open menu">
-              <Menu className="w-5 h-5" />
-            </button>
+            <div className="flex md:hidden items-center gap-2">
+              <ThemeToggle />
+              <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -mr-2 cursor-pointer" aria-label="Open menu">
+                <Menu className="w-5 h-5" />
+              </button>
+            </div>
           </nav>
         </div>
       </header>
@@ -187,12 +192,12 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium rounded-full text-white transition-all hover:shadow-xl relative overflow-hidden group"
                 style={{
-                  background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-                  boxShadow: "0 4px 20px rgba(32, 62, 236, 0.3)",
+                  background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+                  boxShadow: "0 4px 20px var(--brand-glow)",
                 }}
               >
                 <span className="relative z-10">Join Club</span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-gradient-to-r from-[#203eec] to-[#00d4ff]" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" style={{ background: "linear-gradient(to right, var(--brand), var(--brand-light))" }} />
               </Link>
             </div>
           </div>

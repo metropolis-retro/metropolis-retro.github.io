@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter_Tight } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
 import { MagneticCursor } from "@/components/ui/magnetic-cursor"
 import { BASE_KEYWORDS, CLUB_NAME, SITE_URL, TITLE_BASE } from "@/lib/seo"
 import "./globals.css"
@@ -51,11 +52,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${interTight.className} font-sans antialiased`}>
-        <MagneticCursor />
-        {children}
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          storageKey="metropolis-theme"
+        >
+          <MagneticCursor />
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )
