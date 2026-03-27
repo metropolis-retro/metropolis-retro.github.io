@@ -50,11 +50,11 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-secondary transition-colors hover:bg-opacity-10"
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#203eec20")}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--brand-hover-bg)")}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "")}
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4" style={{ color: "#203eec" }} />
+                  <social.icon className="w-4 h-4" style={{ color: "var(--brand)" }} />
                 </Link>
               ))}
             </div>
@@ -62,7 +62,7 @@ export function Footer() {
               <Link
                 href="mailto:hello@metropolisretro.com"
                 className="text-sm transition-colors hover:underline"
-                style={{ color: "#203eec" }}
+                style={{ color: "var(--brand)" }}
               >
                 hello@metropolisretro.com
               </Link>

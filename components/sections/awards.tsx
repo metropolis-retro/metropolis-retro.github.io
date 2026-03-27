@@ -44,7 +44,7 @@ export function Awards() {
               <ArrowUpRight
                 className="w-8 h-8 md:w-10 md:h-10 ml-6 text-muted-foreground transition-all group-hover:translate-x-1"
                 strokeWidth={1}
-                style={{ color: "#203eec" }}
+                style={{ color: "var(--brand)" }}
               />
             </Link>
           ))}

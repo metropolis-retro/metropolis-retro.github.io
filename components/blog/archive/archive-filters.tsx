@@ -56,7 +56,7 @@ export function ArchiveFilters({ activeCategory, activeTag }: ArchiveFiltersProp
                   href={href}
                   className={`rounded-full border px-4 py-2 text-sm transition-colors ${
                     isActive
-                      ? "border-[#203eec] bg-[#203eec]/10 text-[#203eec]"
+                      ? "border-brand bg-brand/10 text-brand"
                       : "border-border bg-card hover:bg-secondary"
                   }`}
                 >

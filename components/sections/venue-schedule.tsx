@@ -50,7 +50,7 @@ export function VenueSchedule() {
                   <h3 className="text-xl font-semibold">{item.title}</h3>
                   <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{item.day}</span>
                 </div>
-                <p className="mt-2 text-sm font-medium" style={{ color: "#203eec" }}>
+                <p className="mt-2 text-sm font-medium" style={{ color: "var(--brand)" }}>
                   {item.time}
                 </p>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.details}</p>

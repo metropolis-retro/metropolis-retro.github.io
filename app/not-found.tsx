@@ -35,7 +35,7 @@ export default function NotFound() {
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(to right, rgba(32,62,236,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,212,255,0.08) 1px, transparent 1px)",
+                "linear-gradient(to right, var(--brand-hover-bg) 1px, transparent 1px), linear-gradient(to bottom, var(--brand-hover-bg) 1px, transparent 1px)",
               backgroundSize: "42px 42px",
             }}
           />
@@ -45,12 +45,12 @@ export default function NotFound() {
           />
           <div
             className="absolute -right-28 bottom-16 h-96 w-96 rounded-full blur-3xl"
-            style={{ background: "radial-gradient(circle, rgba(32,62,236,0.35) 0%, rgba(32,62,236,0) 70%)" }}
+            style={{ background: "radial-gradient(circle, var(--brand-glow-strong) 0%, transparent 70%)" }}
           />
         </div>
 
         <section className="mx-auto flex min-h-[72vh] w-full max-w-[1280px] flex-col items-center justify-center px-6 py-16 text-center md:px-12">
-          <p className="mb-5 text-sm font-medium tracking-[0.2em] text-zinc-500 uppercase">Metropolis Retro</p>
+          <p className="mb-5 text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">Metropolis Retro</p>
 
           <h1
             className="mb-5 text-7xl font-normal leading-none md:text-9xl"
@@ -67,7 +67,7 @@ export default function NotFound() {
 
           <h2 className="max-w-3xl text-2xl font-semibold tracking-tight md:text-4xl">This board position does not exist.</h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-600 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             The page you were trying to reach has moved, expired, or was never part of the tournament bracket.
             Jump back to a live route and keep exploring upcoming Brisbane chess events.
           </p>
@@ -75,23 +75,23 @@ export default function NotFound() {
           <div className="mt-10 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/"
-              className="inline-flex w-full items-center justify-center rounded-full px-8 py-4 text-base font-medium text-white transition-all sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full px-8 py-4 text-base font-medium text-primary-foreground transition-all sm:w-auto"
               style={{
-                background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-                boxShadow: "0 10px 30px rgba(32,62,236,0.3)",
+                background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+                boxShadow: "0 10px 30px var(--brand-glow)",
               }}
             >
               Return Home
             </Link>
             <Link
               href="/events"
-              className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 bg-white px-8 py-4 text-base font-medium text-zinc-800 transition-colors hover:bg-zinc-50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card px-8 py-4 text-base font-medium text-foreground transition-colors hover:bg-secondary sm:w-auto"
             >
               Browse Events
             </Link>
             <Link
               href="/contact"
-              className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 bg-white px-8 py-4 text-base font-medium text-zinc-800 transition-colors hover:bg-zinc-50 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card px-8 py-4 text-base font-medium text-foreground transition-colors hover:bg-secondary sm:w-auto"
             >
               Contact Club
             </Link>

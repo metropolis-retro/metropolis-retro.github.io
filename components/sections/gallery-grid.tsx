@@ -49,9 +49,9 @@ export function GalleryGrid({ images }: GalleryGridProps) {
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 md:p-4">
-                <h3 className="text-sm md:text-base font-semibold text-white">{image.title}</h3>
+                <h3 className="text-sm md:text-base font-semibold text-white drop-shadow-sm">{image.title}</h3>
                 {image.description && (
-                  <p className="text-xs md:text-sm text-white/80 line-clamp-2">{image.description}</p>
+                  <p className="text-xs md:text-sm text-white/80 drop-shadow-sm line-clamp-2">{image.description}</p>
                 )}
               </div>
             </div>
@@ -62,7 +62,7 @@ export function GalleryGrid({ images }: GalleryGridProps) {
       {/* Lightbox */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
           <div
@@ -77,15 +77,15 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               priority
               className="w-full h-full object-contain rounded-lg"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 text-white rounded-b-lg">
-              <h3 className="text-xl font-semibold mb-2">{selectedImage.title}</h3>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-6 rounded-b-lg">
+              <h3 className="text-xl font-semibold mb-2 text-foreground">{selectedImage.title}</h3>
               {selectedImage.description && (
-                <p className="text-sm text-white/80">{selectedImage.description}</p>
+                <p className="text-sm text-muted-foreground">{selectedImage.description}</p>
               )}
             </div>
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-white/80 transition-colors z-10"
+              className="absolute top-4 right-4 text-foreground hover:text-foreground/80 transition-colors z-10"
               aria-label="Close lightbox"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

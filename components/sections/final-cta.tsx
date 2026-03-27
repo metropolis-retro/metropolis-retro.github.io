@@ -20,10 +20,10 @@ export function FinalCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
             <Link
               href="mailto:hello@metropolisretro.com"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-white rounded-full transition-all hover:shadow-2xl relative overflow-hidden group"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-primary-foreground rounded-full transition-all hover:shadow-2xl relative overflow-hidden group"
               style={{
-                background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-                boxShadow: "0 8px 32px rgba(32, 62, 236, 0.4)",
+                background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+                boxShadow: "0 8px 32px var(--brand-glow)",
               }}
             >
               <span className="relative z-10 inline-flex items-center gap-2">
@@ -31,12 +31,12 @@ export function FinalCTA() {
                 <ArrowUpRight className="w-4 h-4" />
               </span>
               {/* Glow effect on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl bg-gradient-to-r from-[#203eec] to-[#00d4ff]" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl" style={{ background: "linear-gradient(to right, var(--brand), var(--brand-light))" }} />
             </Link>
             <Link
               href="#events"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full hover:bg-secondary transition-colors"
-              style={{ borderColor: "#203eec", borderWidth: "1px", color: "#203eec" }}
+              style={{ borderColor: "var(--brand)", borderWidth: "1px", color: "var(--brand)" }}
             >
               View Events
             </Link>

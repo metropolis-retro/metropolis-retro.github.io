@@ -18,10 +18,10 @@ export function SelectedWorks() {
           <Link
             href="/events"
             className="hidden md:inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: "#203eec" }}
+            style={{ color: "var(--brand)" }}
           >
             View full calendar
-            <ArrowUpRight className="w-4 h-4" style={{ color: "#203eec" }} />
+            <ArrowUpRight className="w-4 h-4" style={{ color: "var(--brand)" }} />
           </Link>
         </div>
 
@@ -56,7 +56,7 @@ export function SelectedWorks() {
                       </div>
                       <ArrowUpRight
                         className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1"
-                        style={{ color: "#203eec" }}
+                        style={{ color: "var(--brand)" }}
                       />
                     </div>
 
@@ -83,7 +83,7 @@ export function SelectedWorks() {
           <Link
             href="/events"
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border rounded-full hover:bg-secondary transition-colors"
-            style={{ color: "#203eec", borderColor: "#203eec" }}
+            style={{ color: "var(--brand)", borderColor: "var(--brand)" }}
           >
             View full calendar
             <ArrowUpRight className="w-4 h-4" />
