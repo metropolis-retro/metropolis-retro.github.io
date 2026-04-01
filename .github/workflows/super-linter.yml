@@ -27,6 +27,7 @@ jobs:
           VALIDATE_EDITORCONFIG: true
           VALIDATE_JSON: true
           VALIDATE_MARKDOWN: true
+          VALIDATE_PRE_COMMIT: true
           VALIDATE_YAML: true
           # VALIDATE_BIOME_LINT: true
           # VALIDATE_BIOME_FORMAT: true
