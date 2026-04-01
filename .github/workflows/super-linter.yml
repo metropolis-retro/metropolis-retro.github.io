@@ -28,6 +28,7 @@ jobs:
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_GITHUB_ACTIONS_ZIZMOR: true
           VALIDATE_GIT_MERGE_CONFLICT_MARKERS: true
+          VALIDATE_GITLEAKS: true
           VALIDATE_JSON: true
           VALIDATE_MARKDOWN: true
           VALIDATE_PRE_COMMIT: true
