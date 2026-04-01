@@ -181,6 +181,14 @@ repos:
         language: node
         files: \.(js|mjs|cjs|ts|mts|cts|jsx|tsx)$
 
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 3.6.1
+    hooks:
+      - id: editorconfig-checker
+        name: run editorconfig-checker
+        description: a tool to verify that your files are in harmony with your .editorconfig
+        alias: ec
+
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: v0.48.0
     hooks:
