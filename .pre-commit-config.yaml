@@ -70,6 +70,7 @@ repos:
       - id: codespell
         name: run codespell
         description: check spelling with codespell
+        args: [--config=.github/linters/.codespellrc]
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.6
