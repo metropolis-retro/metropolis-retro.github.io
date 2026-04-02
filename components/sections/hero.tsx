@@ -73,7 +73,7 @@ export function Hero() {
             ))}
           </h1>
 
-          <p className="mt-8 max-w-xl leading-relaxed text-left text-lg text-zinc-500 ml-0">
+          <p className="mt-8 max-w-xl leading-relaxed text-left text-lg text-muted-foreground ml-0">
             We are an official chess club in Brisbane, Australia, running friendly meetups, structured club nights,
             and competitive events for beginners through advanced players.
           </p>
@@ -81,16 +81,16 @@ export function Hero() {
           <div className="flex flex-row items-start gap-4 mt-10">
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white rounded-full transition-all relative overflow-hidden group"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-primary-foreground rounded-full transition-all relative overflow-hidden group"
               style={{
-                background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-                boxShadow: "0 4px 20px rgba(32, 62, 236, 0.3)",
+                background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+                boxShadow: "0 4px 20px var(--brand-glow)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(32, 62, 236, 0.5), 0 0 40px rgba(0, 212, 255, 0.3)"
+                e.currentTarget.style.boxShadow = "0 8px 30px var(--brand-glow-strong), 0 0 40px var(--brand-glow)"
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(32, 62, 236, 0.3)"
+                e.currentTarget.style.boxShadow = "0 4px 20px var(--brand-glow)"
               }}
             >
               Join Next Meetup
@@ -98,7 +98,7 @@ export function Hero() {
             <Link
               href="#events"
               className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium transition-colors"
-              style={{ color: "#203eec" }}
+              style={{ color: "var(--brand)" }}
             >
               See Events
               <ArrowDown className="w-4 h-4" />

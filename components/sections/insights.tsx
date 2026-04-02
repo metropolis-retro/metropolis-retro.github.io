@@ -18,10 +18,10 @@ export function Insights() {
           <Link
             href="/updates"
             className="hidden md:inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: "#203eec" }}
+            style={{ color: "var(--brand)" }}
           >
             View all updates
-            <ArrowUpRight className="w-4 h-4" style={{ color: "#203eec" }} />
+            <ArrowUpRight className="w-4 h-4" style={{ color: "var(--brand)" }} />
           </Link>
         </div>
 
@@ -62,10 +62,10 @@ export function Insights() {
           <Link
             href="/updates"
             className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium border rounded-full hover:bg-secondary transition-colors"
-            style={{ color: "#203eec", borderColor: "#203eec" }}
+            style={{ color: "var(--brand)", borderColor: "var(--brand)" }}
           >
             View all updates
-            <ArrowUpRight className="w-4 h-4" style={{ color: "#203eec" }} />
+            <ArrowUpRight className="w-4 h-4" style={{ color: "var(--brand)" }} />
           </Link>
         </div>
       </div>

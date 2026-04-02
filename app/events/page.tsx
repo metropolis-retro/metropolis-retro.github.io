@@ -60,7 +60,7 @@ export default function EventsPage() {
                   </p>
                 </div>
                 <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{event.note}</p>
-                <Link href={`/events/${event.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm" style={{ color: "#203eec" }}>
+                <Link href={`/events/${event.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm" style={{ color: "var(--brand)" }}>
                   View event details
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>

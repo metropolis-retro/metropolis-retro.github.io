@@ -20,7 +20,7 @@ export function Membership() {
           <Link
             href="/membership"
             className="hidden md:inline-flex items-center gap-2 text-sm"
-            style={{ color: "#203eec" }}
+            style={{ color: "var(--brand)" }}
           >
             View full membership details
             <ArrowUpRight className="w-4 h-4" />
@@ -45,7 +45,7 @@ export function Membership() {
             <Link
               href="/membership"
               className="inline-flex items-center gap-2 text-sm"
-              style={{ color: "#203eec" }}
+              style={{ color: "var(--brand)" }}
             >
               View full membership details
               <ArrowUpRight className="w-4 h-4" />

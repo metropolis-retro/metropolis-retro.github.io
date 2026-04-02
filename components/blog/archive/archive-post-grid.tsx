@@ -53,7 +53,7 @@ export function ArchivePostGrid({ posts }: ArchivePostGridProps) {
           <Link
             href={`/blog/${post.slug}`}
             className="mt-6 inline-flex items-center gap-2 text-sm"
-            style={{ color: "#203eec" }}
+            style={{ color: "var(--brand)" }}
           >
             Read article
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

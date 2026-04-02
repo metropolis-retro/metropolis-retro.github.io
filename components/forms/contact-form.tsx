@@ -40,11 +40,11 @@ export function ContactForm() {
 
   const statusTone = useMemo(() => {
     if (isSuccess) {
-      return "text-emerald-700 bg-emerald-50 border-emerald-200"
+      return "text-emerald-700 bg-emerald-50 border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950/50 dark:border-emerald-800"
     }
 
     if (isError) {
-      return "text-red-700 bg-red-50 border-red-200"
+      return "text-red-700 bg-red-50 border-red-200 dark:text-red-400 dark:bg-red-950/50 dark:border-red-800"
     }
 
     return ""
@@ -150,8 +150,8 @@ export function ContactForm() {
           className="inline-flex items-center justify-center rounded-full px-7"
           disabled={isFormDisabled}
           style={{
-            background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-            boxShadow: "0 4px 20px rgba(32, 62, 236, 0.3)",
+            background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+            boxShadow: "0 4px 20px var(--brand-glow)",
           }}
         >
           {isSubmitting ? (

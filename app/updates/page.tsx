@@ -51,7 +51,7 @@ export default function UpdatesPage() {
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">{update.date}</p>
                 <h2 className="mt-3 text-2xl md:text-3xl tracking-tight">{update.title}</h2>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{update.excerpt}</p>
-                <Link href={`/updates/${update.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm" style={{ color: "#203eec" }}>
+                <Link href={`/updates/${update.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm" style={{ color: "var(--brand)" }}>
                   Read update
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>

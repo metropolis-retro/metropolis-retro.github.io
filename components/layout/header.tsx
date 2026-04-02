@@ -126,7 +126,7 @@ export function Header() {
               <ThemeToggle />
               <Link
                 href={pathname === "/" ? "#contact" : "/contact"}
-                className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-full text-white transition-all hover:shadow-xl relative overflow-hidden group"
+                className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-full text-primary-foreground transition-all hover:shadow-xl relative overflow-hidden group"
                 style={{
                   background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
                   boxShadow: "0 4px 20px var(--brand-glow)",
@@ -190,7 +190,7 @@ export function Header() {
               <Link
                 href={pathname === "/" ? "#contact" : "/contact"}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium rounded-full text-white transition-all hover:shadow-xl relative overflow-hidden group"
+                className="inline-flex items-center justify-center w-full px-5 py-3 text-base font-medium rounded-full text-primary-foreground transition-all hover:shadow-xl relative overflow-hidden group"
                 style={{
                   background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
                   boxShadow: "0 4px 20px var(--brand-glow)",

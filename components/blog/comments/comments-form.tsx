@@ -121,8 +121,8 @@ export function CommentsForm({
           disabled={isSubmitting}
           className="inline-flex items-center justify-center rounded-full px-7"
           style={{
-            background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-            boxShadow: "0 4px 20px rgba(32, 62, 236, 0.3)",
+            background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+            boxShadow: "0 4px 20px var(--brand-glow)",
           }}
         >
           {isSubmitting ? (

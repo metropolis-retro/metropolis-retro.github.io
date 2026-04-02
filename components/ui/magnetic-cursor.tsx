@@ -102,7 +102,7 @@ export function MagneticCursor() {
         }}
       >
         <div
-          className="relative -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40"
+          className="relative -translate-x-1/2 -translate-y-1/2 rounded-full border border-foreground/40"
           style={{
             width: isHovering ? "60px" : "32px",
             height: isHovering ? "60px" : "32px",

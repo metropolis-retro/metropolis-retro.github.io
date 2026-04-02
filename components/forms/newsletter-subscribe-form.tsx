@@ -87,11 +87,11 @@ export function NewsletterSubscribeForm() {
 
         <Button
           type="submit"
-          className="rounded-lg py-2.5 text-sm font-medium text-white"
+          className="rounded-lg py-2.5 text-sm font-medium text-primary-foreground"
           disabled={isSubmitting}
           style={{
-            background: "linear-gradient(135deg, #203eec 0%, #00d4ff 100%)",
-            boxShadow: "0 4px 20px rgba(32, 62, 236, 0.3)",
+            background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%)",
+            boxShadow: "0 4px 20px var(--brand-glow)",
           }}
         >
           {isSubmitting ? (

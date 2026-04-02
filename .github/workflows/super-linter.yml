@@ -25,8 +25,14 @@ jobs:
         env:
           ERROR_ON_MISSING_EXEC_BIT: true
           VALIDATE_EDITORCONFIG: true
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: true
+          VALIDATE_GIT_MERGE_CONFLICT_MARKERS: true
+          VALIDATE_GITLEAKS: true
           VALIDATE_JSON: true
           VALIDATE_MARKDOWN: true
+          VALIDATE_PRE_COMMIT: true
+          # VALIDATE_SPELL_CODESPELL: true
           VALIDATE_YAML: true
           # VALIDATE_BIOME_LINT: true
           # VALIDATE_BIOME_FORMAT: true
