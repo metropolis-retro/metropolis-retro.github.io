@@ -49,20 +49,18 @@ function ThemeModeManager({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!mounted) return
 
+    setNextTheme(mode)
+
     if (mode === "random") {
       let tokens = readPersistedPalette()
       if (!tokens) {
         tokens = generateRandomTokens()
         persistPalette(tokens)
       }
-      document.documentElement.classList.remove("dark", "light")
-      document.documentElement.classList.add("random")
       applyTokensToDOM(tokens)
     } else {
       clearTokenOverrides()
       clearPersistedPalette()
-      document.documentElement.classList.remove("random")
-      setNextTheme(mode)
     }
   }, [mode, mounted, setNextTheme])
 
@@ -103,6 +101,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     <NextThemesProvider
       attribute="class"
       defaultTheme="light"
+      themes={["light", "dark", "random"]}
       enableSystem={false}
       disableTransitionOnChange
       storageKey="metropolis-theme"
