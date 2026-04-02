@@ -28,3 +28,9 @@ To maintain "Grandmaster" code quality, we employ a rigorous three-pillar
 1. **Standard Hooks:** Automated linting, formatting, and syntax validation.
 2. **Manual Verification:** Curated checks for retro-theming accuracy.
 3. **Audit-Based Security:** Periodic hardening and dependency scanning to ensure a secure, production-ready environment.
+
+## 🪝 prek hooks
+
+- `prek run -a`: run all the hooks against all files
+- `prek run -a --hook-stage manual`: run all manual hooks against all files
+- `prek run -a -c .pre-commit-config-audit.yaml`: run all the audit based hooks against all files
