@@ -1,4 +1,3 @@
-# FROM node:20-alpine
 FROM oven/bun:1-alpine
 
 RUN addgroup -g 1001 -S nextjs && \
@@ -6,9 +5,9 @@ RUN addgroup -g 1001 -S nextjs && \
 
 WORKDIR /app
 
-COPY --chown=nextjs:nextjs next.config.mjs package.json package-lock.json* ./
+COPY --chown=nextjs:nextjs next.config.mjs package.json package-lock.json* bun.lock* ./
 
-RUN npm install
+RUN bun install
 
 COPY --chown=nextjs:nextjs . .
 
@@ -16,4 +15,4 @@ USER nextjs
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["bun", "run", "dev"]
