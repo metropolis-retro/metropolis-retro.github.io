@@ -1,6 +1,5 @@
 import type { ThemeTokens } from "./types"
 
-/** HSL tuple: h 0-360, s 0-100, l 0-100 */
 type HSL = [number, number, number]
 
 function hslToHex([h, s, l]: HSL): string {
@@ -32,13 +31,11 @@ function hslToRgb([h, s, l]: HSL): [number, number, number] {
   return [f(0), f(8), f(4)]
 }
 
-/** Relative luminance (sRGB) */
 function luminance([r, g, b]: [number, number, number]): number {
   const toLinear = (c: number) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4)
   return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b)
 }
 
-/** WCAG contrast ratio between two HSL colours */
 function contrastRatio(a: HSL, b: HSL): number {
   const la = luminance(hslToRgb(a))
   const lb = luminance(hslToRgb(b))
@@ -47,17 +44,14 @@ function contrastRatio(a: HSL, b: HSL): number {
   return (lighter + 0.05) / (darker + 0.05)
 }
 
-/** Determine if a background is "light" */
 function isLightBackground(bg: HSL): boolean {
   return luminance(hslToRgb(bg)) > 0.179
 }
 
-/** Pick black or white foreground that meets ≥ 4.5 contrast on bg */
 function readableForeground(bg: HSL): HSL {
   return isLightBackground(bg) ? [0, 0, 5] : [0, 0, 97]
 }
 
-/** Ensure text meets minimum contrast; nudge lightness if needed */
 function ensureContrast(bg: HSL, fg: HSL, minRatio = 4.5): HSL {
   let [h, s, l] = fg
   const light = isLightBackground(bg)
