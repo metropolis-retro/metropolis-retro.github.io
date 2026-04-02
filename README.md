@@ -34,3 +34,21 @@ To maintain "Grandmaster" code quality, we employ a rigorous three-pillar
 - `prek run -a`: run all the hooks against all files
 - `prek run -a --hook-stage manual`: run all manual hooks against all files
 - `prek run -a -c .pre-commit-config-audit.yaml`: run all the audit based hooks against all files
+
+## Using
+
+### Development (hot reload):
+
+```bash
+docker-compose -f docker-compose.dev.yml up --build
+```
+
+Then open http://localhost:3000 and edits will hot reload.
+
+### Production:
+
+```bash
+docker-compose -f docker-compose.prod.yml up --build
+```
+
+Then open http://localhost:3000 – production optimized.
