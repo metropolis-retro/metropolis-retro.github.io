@@ -44,7 +44,7 @@ export function ContactForm() {
     }
 
     if (isError) {
-      return "text-red-600 bg-red-500/10 border-red-500/30"
+      return "text-red-600 bg-red-500/10 border-red-500/30 dark:text-red-400"
     }
 
     return ""
