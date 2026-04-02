@@ -33,6 +33,7 @@ jobs:
           VALIDATE_JSON_PRETTIER: true
           VALIDATE_MARKDOWN: true
           VALIDATE_PRE_COMMIT: true
+          # VALIDATE_SPELL_CODESPELL: true
           VALIDATE_YAML: true
           # VALIDATE_BIOME_LINT: true
           # VALIDATE_BIOME_FORMAT: true
