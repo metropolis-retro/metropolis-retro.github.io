@@ -35,7 +35,7 @@ const MODE_ORDER: ThemeMode[] = ["light", "dark", "random"]
 
 function ThemeModeManager({ children }: { children: React.ReactNode }) {
   const { setTheme: setNextTheme } = useTheme()
-  const [mode, setModeState] = useState<ThemeMode>("dark")
+  const [mode, setModeState] = useState<ThemeMode>("light")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
