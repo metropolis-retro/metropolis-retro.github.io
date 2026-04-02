@@ -1,0 +1,66 @@
+---
+name: Docker Build & Smoke Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+
+permissions:
+  contents: read
+
+jobs:
+  docker-build-smoke-test:
+    timeout-minutes: 15
+    name: Build image & verify HTTP 200
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Build and start container
+        run: docker compose -f docker-compose.prod.yml up -d --build
+
+      - name: Wait for server to be ready
+        run: |
+          echo "Waiting for http://localhost:3000 ..."
+          for i in $(seq 1 30); do
+            if curl -sf -o /dev/null http://localhost:3000; then
+              echo "Server is up after ~${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "::error::Server did not become ready within 30 seconds"
+          docker compose -f docker-compose.prod.yml logs
+          exit 1
+
+      - name: Smoke test – GET / returns HTTP 200
+        run: |
+          HTTP_CODE=$(curl -s -o /tmp/response.html -w "%{http_code}" http://localhost:3000/)
+          echo "HTTP status: $HTTP_CODE"
+
+          if [ "$HTTP_CODE" -ne 200 ]; then
+            echo "::error::Expected HTTP 200 but got $HTTP_CODE"
+            cat /tmp/response.html
+            exit 1
+          fi
+
+          # Verify body contains HTML content
+          if ! grep -qi "<!doctype html\|<html" /tmp/response.html; then
+            echo "::error::Response body does not look like HTML"
+            head -50 /tmp/response.html
+            exit 1
+          fi
+
+          echo "Smoke test passed – received valid HTML with HTTP 200"
+
+      - name: Stop container
+        if: always()
+        run: docker compose -f docker-compose.prod.yml down
