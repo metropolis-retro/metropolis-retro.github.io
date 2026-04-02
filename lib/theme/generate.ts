@@ -131,7 +131,7 @@ export function generateRandomTokens(): ThemeTokens {
   const accentFg = ensureContrast(accent, fg)
 
   const destructive: HSL = preferDark ? [0, 70, 40] : [0, 80, 50]
-  const destructiveFg: HSL = preferDark ? [0, 80, 65] : [0, 80, 50]
+  const destructiveFg: HSL = readableForeground(destructive)
 
   const border: HSL = preferDark
     ? [hue, randInt(5, 12), randInt(18, 25)]
