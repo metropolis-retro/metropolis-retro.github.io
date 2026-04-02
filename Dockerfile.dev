@@ -1,11 +1,17 @@
 FROM node:20-alpine
 
+RUN addgroup -g 1001 -S nextjs && \
+    adduser -S nextjs -u 1001 -G nextjs
+
 WORKDIR /app
-COPY package.json package-lock.json* ./ 
+
+COPY --chown=nextjs:nextjs package.json package-lock.json* ./
 
 RUN npm install
 
-COPY . .
+COPY --chown=nextjs:nextjs . .
+
+USER nextjs
 
 EXPOSE 3000
 
