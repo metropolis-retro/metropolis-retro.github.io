@@ -38,7 +38,6 @@ prek-manual: ## Run prek with an alternative config file (e.g. prek.local.toml)
 
 prek-update: ## Autoupdate prek hooks and refresh uv lock
 	@echo "$(BLUE)Updating prek and hooks...$(NC)"
-	uv add --upgrade prek
 	$(PREK) autoupdate
 
 # --- Maintenance ---
