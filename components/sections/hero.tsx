@@ -47,7 +47,6 @@ export function Hero() {
         <div className="max-w-4xl">
           <p className="text-muted-foreground mb-6 text-lg font-normal">Metropolis Retro Chess Club</p>
 
-          {/* Main Title with animated words */}
           <h1 className="text-5xl sm:text-6xl lg:text-[96px] font-semibold tracking-tight leading-[1] text-balance md:text-9xl">
             {words.map((word, index) => (
               <span

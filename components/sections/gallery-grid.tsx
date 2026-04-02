@@ -59,7 +59,6 @@ export function GalleryGrid({ images }: GalleryGridProps) {
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"
