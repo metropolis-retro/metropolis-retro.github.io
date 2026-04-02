@@ -37,18 +37,18 @@ To maintain "Grandmaster" code quality, we employ a rigorous three-pillar
 
 ## Using
 
-### Development (hot reload):
+### Development (hot reload)
 
 ```bash
 docker compose -f docker-compose.dev.yml up --build
 ```
 
-Then open http://localhost:3000 and edits will hot reload.
+Then open [the app](http://localhost:3000) and edits will hot reload.
 
-### Production:
+### Production
 
 ```bash
 docker compose -f docker-compose.prod.yml up --build
 ```
 
-Then open http://localhost:3000 – production optimized.
+Then open [the app](http://localhost:3000) – production optimized.
