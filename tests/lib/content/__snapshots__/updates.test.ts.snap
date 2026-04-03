@@ -1,0 +1,105 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`updates updates list matches snapshot 1`] = `
+[
+  {
+    "content": "For your first meetup, bring a chess set if available, arrive 15 minutes early, and let organizers know your level so pairings can be calibrated. The goal is to make your first night smooth, social, and productive.",
+    "date": "Mar 10, 2026",
+    "excerpt": "What to bring, how pairings work, and how to get the most out of your first Metropolis Retro night.",
+    "id": 1,
+    "image": "/images/bg-1.png",
+    "readTime": "4 min read",
+    "slug": "first-club-meetup-prep-guide",
+    "title": "How to prepare for your first club meetup",
+  },
+  {
+    "content": "Rapid helps with decision-making speed and practical pattern recognition. Classical supports deeper calculation and strategic planning. Most members improve fastest by combining both across weekly sessions.",
+    "date": "Mar 02, 2026",
+    "excerpt": "A simple guide to choosing the right time control for your goals and current playing level.",
+    "id": 2,
+    "image": "/images/bg-2.png",
+    "readTime": "5 min read",
+    "slug": "rapid-vs-classical-guide",
+    "title": "Rapid vs classical: which format suits you?",
+  },
+  {
+    "content": "The current event rhythm includes Wednesday beginner workshops, Thursday CBD meetup nights, and Saturday rapid arena sessions. Seasonal open tournament dates are announced in advance through updates.",
+    "date": "Feb 21, 2026",
+    "excerpt": "See the latest calendar for our meetups, workshops, and club tournament events.",
+    "id": 3,
+    "image": "/images/bg-3.png",
+    "readTime": "3 min read",
+    "slug": "brisbane-event-schedule-update",
+    "title": "Brisbane event schedule and upcoming dates",
+  },
+  {
+    "content": "We updated pairing flow to reduce start delays during peak attendance and improve fairness across mixed rating groups.",
+    "date": "Mar 12, 2026",
+    "excerpt": "We refined pairing flow to reduce downtime and improve round transitions during busy nights.",
+    "id": 4,
+    "image": "/images/bg-2.png",
+    "readTime": "4 min read",
+    "slug": "pairing-flow-improvements",
+    "title": "Pairing format improvements",
+  },
+]
+`;
+
+exports[`updates all updates have required fields 1`] = `
+[
+  {
+    "date": "Mar 10, 2026",
+    "id": 1,
+    "readTime": "4 min read",
+    "slug": "first-club-meetup-prep-guide",
+    "title": "How to prepare for your first club meetup",
+  },
+  {
+    "date": "Mar 02, 2026",
+    "id": 2,
+    "readTime": "5 min read",
+    "slug": "rapid-vs-classical-guide",
+    "title": "Rapid vs classical: which format suits you?",
+  },
+  {
+    "date": "Feb 21, 2026",
+    "id": 3,
+    "readTime": "3 min read",
+    "slug": "brisbane-event-schedule-update",
+    "title": "Brisbane event schedule and upcoming dates",
+  },
+  {
+    "date": "Mar 12, 2026",
+    "id": 4,
+    "readTime": "4 min read",
+    "slug": "pairing-flow-improvements",
+    "title": "Pairing format improvements",
+  },
+]
+`;
+
+exports[`getUpdateBySlug returns update for valid slug 1`] = `
+{
+  "content": "For your first meetup, bring a chess set if available, arrive 15 minutes early, and let organizers know your level so pairings can be calibrated. The goal is to make your first night smooth, social, and productive.",
+  "date": "Mar 10, 2026",
+  "excerpt": "What to bring, how pairings work, and how to get the most out of your first Metropolis Retro night.",
+  "id": 1,
+  "image": "/images/bg-1.png",
+  "readTime": "4 min read",
+  "slug": "first-club-meetup-prep-guide",
+  "title": "How to prepare for your first club meetup",
+}
+`;
+
+exports[`getUpdateBySlug returns update for rapid-vs-classical-guide 1`] = `
+{
+  "content": "Rapid helps with decision-making speed and practical pattern recognition. Classical supports deeper calculation and strategic planning. Most members improve fastest by combining both across weekly sessions.",
+  "date": "Mar 02, 2026",
+  "excerpt": "A simple guide to choosing the right time control for your goals and current playing level.",
+  "id": 2,
+  "image": "/images/bg-2.png",
+  "readTime": "5 min read",
+  "slug": "rapid-vs-classical-guide",
+  "title": "Rapid vs classical: which format suits you?",
+}
+`;

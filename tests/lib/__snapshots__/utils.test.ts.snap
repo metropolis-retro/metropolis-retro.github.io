@@ -1,0 +1,11 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`cn merges class names 1`] = `"foo bar"`;
+
+exports[`cn handles conditional classes 1`] = `"foo baz"`;
+
+exports[`cn deduplicates tailwind classes 1`] = `"px-4"`;
+
+exports[`cn handles undefined and null 1`] = `"foo bar"`;
+
+exports[`cn returns empty string for no inputs 1`] = `""`;

@@ -1,0 +1,151 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`events events list matches snapshot 1`] = `
+[
+  {
+    "category": "Weekly Meetup",
+    "description": "Casual and competitive games in Brisbane CBD with clocks, boards, and friendly pairings.",
+    "format": "Casual + Rated Practice",
+    "id": 1,
+    "image": "/images/work-onboarding.png",
+    "location": "Brisbane CBD",
+    "note": "Bring your set if you can. Clocks available for timed games.",
+    "slug": "thursday-cbd-meetup",
+    "tags": [
+      "Brisbane CBD",
+      "All Levels",
+      "OTB",
+    ],
+    "time": "Every Thursday, 6:30 PM",
+    "title": "Thursday CBD Meetup",
+  },
+  {
+    "category": "Club Event",
+    "description": "A fast-paced rapid event with Swiss rounds, standings, and post-game analysis.",
+    "format": "Swiss Rapid",
+    "id": 2,
+    "image": "/images/work-fashion.png",
+    "location": "Inner Brisbane",
+    "note": "Fast rounds with standings and short review sessions after play.",
+    "slug": "saturday-rapid-arena",
+    "tags": [
+      "Rapid",
+      "Swiss",
+      "Rated Practice",
+    ],
+    "time": "Every Saturday, 2:00 PM",
+    "title": "Saturday Rapid Arena",
+  },
+  {
+    "category": "Learning Session",
+    "description": "Learn core tactics, opening principles, and endgame basics with guided coaching.",
+    "format": "Workshop + Games",
+    "id": 3,
+    "image": "/images/work-tasks.png",
+    "location": "South Brisbane",
+    "note": "Tactics, opening principles, and guided practical games.",
+    "slug": "beginner-chess-workshop",
+    "tags": [
+      "Beginners",
+      "Coaching",
+      "Practice Games",
+    ],
+    "time": "Wednesday, 6:00 PM",
+    "title": "Beginner Chess Workshop",
+  },
+  {
+    "category": "Tournament",
+    "description": "Our signature Brisbane event featuring multiple divisions and club prizes.",
+    "format": "Classical Tournament",
+    "id": 4,
+    "image": "/images/work-crypto.png",
+    "location": "Brisbane",
+    "note": "Multiple divisions and club prizes for standout results.",
+    "slug": "metropolis-retro-open",
+    "tags": [
+      "Classical",
+      "Prizes",
+      "Community",
+    ],
+    "time": "Seasonal Event",
+    "title": "Metropolis Retro Open",
+  },
+]
+`;
+
+exports[`events all events have required fields 1`] = `
+[
+  {
+    "category": "Weekly Meetup",
+    "format": "Casual + Rated Practice",
+    "id": 1,
+    "location": "Brisbane CBD",
+    "slug": "thursday-cbd-meetup",
+    "title": "Thursday CBD Meetup",
+  },
+  {
+    "category": "Club Event",
+    "format": "Swiss Rapid",
+    "id": 2,
+    "location": "Inner Brisbane",
+    "slug": "saturday-rapid-arena",
+    "title": "Saturday Rapid Arena",
+  },
+  {
+    "category": "Learning Session",
+    "format": "Workshop + Games",
+    "id": 3,
+    "location": "South Brisbane",
+    "slug": "beginner-chess-workshop",
+    "title": "Beginner Chess Workshop",
+  },
+  {
+    "category": "Tournament",
+    "format": "Classical Tournament",
+    "id": 4,
+    "location": "Brisbane",
+    "slug": "metropolis-retro-open",
+    "title": "Metropolis Retro Open",
+  },
+]
+`;
+
+exports[`getEventBySlug returns event for valid slug 1`] = `
+{
+  "category": "Weekly Meetup",
+  "description": "Casual and competitive games in Brisbane CBD with clocks, boards, and friendly pairings.",
+  "format": "Casual + Rated Practice",
+  "id": 1,
+  "image": "/images/work-onboarding.png",
+  "location": "Brisbane CBD",
+  "note": "Bring your set if you can. Clocks available for timed games.",
+  "slug": "thursday-cbd-meetup",
+  "tags": [
+    "Brisbane CBD",
+    "All Levels",
+    "OTB",
+  ],
+  "time": "Every Thursday, 6:30 PM",
+  "title": "Thursday CBD Meetup",
+}
+`;
+
+exports[`getEventBySlug returns event for saturday-rapid-arena 1`] = `
+{
+  "category": "Club Event",
+  "description": "A fast-paced rapid event with Swiss rounds, standings, and post-game analysis.",
+  "format": "Swiss Rapid",
+  "id": 2,
+  "image": "/images/work-fashion.png",
+  "location": "Inner Brisbane",
+  "note": "Fast rounds with standings and short review sessions after play.",
+  "slug": "saturday-rapid-arena",
+  "tags": [
+    "Rapid",
+    "Swiss",
+    "Rated Practice",
+  ],
+  "time": "Every Saturday, 2:00 PM",
+  "title": "Saturday Rapid Arena",
+}
+`;

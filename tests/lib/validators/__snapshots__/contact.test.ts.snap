@@ -1,0 +1,41 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`contactFormSchema parses valid data 1`] = `
+{
+  "email": "alice@example.com",
+  "message": "Hello, I would like to join the chess club!",
+  "name": "Alice Smith",
+}
+`;
+
+exports[`contactFormSchema trims whitespace from inputs 1`] = `
+{
+  "email": "bob@example.com",
+  "message": "Looking forward to the next event.",
+  "name": "Bob",
+}
+`;
+
+exports[`contactFormSchema rejects name that is too short 1`] = `
+[
+  [
+    "name",
+  ],
+]
+`;
+
+exports[`contactFormSchema rejects invalid email 1`] = `
+[
+  [
+    "email",
+  ],
+]
+`;
+
+exports[`contactFormSchema rejects message that is too short 1`] = `
+[
+  [
+    "message",
+  ],
+]
+`;

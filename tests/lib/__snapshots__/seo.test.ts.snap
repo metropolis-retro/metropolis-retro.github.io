@@ -1,0 +1,56 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`seo constants SITE_URL 1`] = `"https://metropolis-retro.github.io"`;
+
+exports[`seo constants CLUB_NAME 1`] = `"Metropolis Retro"`;
+
+exports[`seo constants TITLE_BASE 1`] = `"Metropolis Retro"`;
+
+exports[`seo constants BLOG_TITLE_BASE 1`] = `"Metropolis Retro Blog"`;
+
+exports[`seo constants BASE_KEYWORDS 1`] = `
+[
+  "Metropolis Retro",
+  "chess club",
+  "Brisbane chess",
+  "chess meetup Brisbane",
+  "chess events Brisbane",
+  "Australia chess club",
+]
+`;
+
+exports[`pageKeywords returns base keywords when no extras provided 1`] = `
+[
+  "Metropolis Retro",
+  "chess club",
+  "Brisbane chess",
+  "chess meetup Brisbane",
+  "chess events Brisbane",
+  "Australia chess club",
+]
+`;
+
+exports[`pageKeywords appends extra keywords 1`] = `
+[
+  "Metropolis Retro",
+  "chess club",
+  "Brisbane chess",
+  "chess meetup Brisbane",
+  "chess events Brisbane",
+  "Australia chess club",
+  "tactics",
+  "endgame",
+]
+`;
+
+exports[`pageKeywords deduplicates keywords already in base list 1`] = `
+[
+  "Metropolis Retro",
+  "chess club",
+  "Brisbane chess",
+  "chess meetup Brisbane",
+  "chess events Brisbane",
+  "Australia chess club",
+  "unique keyword",
+]
+`;

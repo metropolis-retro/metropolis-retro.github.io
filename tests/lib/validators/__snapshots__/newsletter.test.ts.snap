@@ -1,0 +1,29 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`newsletterSchema parses valid email 1`] = `
+{
+  "email": "subscriber@example.com",
+}
+`;
+
+exports[`newsletterSchema trims whitespace from email 1`] = `
+{
+  "email": "trimmed@example.com",
+}
+`;
+
+exports[`newsletterSchema rejects invalid email 1`] = `
+[
+  [
+    "email",
+  ],
+]
+`;
+
+exports[`newsletterSchema rejects empty email 1`] = `
+[
+  [
+    "email",
+  ],
+]
+`;
