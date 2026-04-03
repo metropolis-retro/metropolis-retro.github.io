@@ -54,13 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${interTight.className} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          storageKey="metropolis-theme"
-        >
+        <ThemeProvider>
           <MagneticCursor />
           {children}
           <Analytics />

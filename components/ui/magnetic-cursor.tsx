@@ -14,7 +14,6 @@ export function MagneticCursor() {
     let currentX = 0
     let currentY = 0
 
-    // Selectors for interactive elements
     const interactiveSelectors = [
       "a[href]",
       "button",
@@ -27,7 +26,6 @@ export function MagneticCursor() {
       targetX = e.clientX
       targetY = e.clientY
 
-      // Check if hovering over interactive element
       const target = e.target as HTMLElement
       const isInteractive = target.closest(interactiveSelectors)
 
@@ -37,12 +35,10 @@ export function MagneticCursor() {
         const centerX = rect.left + rect.width / 2
         const centerY = rect.top + rect.height / 2
 
-        // Calculate distance from cursor to center
         const deltaX = targetX - centerX
         const deltaY = targetY - centerY
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
 
-        // Magnetic effect within 80px radius
         if (distance < 80) {
           const pullStrength = 0.3
           targetX = targetX - deltaX * pullStrength
@@ -54,7 +50,6 @@ export function MagneticCursor() {
     }
 
     const animate = () => {
-      // Smooth interpolation
       const ease = 0.15
       currentX += (targetX - currentX) * ease
       currentY += (targetY - currentY) * ease
@@ -74,7 +69,6 @@ export function MagneticCursor() {
 
   return (
     <>
-      {/* Main cursor dot */}
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference hidden md:block"
@@ -93,7 +87,6 @@ export function MagneticCursor() {
         />
       </div>
 
-      {/* Outer ring */}
       <div
         className="fixed top-0 left-0 pointer-events-none z-[9998] mix-blend-difference hidden md:block"
         style={{
@@ -111,7 +104,6 @@ export function MagneticCursor() {
         />
       </div>
 
-      {/* Global cursor style */}
       <style jsx global>{`
         @media (min-width: 768px) {
           * {

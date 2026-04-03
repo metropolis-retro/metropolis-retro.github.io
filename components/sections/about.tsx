@@ -25,7 +25,6 @@ export function About() {
     <section id="about" className="py-20 border-border border-t-0 md:py-10 md:pb-32 md:pt-32">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Content */}
           <div>
             <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-balance">
               A Friendly Chess Community in Brisbane
@@ -40,9 +39,7 @@ export function About() {
             </p>
           </div>
 
-          {/* Right Content */}
           <div>
-            {/* Skills */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">What we run</h3>
               <div className="flex flex-wrap gap-2">
@@ -57,7 +54,6 @@ export function About() {
               </div>
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center p-4 bg-secondary rounded-2xl">
