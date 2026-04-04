@@ -22,7 +22,6 @@ export function Awards() {
   return (
     <section id="awards" className="py-20 md:py-32 border-border border-t-0 md:pt-0 md:pb-0">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-        {/* Section Header */}
         <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-12 md:mb-16">
           Club milestones
         </SectionTitle>

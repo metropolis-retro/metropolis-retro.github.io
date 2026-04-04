@@ -30,7 +30,6 @@ export function FinalCTA() {
                 Email the Club
                 <ArrowUpRight className="w-4 h-4" />
               </span>
-              {/* Glow effect on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl" style={{ background: "linear-gradient(to right, var(--brand), var(--brand-light))" }} />
             </Link>
             <Link
@@ -41,8 +40,6 @@ export function FinalCTA() {
               View Events
             </Link>
           </div>
-
-          {/* Contact Info */}
         </div>
       </div>
     </section>
