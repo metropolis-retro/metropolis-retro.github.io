@@ -50,6 +50,11 @@ export interface Ghost extends Entity {
   scaredTimer: number;
 }
 
+export type GhostConfig = {
+  name: GhostName;
+  color: string;
+};
+
 export interface ActiveCheats {
   slowGhosts: boolean;
   fewGhosts: boolean;

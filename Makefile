@@ -42,8 +42,8 @@ prek-update: ## Autoupdate prek hooks and refresh uv lock
 
 # --- Games ---
 
-build-pacman: ## Build Pac-Man game into public/games/pacman
-	@echo "$(BLUE)Building Pac-Man game...$(NC)"
+build-pacman: ## Build Pac-Man game standalone (optional, for Vite dev)
+	@echo "$(BLUE)Building Pac-Man game (standalone)...$(NC)"
 	cd games/pacman && npm install && npm run build
 	@echo "$(GREEN)Pac-Man build complete.$(NC)"
 

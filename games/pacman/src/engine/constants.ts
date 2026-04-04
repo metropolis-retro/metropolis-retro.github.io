@@ -1,4 +1,4 @@
-import { Direction, GhostName, Difficulty } from "./types";
+import { Direction, GhostName, Difficulty, type GhostConfig } from "./types";
 
 export const TILE_WALL = 0;
 export const TILE_PELLET = 1;
@@ -60,10 +60,7 @@ export const GHOST_SCORE = 200;
 export const PACMAN_START = { x: 14, y: 23 };
 export const PACMAN_START_DIR = Direction.Left;
 
-export const GHOST_CONFIG: {
-  name: GhostName;
-  color: string;
-}[] = [
+export const GHOST_CONFIG: GhostConfig[] = [
   { name: GhostName.Blinky, color: "#FF0000" },
   { name: GhostName.Pinky, color: "#FFB8FF" },
   { name: GhostName.Inky, color: "#00FFFF" },
