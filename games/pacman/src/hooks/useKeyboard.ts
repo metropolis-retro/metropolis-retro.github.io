@@ -11,7 +11,7 @@ const KEY_MAP: Record<string, Direction> = {
   s: Direction.Down,
   a: Direction.Left,
   d: Direction.Right,
-  
+
   W: Direction.Up,
   S: Direction.Down,
   A: Direction.Left,

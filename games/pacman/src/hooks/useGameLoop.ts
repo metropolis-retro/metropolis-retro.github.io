@@ -12,7 +12,7 @@ export function useGameLoop(
 
   const loop = useCallback((time: number) => {
     if (lastTime.current === 0) lastTime.current = time;
-    const dt = (time - lastTime.current) / 1000; 
+    const dt = (time - lastTime.current) / 1000;
     lastTime.current = time;
     cbRef.current(dt);
     rafId.current = requestAnimationFrame(loop);

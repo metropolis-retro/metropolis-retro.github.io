@@ -65,15 +65,15 @@ export interface GameState {
   status: GameStatus;
   pacman: Entity;
   ghosts: Ghost[];
-  
+
   grid: number[][];
   score: number;
   lives: number;
   pelletsLeft: number;
   powerTimer: number;
-  
+
   nextDirection: Direction | null;
-  
+
   lastTimestamp: number;
 
   cheats: ActiveCheats;

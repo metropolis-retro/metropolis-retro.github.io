@@ -69,7 +69,7 @@ export function handleGhostCollision(state: GameState): void {
           }
         }
         resetPositions(state);
-        return; 
+        return;
       }
     }
   }

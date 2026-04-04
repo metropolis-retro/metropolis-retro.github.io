@@ -59,7 +59,7 @@ export function tick(state: GameState, dt: number): void {
   const blinky = state.ghosts[0];
   for (const ghost of state.ghosts) {
     const prevTileKey = `${ghost.x},${ghost.y}`;
-    occupiedTiles.delete(prevTileKey);  
+    occupiedTiles.delete(prevTileKey);
 
     if (ghost.scared) {
       ghost.scaredTimer -= clampedDt * 1000;

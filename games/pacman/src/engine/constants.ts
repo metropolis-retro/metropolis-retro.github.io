@@ -40,18 +40,18 @@ export const MAP_LAYOUT: number[][] = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 ];
 
-export const COLS = MAP_LAYOUT[0].length; 
-export const ROWS = MAP_LAYOUT.length; 
+export const COLS = MAP_LAYOUT[0].length;
+export const ROWS = MAP_LAYOUT.length;
 
 export const TILE_SIZE = 20;
-export const CANVAS_W = COLS * TILE_SIZE; 
-export const CANVAS_H = ROWS * TILE_SIZE; 
+export const CANVAS_W = COLS * TILE_SIZE;
+export const CANVAS_H = ROWS * TILE_SIZE;
 
 export const PACMAN_SPEED = 120;
 export const GHOST_SPEED = 100;
 export const GHOST_SCARED_SPEED = 60;
 
-export const POWER_DURATION = 7_000; 
+export const POWER_DURATION = 7_000;
 
 export const PELLET_SCORE = 10;
 export const POWER_SCORE = 50;
