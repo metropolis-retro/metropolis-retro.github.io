@@ -49,6 +49,7 @@ The game is fully self-contained — no global state or environment-specific API
 ### Ghost AI
 
 Each ghost has a unique targeting strategy inspired by the original game:
+
 - **Blinky** (red): Directly chases Pac-Man
 - **Pinky** (pink): Targets 4 tiles ahead of Pac-Man
 - **Inky** (cyan): Uses Blinky's position to calculate a flanking target
