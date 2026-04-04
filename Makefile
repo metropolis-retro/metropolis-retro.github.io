@@ -9,7 +9,7 @@ GREEN := \033[32m
 NC   := \033[0m
 
 # CRITICAL: PHONY ensures 'make lint' runs the script, not looks for a 'lint' folder
-.PHONY: help install dev build lint prek prek-update prek-manual clean
+.PHONY: help install dev build lint prek prek-update prek-manual clean build-games build-pacman
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -39,6 +39,15 @@ prek-manual: ## Run prek with an alternative config file (e.g. prek.local.toml)
 prek-update: ## Autoupdate prek hooks and refresh uv lock
 	@echo "$(BLUE)Updating prek and hooks...$(NC)"
 	$(PREK) autoupdate
+
+# --- Games ---
+
+build-pacman: ## Build Pac-Man game into public/games/pacman
+	@echo "$(BLUE)Building Pac-Man game...$(NC)"
+	cd games/pacman && npm install && npm run build
+	@echo "$(GREEN)Pac-Man build complete.$(NC)"
+
+build-games: build-pacman ## Build all games
 
 # --- Maintenance ---
 
