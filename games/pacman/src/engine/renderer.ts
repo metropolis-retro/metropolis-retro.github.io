@@ -7,6 +7,7 @@ import {
   TILE_PELLET,
   TILE_POWER,
   COLOR_WALL,
+  COLOR_WALL_INNER,
   COLOR_PELLET,
   COLOR_POWER,
   COLOR_BG,
@@ -55,7 +56,7 @@ function drawWallTile(
   const y = row * TILE_SIZE;
   const s = TILE_SIZE;
 
-  ctx.fillStyle = "#0000cc";
+  ctx.fillStyle = COLOR_WALL_INNER;
   ctx.fillRect(x + 1, y + 1, s - 2, s - 2);
 
   ctx.fillStyle = COLOR_WALL;

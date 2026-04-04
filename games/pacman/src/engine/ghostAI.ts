@@ -1,5 +1,5 @@
 import { Direction, type Ghost, type Entity, GhostName } from "./types";
-import { DIR_VECTORS, COLS, ROWS, TILE_GHOST_HOUSE } from "./constants";
+import { DIR_VECTORS, COLS, ROWS, TILE_GHOST_HOUSE, GHOST_EXIT_COL } from "./constants";
 import { isWalkable, tryChangeDirection } from "./movement";
 
 const OPPOSITE: Record<Direction, Direction> = {
@@ -223,16 +223,7 @@ export function moveOutOfHouse(
   ghost: Ghost,
   grid: number[][]
 ): void {
-  const exitColByGhost: Record<GhostName, number> = {
-    [GhostName.Blinky]: 14,
-    [GhostName.Pinky]: 13,
-    [GhostName.Inky]: 14,
-    [GhostName.Clyde]: 13,
-    [GhostName.Sue]: 14,
-    [GhostName.Funky]: 13,
-    [GhostName.Spooky]: 14,
-  };
-  const exitCol = exitColByGhost[ghost.name];
+  const exitCol = GHOST_EXIT_COL[ghost.name];
   const tryDir = (dir: Direction): boolean => {
     const { dx, dy } = DIR_VECTORS[dir];
     let nx = ghost.x + dx;
