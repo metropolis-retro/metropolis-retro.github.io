@@ -25,7 +25,6 @@ export function GameOverlay({
 }: GameOverlayProps) {
   return (
     <>
-      {}
       {status === GameStatus.Playing && (
         <div className="absolute top-0 left-0 right-0 flex justify-between px-4 py-2 text-white text-sm z-10 pointer-events-none select-none">
           <span>Score: {score}</span>
@@ -44,7 +43,6 @@ export function GameOverlay({
         </div>
       )}
 
-      {}
       {status === GameStatus.Start && (
         <Overlay>
           <div className="grid gap-3 w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9">
@@ -102,7 +100,6 @@ export function GameOverlay({
         </Overlay>
       )}
 
-      {}
       {status === GameStatus.GameOver && (
         <Overlay>
           <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
@@ -123,7 +120,6 @@ export function GameOverlay({
         </Overlay>
       )}
 
-      {}
       {status === GameStatus.Win && (
         <Overlay>
           <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
