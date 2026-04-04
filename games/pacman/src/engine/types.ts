@@ -50,18 +50,10 @@ export interface Ghost extends Entity {
   scaredTimer: number;
 }
 
-export const GHOST_CONFIG: {
+export type GhostConfig = {
   name: GhostName;
   color: string;
-}[] = [
-  { name: GhostName.Blinky, color: "#FF0000" },
-  { name: GhostName.Pinky, color: "#FFB8FF" },
-  { name: GhostName.Inky, color: "#00FFFF" },
-  { name: GhostName.Clyde, color: "#FFB852" },
-  { name: GhostName.Sue, color: "#7CFC00" },
-  { name: GhostName.Funky, color: "#FFA500" },
-  { name: GhostName.Spooky, color: "#9370DB" },
-];
+};
 
 export interface ActiveCheats {
   slowGhosts: boolean;

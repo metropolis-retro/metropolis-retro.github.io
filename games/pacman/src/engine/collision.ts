@@ -49,9 +49,9 @@ export function handleGhostCollision(state: GameState): void {
   for (const ghost of state.ghosts) {
     const dx = pacman.px - ghost.px;
     const dy = pacman.py - ghost.py;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+    const distSq = dx * dx + dy * dy;
 
-    if (dist < COLLISION_DIST) {
+    if (distSq < COLLISION_DIST * COLLISION_DIST) {
       if (ghost.scared) {
         state.score += GHOST_SCORE;
         ghost.scared = false;

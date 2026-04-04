@@ -1,4 +1,4 @@
-import { Direction, GhostName, Difficulty } from "./types";
+import { Direction, GhostName, Difficulty, type GhostConfig } from "./types";
 
 export const TILE_WALL = 0;
 export const TILE_PELLET = 1;
@@ -60,10 +60,7 @@ export const GHOST_SCORE = 200;
 export const PACMAN_START = { x: 14, y: 23 };
 export const PACMAN_START_DIR = Direction.Left;
 
-export const GHOST_CONFIG: {
-  name: GhostName;
-  color: string;
-}[] = [
+export const GHOST_CONFIG: GhostConfig[] = [
   { name: GhostName.Blinky, color: "#FF0000" },
   { name: GhostName.Pinky, color: "#FFB8FF" },
   { name: GhostName.Inky, color: "#00FFFF" },
@@ -80,6 +77,7 @@ export const GHOST_COUNT_BY_DIFFICULTY: Record<Difficulty, number> = {
 };
 
 export const COLOR_WALL = "#1a1a8a";
+export const COLOR_WALL_INNER = "#0000cc";
 export const COLOR_PELLET = "#ffff99";
 export const COLOR_POWER = "#ffff99";
 export const COLOR_BG = "#000000";
@@ -88,6 +86,16 @@ export const COLOR_GHOST_SCARED = "#2121DE";
 export const COLOR_TEXT = "#FFFFFF";
 
 export const INITIAL_LIVES = 3;
+
+export const GHOST_EXIT_COL: Record<GhostName, number> = {
+  [GhostName.Blinky]: 14,
+  [GhostName.Pinky]: 13,
+  [GhostName.Inky]: 14,
+  [GhostName.Clyde]: 13,
+  [GhostName.Sue]: 14,
+  [GhostName.Funky]: 13,
+  [GhostName.Spooky]: 14,
+};
 
 export const DIR_VECTORS: Record<Direction, { dx: number; dy: number }> = {
     [Direction.Up]: { dx: 0, dy: -1 },
