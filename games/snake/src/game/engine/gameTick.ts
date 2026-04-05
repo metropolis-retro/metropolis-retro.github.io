@@ -33,7 +33,7 @@ export function gameTick(state: GameState, config: GameConfig, now: number): Tic
   updateActivePowerUps(state);
 
   const newHead = moveSnake(state);
-  const collisions = checkCollisions(newHead, state, config);
+  let collisions = checkCollisions(newHead, state, config);
 
   if (collisions.wall || collisions.obstacle) {
     const canWrapWalls = isPhaseMode(state) || (collisions.wall && config.difficulty === Difficulty.Easy);
@@ -47,6 +47,7 @@ export function gameTick(state: GameState, config: GameConfig, now: number): Tic
     if (collisions.wall) {
       newHead.x = ((newHead.x % config.gridWidth) + config.gridWidth) % config.gridWidth;
       newHead.y = ((newHead.y % config.gridHeight) + config.gridHeight) % config.gridHeight;
+      collisions = checkCollisions(newHead, state, config);
     }
   }
 
