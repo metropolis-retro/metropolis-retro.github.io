@@ -29,7 +29,7 @@ export function PacmanEmbed() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden rounded-xl border border-border bg-black [&_canvas]:![image-rendering:pixelated] pacman-embed"
+      className="relative w-full overflow-hidden border border-border bg-black [&_canvas]:![image-rendering:pixelated] pacman-embed"
       style={{
         aspectRatio: "14/15",
         maxHeight: isFullscreen ? "100vh" : "85vh",

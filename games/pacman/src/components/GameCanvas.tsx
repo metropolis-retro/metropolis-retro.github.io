@@ -1,12 +1,7 @@
 import { useRef, useEffect, useCallback } from "react";
 import { CANVAS_W, CANVAS_H } from "../engine/constants";
 import { render } from "../engine/renderer";
-import type { GameState } from "../engine/types";
-
-interface GameCanvasProps {
-  stateRef: React.RefObject<GameState>;
-  frameCount: number;
-}
+import { type GameCanvasProps } from "../types/ui";
 
 export function GameCanvas({ stateRef, frameCount }: GameCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);

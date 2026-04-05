@@ -1,18 +1,10 @@
 import { useState, useCallback } from "react";
-
-const STORAGE_KEY = "pacman_high_score";
-
-function readStoredScore(): number {
-  if (typeof window === "undefined") return 0;
-  const raw = window.localStorage.getItem(STORAGE_KEY);
-  const parsed = Number(raw);
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
-}
+import { readStoredHighScore, writeStoredHighScore } from "../utils/high-score-storage";
 
 export function useHighScore() {
   const [lastScore, setLastScore] = useState(0);
   const [previousScore, setPreviousScore] = useState(0);
-  const [highScore, setHighScore] = useState<number>(readStoredScore);
+  const [highScore, setHighScore] = useState<number>(readStoredHighScore);
 
   const submitScore = useCallback((score: number) => {
     setLastScore((prev) => {
@@ -21,9 +13,7 @@ export function useHighScore() {
     });
     setHighScore((prev) => {
       const next = Math.max(prev, score);
-      if (next !== prev && typeof window !== "undefined") {
-        window.localStorage.setItem(STORAGE_KEY, String(next));
-      }
+      if (next !== prev) writeStoredHighScore(next);
       return next;
     });
   }, []);

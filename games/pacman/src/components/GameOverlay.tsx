@@ -1,23 +1,7 @@
-import { GameStatus, Difficulty, type ActiveCheats } from "../engine/types";
-
-const SCORE_FORMATTER = new Intl.NumberFormat("en-US");
-
-function formatScore(value: number): string {
-  return SCORE_FORMATTER.format(value);
-}
-
-interface GameOverlayProps {
-  status: GameStatus;
-  score: number;
-  lives: number;
-  lastScore: number;
-  previousScore: number;
-  highScore: number;
-  selectedDifficulty: Difficulty;
-  onSelectDifficulty: (difficulty: Difficulty) => void;
-  onStart: () => void;
-  activeCheats: ActiveCheats;
-}
+import { GameStatus, Difficulty } from "../engine/types";
+import { type EndScreenProps, type GameOverlayProps, type OverlayProps } from "../types/ui";
+import { formatScore } from "../utils/score";
+import { formatLives } from "../utils/lives";
 
 export function GameOverlay({
   status,
@@ -50,7 +34,7 @@ export function GameOverlay({
           {activeCheats.infiniteLives ? (
             <span>Mode: ♾</span>
           ) : (
-            <span>Lives: {"❤".repeat(Math.min(lives, 10))}{lives > 10 ? "+" : ""}</span>
+            <span>Lives: {formatLives(lives)}</span>
           )}
         </div>
       )}
@@ -149,14 +133,7 @@ function EndScreen({
   previousScore,
   highScore,
   onStart,
-}: {
-  title: string;
-  titleColor: string;
-  score: number;
-  previousScore: number;
-  highScore: number;
-  onStart: () => void;
-}) {
+}: EndScreenProps) {
   return (
     <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
       <h1 className={`${titleColor} text-3xl md:text-5xl font-bold mb-4`}>
@@ -179,7 +156,7 @@ function EndScreen({
   );
 }
 
-function Overlay({ children }: { children: React.ReactNode }) {
+function Overlay({ children }: OverlayProps) {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-20">
       {children}

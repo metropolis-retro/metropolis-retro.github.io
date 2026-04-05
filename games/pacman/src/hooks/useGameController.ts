@@ -6,12 +6,9 @@ import { playGameStart } from "../engine/sound";
 import { useGameLoop } from "./useGameLoop";
 import { useKeyboard } from "./useKeyboard";
 import { useTouchControls } from "./useTouchControls";
-
-interface UiState {
-  status: GameStatus;
-  score: number;
-  lives: number;
-}
+import { type UiState } from "../types/ui";
+import { canStartGame } from "../utils/game-status";
+import { INITIAL_UI_STATE, PLAYING_UI_STATE, hasUiStateChanged, toUiState } from "../utils/ui-state";
 
 export function useGameController(
   selectedDifficulty: Difficulty,
@@ -29,11 +26,7 @@ export function useGameController(
   const difficultyRef = useRef(selectedDifficulty);
   difficultyRef.current = selectedDifficulty;
 
-  const [uiState, setUiState] = useState<UiState>({
-    status: GameStatus.Start,
-    score: 0,
-    lives: 3,
-  });
+  const [uiState, setUiState] = useState<UiState>(INITIAL_UI_STATE);
 
   const onTick = useCallback((dt: number) => {
     const state = stateRef.current;
@@ -51,18 +44,8 @@ export function useGameController(
     prevStatusRef.current = currentStatus;
 
     setUiState((prev) => {
-      if (
-        prev.status !== state.status ||
-        prev.score !== state.score ||
-        prev.lives !== state.lives
-      ) {
-        return {
-          status: state.status,
-          score: state.score,
-          lives: state.lives,
-        };
-      }
-      return prev;
+      const next = toUiState(state);
+      return hasUiStateChanged(prev, next) ? next : prev;
     });
 
     setFrameCount((c) => c + 1);
@@ -80,15 +63,11 @@ export function useGameController(
 
   const onStart = useCallback(() => {
     const state = stateRef.current;
-    if (
-      state.status === GameStatus.Start ||
-      state.status === GameStatus.GameOver ||
-      state.status === GameStatus.Win
-    ) {
+    if (canStartGame(state.status)) {
       stateRef.current = createInitialState(difficultyRef.current);
       stateRef.current.status = GameStatus.Playing;
       playGameStart();
-      setUiState({ status: GameStatus.Playing, score: 0, lives: 3 });
+      setUiState(PLAYING_UI_STATE);
       prevStatusRef.current = GameStatus.Playing;
       onResetCheatsRef.current();
     }

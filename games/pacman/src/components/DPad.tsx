@@ -1,8 +1,5 @@
 import { Direction } from "../engine/types";
-
-interface DPadProps {
-  onDirection: (dir: Direction) => void;
-}
+import { type DPadProps } from "../types/ui";
 
 const BUTTON_CLASS =
   "flex items-center justify-center w-14 h-14 rounded-xl bg-zinc-800/80 active:bg-yellow-400/60 text-white text-2xl select-none touch-manipulation";
