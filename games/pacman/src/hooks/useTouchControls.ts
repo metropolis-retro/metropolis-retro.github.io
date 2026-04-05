@@ -16,6 +16,31 @@ export function useTouchControls(
     touchStartRef.current = { x: touch.clientX, y: touch.clientY };
   }, []);
 
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => {
+      const start = touchStartRef.current;
+      const touch = e.touches[0];
+      if (!start || !touch) return;
+
+      const dx = touch.clientX - start.x;
+      const dy = touch.clientY - start.y;
+      const absDx = Math.abs(dx);
+      const absDy = Math.abs(dy);
+
+      if (absDx > SWIPE_THRESHOLD || absDy > SWIPE_THRESHOLD) {
+        e.preventDefault();
+        if (absDx > absDy) {
+          onDirection(dx > 0 ? Direction.Right : Direction.Left);
+        } else {
+          onDirection(dy > 0 ? Direction.Down : Direction.Up);
+        }
+        // Consume this touch sequence so one swipe triggers one turn.
+        touchStartRef.current = null;
+      }
+    },
+    [onDirection],
+  );
+
   const handleTouchEnd = useCallback(
     (e: TouchEvent) => {
       const start = touchStartRef.current;
@@ -23,34 +48,29 @@ export function useTouchControls(
       if (!start || !touch) return;
       touchStartRef.current = null;
 
-      const dx = touch.clientX - start.x;
-      const dy = touch.clientY - start.y;
-      const absDx = Math.abs(dx);
-      const absDy = Math.abs(dy);
-
-      if (absDx < SWIPE_THRESHOLD && absDy < SWIPE_THRESHOLD) {
-        onStart();
-        return;
-      }
-
-      if (absDx > absDy) {
-        onDirection(dx > 0 ? Direction.Right : Direction.Left);
-      } else {
-        onDirection(dy > 0 ? Direction.Down : Direction.Up);
-      }
+      // If no swipe consumed this sequence, treat it as a tap.
+      onStart();
     },
-    [onDirection, onStart],
+    [onStart],
   );
+
+  const handleTouchCancel = useCallback(() => {
+    touchStartRef.current = null;
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const opts: AddEventListenerOptions = { passive: true };
+    const opts: AddEventListenerOptions = { passive: false };
     el.addEventListener("touchstart", handleTouchStart, opts);
+    el.addEventListener("touchmove", handleTouchMove, opts);
     el.addEventListener("touchend", handleTouchEnd, opts);
+    el.addEventListener("touchcancel", handleTouchCancel, opts);
     return () => {
       el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchmove", handleTouchMove);
       el.removeEventListener("touchend", handleTouchEnd);
+      el.removeEventListener("touchcancel", handleTouchCancel);
     };
-  }, [containerRef, handleTouchStart, handleTouchEnd]);
+  }, [containerRef, handleTouchStart, handleTouchMove, handleTouchEnd, handleTouchCancel]);
 }
