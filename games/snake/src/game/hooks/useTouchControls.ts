@@ -45,8 +45,15 @@ export function useTouchControls(
       const start = touchStartRef.current;
       const touch = e.changedTouches[0];
       if (!start || !touch) return;
+
+      const dx = touch.clientX - start.x;
+      const dy = touch.clientY - start.y;
       touchStartRef.current = null;
-      onStart();
+
+      // Treat touch end as "start" only for taps, not swipe gestures.
+      if (Math.abs(dx) < SWIPE_THRESHOLD && Math.abs(dy) < SWIPE_THRESHOLD) {
+        onStart();
+      }
     },
     [onStart],
   );

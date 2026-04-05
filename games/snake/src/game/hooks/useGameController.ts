@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from "react";
-import { GameStatus, Direction, type GameState, type GameConfig } from "../../types";
+import { GameStatus, Direction, type ActivePowerUp, type GameState, type GameConfig } from "../../types";
 import { createInitialState, gameTick, render, changeDirection } from "../engine";
 import { createGameConfig } from "../../config";
 import { Difficulty } from "../../types";
@@ -7,6 +7,19 @@ import { useGameLoop } from "./useGameLoop";
 import { useInput } from "./useInput";
 import { useHighScore } from "./useHighScore";
 import { playEat, playPowerUp, playGameOver, playLevelUp, playStart } from "../sound";
+
+function arePowerUpsEqual(a: readonly ActivePowerUp[], b: readonly ActivePowerUp[]): boolean {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    const current = a[i];
+    const next = b[i];
+    if (!current || !next) return false;
+    if (current.type !== next.type || current.expiresAt !== next.expiresAt) {
+      return false;
+    }
+  }
+  return true;
+}
 
 export interface GameControllerState {
   status: GameStatus;
@@ -17,6 +30,7 @@ export interface GameControllerState {
   lastScore: number;
   selectedDifficulty: Difficulty;
   obstaclesEnabled: boolean;
+  activePowerUps: ActivePowerUp[];
 }
 
 export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
@@ -27,6 +41,7 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
   const configRef = useRef<GameConfig>(createGameConfig(selectedDifficulty, { obstaclesEnabled }));
   const stateRef = useRef<GameState>(createInitialState(configRef.current));
   const frameCountRef = useRef(0);
+  const [, setHudTick] = useState(0);
 
   const [controllerState, setControllerState] = useState<GameControllerState>({
     status: GameStatus.Idle,
@@ -37,12 +52,16 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
     lastScore: 0,
     selectedDifficulty,
     obstaclesEnabled,
+    activePowerUps: [],
   });
 
-  const syncUiState = useCallback(() => {
+  const syncUiState = useCallback((now: number) => {
     const s = stateRef.current;
+    const nextPowerUps = s.activePowerUps.map((p) => ({ ...p }));
+
     setControllerState((prev) => {
       if (
+        arePowerUpsEqual(prev.activePowerUps, nextPowerUps) &&
         prev.status === s.status &&
         prev.score === s.score &&
         prev.level === s.level &&
@@ -56,8 +75,14 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
         score: s.score,
         level: s.level,
         speed: s.speed,
+        activePowerUps: nextPowerUps,
       };
     });
+
+    if (s.activePowerUps.length > 0) {
+      const nextTick = Math.floor(now / 250);
+      setHudTick((prev) => (prev === nextTick ? prev : nextTick));
+    }
   }, []);
 
   const renderFrame = useCallback(() => {
@@ -85,7 +110,7 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
 
       frameCountRef.current++;
       renderFrame();
-      syncUiState();
+      syncUiState(timestamp);
     },
     [renderFrame, syncUiState, submitScore],
   );
@@ -122,6 +147,7 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
       level: 1,
       speed: config.initialSpeed,
       highScore: prev.highScore,
+      activePowerUps: [],
     }));
   }, [selectedDifficulty, obstaclesEnabled, renderFrame]);
 
@@ -171,7 +197,6 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
 
   return {
     ...controllerState,
-    activePowerUps: stateRef.current.activePowerUps,
     onStart,
     onPause,
     onResume: resumeGame,
