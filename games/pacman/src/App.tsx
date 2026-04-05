@@ -10,7 +10,7 @@ import { createInitialState } from "./engine/gameState";
 
 export default function App() {
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(Difficulty.Medium);
-  const { lastScore, highScore, submitScore } = useHighScore();
+  const { lastScore, previousScore, highScore, submitScore } = useHighScore();
 
   const stateRef = useRef(createInitialState(selectedDifficulty));
   const { activeCheats, resetCheats } = useCheatCodes(stateRef);
@@ -32,6 +32,7 @@ export default function App() {
         score={uiState.score}
         lives={uiState.lives}
         lastScore={lastScore}
+        previousScore={previousScore}
         highScore={highScore}
         selectedDifficulty={selectedDifficulty}
         onSelectDifficulty={setSelectedDifficulty}

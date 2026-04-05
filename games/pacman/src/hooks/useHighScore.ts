@@ -11,10 +11,14 @@ function readStoredScore(): number {
 
 export function useHighScore() {
   const [lastScore, setLastScore] = useState(0);
+  const [previousScore, setPreviousScore] = useState(0);
   const [highScore, setHighScore] = useState<number>(readStoredScore);
 
   const submitScore = useCallback((score: number) => {
-    setLastScore(score);
+    setLastScore((prev) => {
+      setPreviousScore(prev);
+      return score;
+    });
     setHighScore((prev) => {
       const next = Math.max(prev, score);
       if (next !== prev && typeof window !== "undefined") {
@@ -24,5 +28,5 @@ export function useHighScore() {
     });
   }, []);
 
-  return { lastScore, highScore, submitScore } as const;
+  return { lastScore, previousScore, highScore, submitScore } as const;
 }

@@ -5,6 +5,7 @@ interface GameOverlayProps {
   score: number;
   lives: number;
   lastScore: number;
+  previousScore: number;
   highScore: number;
   selectedDifficulty: Difficulty;
   onSelectDifficulty: (difficulty: Difficulty) => void;
@@ -17,6 +18,7 @@ export function GameOverlay({
   score,
   lives,
   lastScore,
+  previousScore,
   highScore,
   selectedDifficulty,
   onSelectDifficulty,
@@ -107,7 +109,7 @@ export function GameOverlay({
             title="GAME OVER"
             titleColor="text-red-500"
             score={score}
-            lastScore={lastScore}
+            previousScore={previousScore}
             highScore={highScore}
             onStart={onStart}
           />
@@ -120,7 +122,7 @@ export function GameOverlay({
             title="YOU WIN!"
             titleColor="text-green-400"
             score={score}
-            lastScore={lastScore}
+            previousScore={previousScore}
             highScore={highScore}
             onStart={onStart}
           />
@@ -134,14 +136,14 @@ function EndScreen({
   title,
   titleColor,
   score,
-  lastScore,
+  previousScore,
   highScore,
   onStart,
 }: {
   title: string;
   titleColor: string;
   score: number;
-  lastScore: number;
+  previousScore: number;
   highScore: number;
   onStart: () => void;
 }) {
@@ -151,7 +153,7 @@ function EndScreen({
         {title}
       </h1>
       <p className="text-white text-lg mb-2">Score: {score}</p>
-      <p className="text-zinc-300 text-sm mb-1">Last Score: {lastScore}</p>
+      <p className="text-zinc-300 text-sm mb-1">Previous Score: {previousScore}</p>
       <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
       <button
         onClick={onStart}

@@ -22,7 +22,6 @@ export function useGameController(
   const prevStatusRef = useRef<GameStatus>(GameStatus.Start);
   const [frameCount, setFrameCount] = useState(0);
 
-  // Store callbacks in refs so event listeners stay stable
   const onGameEndRef = useRef(onGameEnd);
   onGameEndRef.current = onGameEnd;
   const onResetCheatsRef = useRef(onResetCheats);
