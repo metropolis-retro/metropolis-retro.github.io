@@ -42,7 +42,7 @@ export function useCheatCodes(stateRef: MutableRefObject<GameState>) {
 
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [stateRef]);
+  }, []);
 
   return { activeCheats, resetCheats } as const;
 }

@@ -6,6 +6,7 @@ import { Difficulty, GameStatus } from "./engine/types";
 import { useHighScore } from "./hooks/useHighScore";
 import { useCheatCodes } from "./hooks/useCheatCodes";
 import { useGameController } from "./hooks/useGameController";
+import { useTouchControls } from "./hooks/useTouchControls";
 import { createInitialState } from "./engine/gameState";
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
   const { lastScore, previousScore, highScore, submitScore } = useHighScore();
 
   const stateRef = useRef(createInitialState(selectedDifficulty));
+  const containerRef = useRef<HTMLDivElement>(null);
   const { activeCheats, resetCheats } = useCheatCodes(stateRef);
 
   const { uiState, frameCount, onStart, onDirection } = useGameController(
@@ -22,10 +24,12 @@ export default function App() {
     stateRef,
   );
 
+  useTouchControls(onDirection, onStart, containerRef);
+
   const showDPad = uiState.status === GameStatus.Playing;
 
   return (
-    <div className="w-full h-full flex items-center justify-center bg-black relative select-none">
+    <div ref={containerRef} className="w-full h-full flex items-center justify-center bg-black relative select-none">
       <GameCanvas stateRef={stateRef} frameCount={frameCount} />
       <GameOverlay
         status={uiState.status}

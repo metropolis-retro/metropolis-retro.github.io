@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, type RefObject } from "react";
 import { Direction } from "../engine/types";
 
 const SWIPE_THRESHOLD = 20;
@@ -6,6 +6,7 @@ const SWIPE_THRESHOLD = 20;
 export function useTouchControls(
   onDirection: (dir: Direction) => void,
   onStart: () => void,
+  containerRef: RefObject<HTMLElement | null>,
 ): void {
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
@@ -42,12 +43,14 @@ export function useTouchControls(
   );
 
   useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
     const opts: AddEventListenerOptions = { passive: true };
-    window.addEventListener("touchstart", handleTouchStart, opts);
-    window.addEventListener("touchend", handleTouchEnd, opts);
+    el.addEventListener("touchstart", handleTouchStart, opts);
+    el.addEventListener("touchend", handleTouchEnd, opts);
     return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [handleTouchStart, handleTouchEnd]);
+  }, [containerRef, handleTouchStart, handleTouchEnd]);
 }

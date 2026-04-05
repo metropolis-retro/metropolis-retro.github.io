@@ -5,7 +5,6 @@ import { GameStatus, Direction, type Difficulty, type GameState } from "../engin
 import { playGameStart } from "../engine/sound";
 import { useGameLoop } from "./useGameLoop";
 import { useKeyboard } from "./useKeyboard";
-import { useTouchControls } from "./useTouchControls";
 import { type UiState } from "../types/ui";
 import { canStartGame } from "../utils/game-status";
 import { INITIAL_UI_STATE, PLAYING_UI_STATE, hasUiStateChanged, toUiState } from "../utils/ui-state";
@@ -74,7 +73,6 @@ export function useGameController(
   }, []);
 
   useKeyboard(onDirection, onStart);
-  useTouchControls(onDirection, onStart);
 
   return { uiState, frameCount, onStart, onDirection } as const;
 }

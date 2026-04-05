@@ -1,11 +1,16 @@
 let ctx: AudioContext | null = null;
 
-function getCtx(): AudioContext {
+function getCtx(): AudioContext | null {
+  if (typeof window === "undefined") return null;
   if (!ctx) {
-    ctx = new AudioContext();
+    const AudioContextClass =
+      window.AudioContext ??
+      (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return null;
+    ctx = new AudioContextClass();
   }
   if (ctx.state === "suspended") {
-    ctx.resume();
+    void ctx.resume();
   }
   return ctx;
 }
@@ -18,6 +23,7 @@ function playTone(
   delay = 0,
 ) {
   const ac = getCtx();
+  if (!ac) return;
   const osc = ac.createOscillator();
   const gain = ac.createGain();
 
@@ -53,6 +59,7 @@ export function playEatPellet(): void {
 
 export function playEatPower(): void {
   const ac = getCtx();
+  if (!ac) return;
   const osc = ac.createOscillator();
   const gain = ac.createGain();
 
