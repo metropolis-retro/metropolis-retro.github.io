@@ -60,6 +60,8 @@ export const GHOST_SCORE = 200;
 export const PACMAN_START = { x: 14, y: 23 };
 export const PACMAN_START_DIR = Direction.Left;
 
+export const GHOST_HOUSE_CENTER = { x: 14, y: 14 };
+
 export const GHOST_CONFIG: GhostConfig[] = [
   { name: GhostName.Blinky, color: "#FF0000" },
   { name: GhostName.Pinky, color: "#FFB8FF" },

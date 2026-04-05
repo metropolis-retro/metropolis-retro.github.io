@@ -50,7 +50,8 @@ export function GameOverlay({
               PAC-MAN
             </h1>
             <p className="text-zinc-200 text-xs md:text-sm mb-6 text-center leading-relaxed">
-              Use Arrow Keys or WASD to move
+              <span className="hidden md:inline">Use Arrow Keys or WASD to move</span>
+              <span className="md:hidden">Swipe or use the D-pad to move</span>
             </p>
             <div className="grid grid-cols-3 gap-3 mb-6">
               <button
@@ -102,44 +103,67 @@ export function GameOverlay({
 
       {status === GameStatus.GameOver && (
         <Overlay>
-          <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
-            <h1 className="text-red-500 text-3xl md:text-5xl font-bold mb-4">
-              GAME OVER
-            </h1>
-            <p className="text-white text-lg mb-2">Score: {score}</p>
-            <p className="text-zinc-300 text-sm mb-1">Last Score: {lastScore}</p>
-            <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
-            <button
-              onClick={onStart}
-              className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
-            >
-              PLAY AGAIN
-            </button>
-            <p className="text-gray-400 text-xs mt-4">or press Enter / Space</p>
-          </div>
+          <EndScreen
+            title="GAME OVER"
+            titleColor="text-red-500"
+            score={score}
+            lastScore={lastScore}
+            highScore={highScore}
+            onStart={onStart}
+          />
         </Overlay>
       )}
 
       {status === GameStatus.Win && (
         <Overlay>
-          <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
-            <h1 className="text-green-400 text-3xl md:text-5xl font-bold mb-4">
-              YOU WIN!
-            </h1>
-            <p className="text-white text-lg mb-2">Score: {score}</p>
-            <p className="text-zinc-300 text-sm mb-1">Last Score: {lastScore}</p>
-            <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
-            <button
-              onClick={onStart}
-              className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
-            >
-              PLAY AGAIN
-            </button>
-            <p className="text-gray-400 text-xs mt-4">or press Enter / Space</p>
-          </div>
+          <EndScreen
+            title="YOU WIN!"
+            titleColor="text-green-400"
+            score={score}
+            lastScore={lastScore}
+            highScore={highScore}
+            onStart={onStart}
+          />
         </Overlay>
       )}
     </>
+  );
+}
+
+function EndScreen({
+  title,
+  titleColor,
+  score,
+  lastScore,
+  highScore,
+  onStart,
+}: {
+  title: string;
+  titleColor: string;
+  score: number;
+  lastScore: number;
+  highScore: number;
+  onStart: () => void;
+}) {
+  return (
+    <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
+      <h1 className={`${titleColor} text-3xl md:text-5xl font-bold mb-4`}>
+        {title}
+      </h1>
+      <p className="text-white text-lg mb-2">Score: {score}</p>
+      <p className="text-zinc-300 text-sm mb-1">Last Score: {lastScore}</p>
+      <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
+      <button
+        onClick={onStart}
+        className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
+      >
+        PLAY AGAIN
+      </button>
+      <p className="text-gray-400 text-xs mt-4">
+        <span className="hidden md:inline">or press Enter / Space</span>
+        <span className="md:hidden">Tap anywhere to restart</span>
+      </p>
+    </div>
   );
 }
 
