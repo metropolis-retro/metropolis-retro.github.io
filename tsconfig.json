@@ -25,6 +25,12 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@games/pacman": [
+        "./games/pacman/src/App.tsx"
+      ],
+      "@games/pacman/*": [
+        "./games/pacman/src/*"
       ]
     }
   },
