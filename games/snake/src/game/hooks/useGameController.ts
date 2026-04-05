@@ -38,16 +38,23 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
   const [obstaclesEnabled, setObstaclesEnabled] = useState(false);
   const { highScore, lastScore, submitScore } = useHighScore();
 
-  const configRef = useRef<GameConfig>(createGameConfig(selectedDifficulty, { obstaclesEnabled }));
-  const stateRef = useRef<GameState>(createInitialState(configRef.current));
+  const [initialConfig] = useState<GameConfig>(() =>
+    createGameConfig(Difficulty.Medium, { obstaclesEnabled: false }),
+  );
+  const configRef = useRef<GameConfig>(initialConfig);
+  const stateRef = useRef<GameState>(createInitialState(initialConfig));
   const frameCountRef = useRef(0);
   const [, setHudTick] = useState(0);
+  const [canvasSize, setCanvasSize] = useState(() => ({
+    width: initialConfig.gridWidth * initialConfig.cellSize,
+    height: initialConfig.gridHeight * initialConfig.cellSize,
+  }));
 
   const [controllerState, setControllerState] = useState<GameControllerState>({
     status: GameStatus.Idle,
     score: 0,
     level: 1,
-    speed: configRef.current.initialSpeed,
+    speed: initialConfig.initialSpeed,
     highScore,
     lastScore: 0,
     selectedDifficulty,
@@ -135,6 +142,10 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
     newState.status = GameStatus.Playing;
     newState.lastMoveTime = performance.now();
     stateRef.current = newState;
+    setCanvasSize({
+      width: config.gridWidth * config.cellSize,
+      height: config.gridHeight * config.cellSize,
+    });
 
     playStart();
     frameCountRef.current = 0;
@@ -203,7 +214,7 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
     onDirection,
     onSelectDifficulty,
     onToggleObstacles,
-    canvasWidth: configRef.current.gridWidth * configRef.current.cellSize,
-    canvasHeight: configRef.current.gridHeight * configRef.current.cellSize,
+    canvasWidth: canvasSize.width,
+    canvasHeight: canvasSize.height,
   } as const;
 }
