@@ -1,5 +1,11 @@
 import { GameStatus, Difficulty, type ActiveCheats } from "../engine/types";
 
+const SCORE_FORMATTER = new Intl.NumberFormat("en-US");
+
+function formatScore(value: number): string {
+  return SCORE_FORMATTER.format(value);
+}
+
 interface GameOverlayProps {
   status: GameStatus;
   score: number;
@@ -29,7 +35,7 @@ export function GameOverlay({
     <>
       {status === GameStatus.Playing && (
         <div className="absolute top-0 left-0 right-0 flex justify-between px-4 py-2 text-white text-sm z-10 pointer-events-none select-none">
-          <span>Score: {score}</span>
+          <span>Score: {formatScore(score)}</span>
           <div className="flex gap-2 items-center">
             {activeCheats.slowGhosts && (
               <span className="text-cyan-400 text-xs font-bold animate-pulse">🐢 SLOWMO</span>
@@ -41,7 +47,11 @@ export function GameOverlay({
               <span className="text-pink-400 text-xs font-bold animate-pulse">♾ LIVES</span>
             )}
           </div>
-          <span>Lives: {"❤".repeat(Math.min(lives, 10))}{lives > 10 ? "+" : ""}</span>
+          {activeCheats.infiniteLives ? (
+            <span>Mode: ♾</span>
+          ) : (
+            <span>Lives: {"❤".repeat(Math.min(lives, 10))}{lives > 10 ? "+" : ""}</span>
+          )}
         </div>
       )}
 
@@ -84,8 +94,8 @@ export function GameOverlay({
               </button>
             </div>
             <div className="mt-4 flex items-center justify-between text-[11px] md:text-xs text-zinc-400">
-              <span>Last: {lastScore}</span>
-              <span>Best: {highScore}</span>
+              <span>Last: {formatScore(lastScore)}</span>
+              <span>Best: {formatScore(highScore)}</span>
             </div>
             <div className="mt-1 flex items-center justify-between text-[11px] md:text-xs text-zinc-400">
               <span>Selected: {selectedDifficulty}</span>
@@ -152,9 +162,9 @@ function EndScreen({
       <h1 className={`${titleColor} text-3xl md:text-5xl font-bold mb-4`}>
         {title}
       </h1>
-      <p className="text-white text-lg mb-2">Score: {score}</p>
-      <p className="text-zinc-300 text-sm mb-1">Previous Score: {previousScore}</p>
-      <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
+      <p className="text-white text-lg mb-2">Score: {formatScore(score)}</p>
+      <p className="text-zinc-300 text-sm mb-1">Previous Score: {formatScore(previousScore)}</p>
+      <p className="text-yellow-300 text-sm mb-6">High Score: {formatScore(highScore)}</p>
       <button
         onClick={onStart}
         className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
