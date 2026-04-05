@@ -41,10 +41,6 @@ export default function PacmanPage() {
               <ArrowLeft className="h-4 w-4" />
               Back to games
             </Link>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-tight">Pac-Man</h1>
-            <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed">
-              Use arrow keys or WASD to navigate. Eat all the dots to win. Press Enter or Space to start.
-            </p>
           </div>
         </section>
 

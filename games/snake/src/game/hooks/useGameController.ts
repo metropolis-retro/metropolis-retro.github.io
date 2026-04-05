@@ -26,8 +26,6 @@ export interface GameControllerState {
   score: number;
   level: number;
   speed: number;
-  highScore: number;
-  lastScore: number;
   selectedDifficulty: Difficulty;
   obstaclesEnabled: boolean;
   activePowerUps: ActivePowerUp[];
@@ -55,8 +53,6 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
     score: 0,
     level: 1,
     speed: initialConfig.initialSpeed,
-    highScore,
-    lastScore: 0,
     selectedDifficulty,
     obstaclesEnabled,
     activePowerUps: [],
@@ -157,7 +153,6 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
       score: 0,
       level: 1,
       speed: config.initialSpeed,
-      highScore: prev.highScore,
       activePowerUps: [],
     }));
   }, [selectedDifficulty, obstaclesEnabled, renderFrame]);
@@ -196,18 +191,13 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
   useInput(onDirection, onPause, onStart);
 
   useEffect(() => {
-    setControllerState((prev) => {
-      if (prev.highScore === highScore && prev.lastScore === lastScore) return prev;
-      return { ...prev, highScore, lastScore };
-    });
-  }, [highScore, lastScore]);
-
-  useEffect(() => {
     renderFrame();
   }, [renderFrame]);
 
   return {
     ...controllerState,
+    highScore,
+    lastScore,
     onStart,
     onPause,
     onResume: resumeGame,

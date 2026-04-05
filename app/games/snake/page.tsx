@@ -41,10 +41,6 @@ export default function SnakePage() {
               <ArrowLeft className="h-4 w-4" />
               Back to games
             </Link>
-            <h1 className="text-3xl tracking-tight md:text-5xl lg:text-6xl">Snake</h1>
-            <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-              Use the arrow keys or WASD to move. Collect food to grow, avoid collisions, and tap the on-screen controls on mobile.
-            </p>
           </div>
         </section>
 
