@@ -26,6 +26,12 @@
       "@/*": [
         "./*"
       ],
+      "@games/snake": [
+        "./games/snake/src/App.tsx"
+      ],
+      "@games/snake/*": [
+        "./games/snake/src/*"
+      ],
       "@games/pacman": [
         "./games/pacman/src/App.tsx"
       ],
