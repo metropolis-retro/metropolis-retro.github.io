@@ -43,7 +43,7 @@ To maintain "Grandmaster" code quality, we employ a rigorous three-pillar
 docker compose -f docker-compose.dev.yml up --build
 ```
 
-Then open [the app](http://localhost:3000) and edits will hot reload.
+Then open [the app](http://localhost:3000), and your changes will hot-reload.
 
 ### Production
 
