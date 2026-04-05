@@ -79,19 +79,32 @@ function tryReverse(
   ghost: Ghost,
   grid: number[][],
   reserved: Set<string>,
-  occupied: Set<string> | null,
-  selfKey: string,
 ): void {
   const reverse = OPPOSITE[ghost.direction];
   const { dx, dy } = DIR_VECTORS[reverse];
   const nx = wrapCol(ghost.x + dx);
   const ny = ghost.y + dy;
   if (!isWalkable(grid, nx, ny, true) || reserved.has(`${nx},${ny}`)) return;
-  if (occupied && `${nx},${ny}` !== selfKey && occupied.has(`${nx},${ny}`)) {
-    tryChangeDirection(ghost, reverse, grid, true);
-    return;
-  }
   tryChangeDirection(ghost, reverse, grid, true);
+}
+
+function pickClosestDirection(
+  candidates: NeighborTile[],
+  grid: number[][],
+  ghost: Ghost,
+  target: { x: number; y: number },
+): Direction | null {
+  let bestDir: Direction | null = null;
+  let bestDist = Infinity;
+  for (const n of candidates) {
+    if (isEnteringGhostHouse(grid, ghost.x, ghost.y, n.x, n.y)) continue;
+    const dist = (n.x - target.x) ** 2 + (n.y - target.y) ** 2;
+    if (dist < bestDist) {
+      bestDist = dist;
+      bestDir = n.dir;
+    }
+  }
+  return bestDir;
 }
 
 function getTargetTile(
@@ -172,7 +185,7 @@ function decideScared(
   );
   if (pickRandom(ghost, relaxed, grid)) return;
 
-  tryReverse(ghost, grid, reserved, occupied, selfKey);
+  tryReverse(ghost, grid, reserved);
 }
 
 function decideHunt(
@@ -187,24 +200,10 @@ function decideHunt(
 ): void {
   const target = getTargetTile(ghost, pacman, blinky);
 
-  const pick = (candidates: NeighborTile[]): Direction | null => {
-    let bestDir: Direction | null = null;
-    let bestDist = Infinity;
-    for (const n of candidates) {
-      if (isEnteringGhostHouse(grid, ghost.x, ghost.y, n.x, n.y)) continue;
-      const dist = (n.x - target.x) ** 2 + (n.y - target.y) ** 2;
-      if (dist < bestDist) {
-        bestDist = dist;
-        bestDir = n.dir;
-      }
-    }
-    return bestDir;
-  };
-
   const strict = neighbors.filter(
     (n) => !isReservedOrOccupied(n.x, n.y, reserved, occupied, selfKey),
   );
-  let best = pick(strict);
+  let best = pickClosestDirection(strict, grid, ghost, target);
   if (best !== null) {
     tryChangeDirection(ghost, best, grid, true);
     return;
@@ -213,13 +212,13 @@ function decideHunt(
   const relaxed = neighbors.filter(
     (n) => !isReservedOrOccupied(n.x, n.y, reserved, null, selfKey),
   );
-  best = pick(relaxed);
+  best = pickClosestDirection(relaxed, grid, ghost, target);
   if (best !== null) {
     tryChangeDirection(ghost, best, grid, true);
     return;
   }
 
-  tryReverse(ghost, grid, reserved, occupied, selfKey);
+  tryReverse(ghost, grid, reserved);
 }
 
 export function isInGhostHouse(ghost: Ghost, grid: number[][]): boolean {

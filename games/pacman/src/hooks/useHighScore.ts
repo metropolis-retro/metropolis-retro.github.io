@@ -7,16 +7,14 @@ export function useHighScore() {
   const [highScore, setHighScore] = useState<number>(readStoredHighScore);
 
   const submitScore = useCallback((score: number) => {
-    setLastScore((prev) => {
-      setPreviousScore(prev);
-      return score;
-    });
+    setPreviousScore(lastScore);
+    setLastScore(score);
     setHighScore((prev) => {
       const next = Math.max(prev, score);
       if (next !== prev) writeStoredHighScore(next);
       return next;
     });
-  }, []);
+  }, [lastScore]);
 
   return { lastScore, previousScore, highScore, submitScore } as const;
 }
