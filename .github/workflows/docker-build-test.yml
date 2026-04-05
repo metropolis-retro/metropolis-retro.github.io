@@ -4,7 +4,7 @@ name: Docker Build & Smoke Test
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
       - '*'
