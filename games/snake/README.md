@@ -1,6 +1,8 @@
 # React Snake
 
-A fully functional Snake game built with **React 19**, **TypeScript**, **TailwindCSS 4**, and **HTML5 Canvas**. Exportable as a `<SnakeGame />` component for use in any React/Next.js project.
+A fully functional Snake game built with **React 19**, **TypeScript**, **TailwindCSS 4**, and **HTML5 Canvas**.
+
+Exportable as a `<SnakeGame />` component for use in any React/Next.js project.
 
 ## Features
 
@@ -64,7 +66,7 @@ After building, serve the `dist/` folder and embed it:
 
 ## Project Structure
 
-```
+```text
 src/
   components/     UI components (SnakeGame, GameBoard, GameHUD, GameOverlay, DPad, MuteButton)
   config/         Game configuration & difficulty presets
