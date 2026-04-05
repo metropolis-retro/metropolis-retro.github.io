@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useRef, useState } from "react";
 import { GameCanvas } from "./components/GameCanvas";
 import { GameOverlay } from "./components/GameOverlay";
 import { DPad } from "./components/DPad";
@@ -6,19 +6,21 @@ import { Difficulty, GameStatus } from "./engine/types";
 import { useHighScore } from "./hooks/useHighScore";
 import { useCheatCodes } from "./hooks/useCheatCodes";
 import { useGameController } from "./hooks/useGameController";
+import { createInitialState } from "./engine/gameState";
 
 export default function App() {
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty>(Difficulty.Medium);
   const { lastScore, highScore, submitScore } = useHighScore();
 
-  const { stateRef, uiState, frameCount, onStart, onDirection } = useGameController(
+  const stateRef = useRef(createInitialState(selectedDifficulty));
+  const { activeCheats, resetCheats } = useCheatCodes(stateRef);
+
+  const { uiState, frameCount, onStart, onDirection } = useGameController(
     selectedDifficulty,
     submitScore,
-    () => resetCheatsRef(),
+    resetCheats,
+    stateRef,
   );
-
-  const { activeCheats, resetCheats } = useCheatCodes(stateRef);
-  const resetCheatsRef = useCallback(() => resetCheats(), [resetCheats]);
 
   const showDPad = uiState.status === GameStatus.Playing;
 

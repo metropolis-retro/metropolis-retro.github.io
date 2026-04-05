@@ -16,10 +16,6 @@ const ALL_DIRS: Direction[] = [
   Direction.Right,
 ];
 
-/* ------------------------------------------------------------------ */
-/*  Shared helpers                                                     */
-/* ------------------------------------------------------------------ */
-
 function wrapCol(col: number): number {
   if (col < 0) return COLS - 1;
   if (col >= COLS) return 0;
@@ -32,7 +28,6 @@ interface NeighborTile {
   y: number;
 }
 
-/** Returns forward (non-reverse) neighbor tiles that are walkable. */
 function getWalkableNeighbors(
   ghost: Ghost,
   grid: number[][],
@@ -93,7 +88,6 @@ function tryReverse(
   const ny = ghost.y + dy;
   if (!isWalkable(grid, nx, ny, true) || reserved.has(`${nx},${ny}`)) return;
   if (occupied && `${nx},${ny}` !== selfKey && occupied.has(`${nx},${ny}`)) {
-    // Try without occupied check as final fallback
     tryChangeDirection(ghost, reverse, grid, true);
     return;
   }
@@ -168,19 +162,16 @@ function decideScared(
   occupied: Set<string>,
   selfKey: string,
 ): void {
-  // Prefer tiles that are not reserved and not occupied by another ghost
   const best = neighbors.filter(
     (n) => !isReservedOrOccupied(n.x, n.y, reserved, occupied, selfKey),
   );
   if (pickRandom(ghost, best, grid)) return;
 
-  // Relax: allow occupied tiles
   const relaxed = neighbors.filter(
     (n) => !isReservedOrOccupied(n.x, n.y, reserved, null, selfKey),
   );
   if (pickRandom(ghost, relaxed, grid)) return;
 
-  // Last resort: reverse
   tryReverse(ghost, grid, reserved, occupied, selfKey);
 }
 
@@ -210,7 +201,6 @@ function decideHunt(
     return bestDir;
   };
 
-  // Strict: exclude reserved & occupied
   const strict = neighbors.filter(
     (n) => !isReservedOrOccupied(n.x, n.y, reserved, occupied, selfKey),
   );
@@ -220,7 +210,6 @@ function decideHunt(
     return;
   }
 
-  // Relaxed: exclude only reserved
   const relaxed = neighbors.filter(
     (n) => !isReservedOrOccupied(n.x, n.y, reserved, null, selfKey),
   );
@@ -230,7 +219,6 @@ function decideHunt(
     return;
   }
 
-  // Last resort: reverse
   tryReverse(ghost, grid, reserved, occupied, selfKey);
 }
 

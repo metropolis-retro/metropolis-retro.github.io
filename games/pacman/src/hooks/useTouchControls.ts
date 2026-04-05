@@ -28,7 +28,6 @@ export function useTouchControls(
       const absDy = Math.abs(dy);
 
       if (absDx < SWIPE_THRESHOLD && absDy < SWIPE_THRESHOLD) {
-        // Tap — treat as start
         onStart();
         return;
       }

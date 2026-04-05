@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, type MutableRefObject } from "react";
+import { useRef, useState, useEffect, useCallback, type MutableRefObject } from "react";
 import { type GameState, type ActiveCheats } from "../engine/types";
 
 const CHEATS: Array<{ code: string; id: keyof ActiveCheats }> = [
@@ -18,10 +18,10 @@ export function useCheatCodes(stateRef: MutableRefObject<GameState>) {
   const bufferRef = useRef("");
   const [activeCheats, setActiveCheats] = useState<ActiveCheats>({ ...INITIAL_CHEATS });
 
-  const resetCheats = () => {
+  const resetCheats = useCallback(() => {
     bufferRef.current = "";
     setActiveCheats({ ...INITIAL_CHEATS });
-  };
+  }, []);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {

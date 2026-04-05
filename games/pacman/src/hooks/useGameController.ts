@@ -17,10 +17,18 @@ export function useGameController(
   selectedDifficulty: Difficulty,
   onGameEnd: (score: number) => void,
   onResetCheats: () => void,
+  stateRef: React.MutableRefObject<GameState>,
 ) {
-  const stateRef = useRef<GameState>(createInitialState(selectedDifficulty));
   const prevStatusRef = useRef<GameStatus>(GameStatus.Start);
   const [frameCount, setFrameCount] = useState(0);
+
+  // Store callbacks in refs so event listeners stay stable
+  const onGameEndRef = useRef(onGameEnd);
+  onGameEndRef.current = onGameEnd;
+  const onResetCheatsRef = useRef(onResetCheats);
+  onResetCheatsRef.current = onResetCheats;
+  const difficultyRef = useRef(selectedDifficulty);
+  difficultyRef.current = selectedDifficulty;
 
   const [uiState, setUiState] = useState<UiState>({
     status: GameStatus.Start,
@@ -39,7 +47,7 @@ export function useGameController(
       previousStatus === GameStatus.Playing &&
       currentStatus !== GameStatus.Playing
     ) {
-      onGameEnd(state.score);
+      onGameEndRef.current(state.score);
     }
     prevStatusRef.current = currentStatus;
 
@@ -59,7 +67,7 @@ export function useGameController(
     });
 
     setFrameCount((c) => c + 1);
-  }, [onGameEnd]);
+  }, []);
 
   const isPlaying = uiState.status === GameStatus.Playing;
   useGameLoop(onTick, isPlaying);
@@ -78,17 +86,17 @@ export function useGameController(
       state.status === GameStatus.GameOver ||
       state.status === GameStatus.Win
     ) {
-      stateRef.current = createInitialState(selectedDifficulty);
+      stateRef.current = createInitialState(difficultyRef.current);
       stateRef.current.status = GameStatus.Playing;
       playGameStart();
       setUiState({ status: GameStatus.Playing, score: 0, lives: 3 });
       prevStatusRef.current = GameStatus.Playing;
-      onResetCheats();
+      onResetCheatsRef.current();
     }
-  }, [selectedDifficulty, onResetCheats]);
+  }, []);
 
   useKeyboard(onDirection, onStart);
   useTouchControls(onDirection, onStart);
 
-  return { stateRef, uiState, frameCount, onStart, onDirection } as const;
+  return { uiState, frameCount, onStart, onDirection } as const;
 }
