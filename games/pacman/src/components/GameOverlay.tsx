@@ -1,22 +1,14 @@
-import { GameStatus, Difficulty, type ActiveCheats } from "../engine/types";
-
-interface GameOverlayProps {
-  status: GameStatus;
-  score: number;
-  lives: number;
-  lastScore: number;
-  highScore: number;
-  selectedDifficulty: Difficulty;
-  onSelectDifficulty: (difficulty: Difficulty) => void;
-  onStart: () => void;
-  activeCheats: ActiveCheats;
-}
+import { GameStatus, Difficulty } from "../engine/types";
+import { type EndScreenProps, type GameOverlayProps, type OverlayProps } from "../types/ui";
+import { formatScore } from "../utils/score";
+import { formatLives } from "../utils/lives";
 
 export function GameOverlay({
   status,
   score,
   lives,
   lastScore,
+  previousScore,
   highScore,
   selectedDifficulty,
   onSelectDifficulty,
@@ -27,7 +19,7 @@ export function GameOverlay({
     <>
       {status === GameStatus.Playing && (
         <div className="absolute top-0 left-0 right-0 flex justify-between px-4 py-2 text-white text-sm z-10 pointer-events-none select-none">
-          <span>Score: {score}</span>
+          <span>Score: {formatScore(score)}</span>
           <div className="flex gap-2 items-center">
             {activeCheats.slowGhosts && (
               <span className="text-cyan-400 text-xs font-bold animate-pulse">🐢 SLOWMO</span>
@@ -39,7 +31,11 @@ export function GameOverlay({
               <span className="text-pink-400 text-xs font-bold animate-pulse">♾ LIVES</span>
             )}
           </div>
-          <span>Lives: {"❤".repeat(Math.min(lives, 10))}{lives > 10 ? "+" : ""}</span>
+          {activeCheats.infiniteLives ? (
+            <span>Mode: ♾</span>
+          ) : (
+            <span>Lives: {formatLives(lives)}</span>
+          )}
         </div>
       )}
 
@@ -50,7 +46,8 @@ export function GameOverlay({
               PAC-MAN
             </h1>
             <p className="text-zinc-200 text-xs md:text-sm mb-6 text-center leading-relaxed">
-              Use Arrow Keys or WASD to move
+              <span className="hidden md:inline">Use Arrow Keys or WASD to move</span>
+              <span className="md:hidden">Swipe or use the D-pad to move</span>
             </p>
             <div className="grid grid-cols-3 gap-3 mb-6">
               <button
@@ -81,8 +78,8 @@ export function GameOverlay({
               </button>
             </div>
             <div className="mt-4 flex items-center justify-between text-[11px] md:text-xs text-zinc-400">
-              <span>Last: {lastScore}</span>
-              <span>Best: {highScore}</span>
+              <span>Last: {formatScore(lastScore)}</span>
+              <span>Best: {formatScore(highScore)}</span>
             </div>
             <div className="mt-1 flex items-center justify-between text-[11px] md:text-xs text-zinc-400">
               <span>Selected: {selectedDifficulty}</span>
@@ -102,48 +99,64 @@ export function GameOverlay({
 
       {status === GameStatus.GameOver && (
         <Overlay>
-          <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
-            <h1 className="text-red-500 text-3xl md:text-5xl font-bold mb-4">
-              GAME OVER
-            </h1>
-            <p className="text-white text-lg mb-2">Score: {score}</p>
-            <p className="text-zinc-300 text-sm mb-1">Last Score: {lastScore}</p>
-            <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
-            <button
-              onClick={onStart}
-              className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
-            >
-              PLAY AGAIN
-            </button>
-            <p className="text-gray-400 text-xs mt-4">or press Enter / Space</p>
-          </div>
+          <EndScreen
+            title="GAME OVER"
+            titleColor="text-red-500"
+            score={score}
+            previousScore={previousScore}
+            highScore={highScore}
+            onStart={onStart}
+          />
         </Overlay>
       )}
 
       {status === GameStatus.Win && (
         <Overlay>
-          <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
-            <h1 className="text-green-400 text-3xl md:text-5xl font-bold mb-4">
-              YOU WIN!
-            </h1>
-            <p className="text-white text-lg mb-2">Score: {score}</p>
-            <p className="text-zinc-300 text-sm mb-1">Last Score: {lastScore}</p>
-            <p className="text-yellow-300 text-sm mb-6">High Score: {highScore}</p>
-            <button
-              onClick={onStart}
-              className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
-            >
-              PLAY AGAIN
-            </button>
-            <p className="text-gray-400 text-xs mt-4">or press Enter / Space</p>
-          </div>
+          <EndScreen
+            title="YOU WIN!"
+            titleColor="text-green-400"
+            score={score}
+            previousScore={previousScore}
+            highScore={highScore}
+            onStart={onStart}
+          />
         </Overlay>
       )}
     </>
   );
 }
 
-function Overlay({ children }: { children: React.ReactNode }) {
+function EndScreen({
+  title,
+  titleColor,
+  score,
+  previousScore,
+  highScore,
+  onStart,
+}: EndScreenProps) {
+  return (
+    <div className="w-[92%] max-w-md rounded-2xl border border-zinc-700/70 bg-zinc-900/80 backdrop-blur-sm shadow-2xl p-7 md:p-9 text-center">
+      <h1 className={`${titleColor} text-3xl md:text-5xl font-bold mb-4`}>
+        {title}
+      </h1>
+      <p className="text-white text-lg mb-2">Score: {formatScore(score)}</p>
+      <p className="text-zinc-300 text-sm mb-1">Previous Score: {formatScore(previousScore)}</p>
+      <p className="text-yellow-300 text-sm mb-6">High Score: {formatScore(highScore)}</p>
+      <button
+        onClick={onStart}
+        className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition-colors cursor-pointer"
+      >
+        PLAY AGAIN
+      </button>
+      <p className="text-gray-400 text-xs mt-4">
+        <span className="hidden md:inline">or press Enter / Space</span>
+        <span className="md:hidden">Tap anywhere to restart</span>
+      </p>
+    </div>
+  );
+}
+
+function Overlay({ children }: OverlayProps) {
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 z-20">
       {children}

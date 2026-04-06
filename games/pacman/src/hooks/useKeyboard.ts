@@ -28,7 +28,6 @@ export function useKeyboard(
       if (dir) {
         e.preventDefault();
         onDirection(dir);
-        return;
       }
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
