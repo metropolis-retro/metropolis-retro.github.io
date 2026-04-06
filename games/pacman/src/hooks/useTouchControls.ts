@@ -34,7 +34,6 @@ export function useTouchControls(
         } else {
           onDirection(dy > 0 ? Direction.Down : Direction.Up);
         }
-        // Consume this touch sequence so one swipe triggers one turn.
         touchStartRef.current = null;
       }
     },
@@ -48,7 +47,6 @@ export function useTouchControls(
       if (!start || !touch) return;
       touchStartRef.current = null;
 
-      // If no swipe consumed this sequence, treat it as a tap.
       onStart();
     },
     [onStart],
