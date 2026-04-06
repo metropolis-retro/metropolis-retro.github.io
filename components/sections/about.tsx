@@ -2,14 +2,15 @@
 
 const skills = [
   "Weekly Club Meetups",
-  "Rapid Chess Nights",
   "Beginner-Friendly Sessions",
   "Classical Play",
-  "Blitz Events",
-  "Tournament Pairings",
+  "Intro To Chess Variants",
   "Game Analysis",
+  "Modern Board Games",
+  "Blitz Training",
   "Junior Development",
   "Community Events",
+  "Learn Card Games",
 ];
 
 const stats = [
@@ -27,10 +28,10 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <div>
             <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-balance">
-              A Friendly Chess Community in Brisbane
+              A Friendly Games and Chess Community in Brisbane
             </SectionTitle>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Metropolis Retro brings together chess lovers across Brisbane for regular over-the-board meetups,
+              Metropolis Retro brings together games lovers across Brisbane for regular over-the-board meetups,
               practical training sessions, and social play in a welcoming environment.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
