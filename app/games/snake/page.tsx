@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function SnakePage() {
   return (
-    <>
+    <div>
       <Header />
       <main className="pt-24 md:pt-32">
         <section className="border-b border-border py-8 md:py-12">
@@ -51,6 +51,6 @@ export default function SnakePage() {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

@@ -10,10 +10,11 @@ export interface CollisionResult {
 }
 
 export function checkCollisions(newHead: Position, state: GameState, config: GameConfig): CollisionResult {
+  const food = checkFoodCollision(newHead, state);
   return {
     wall: checkWallCollision(newHead, config),
-    self: checkSelfCollision(newHead, state),
-    food: checkFoodCollision(newHead, state),
+    self: checkSelfCollision(newHead, state, food),
+    food,
     powerUp: checkPowerUpCollision(newHead, state),
     obstacle: checkObstacleCollision(newHead, state),
   };
@@ -23,8 +24,9 @@ function checkWallCollision(pos: Position, config: GameConfig): boolean {
   return !isInBounds(pos, config.gridWidth, config.gridHeight);
 }
 
-function checkSelfCollision(pos: Position, state: GameState): boolean {
-  return isPositionInList(pos, state.snake);
+function checkSelfCollision(pos: Position, state: GameState, includeTail: boolean): boolean {
+  const bodyToCheck = includeTail ? state.snake : state.snake.slice(0, -1);
+  return isPositionInList(pos, bodyToCheck);
 }
 
 function checkFoodCollision(pos: Position, state: GameState): boolean {

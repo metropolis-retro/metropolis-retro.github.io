@@ -73,7 +73,13 @@ export function gameTick(state: GameState, config: GameConfig, now: number): Tic
     state.score += config.foodScore * multiplier;
     state.foodEaten++;
     growSnake(state, newHead);
-    state.food = spawnFood(state, config);
+    const nextFood = spawnFood(state, config);
+    if (!nextFood) {
+      state.status = GameStatus.GameOver;
+      result.died = true;
+      return result;
+    }
+    state.food = nextFood;
     result.ate = true;
 
     if (state.foodEaten % config.levelUpThreshold === 0) {

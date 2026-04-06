@@ -18,6 +18,7 @@ function writeToStorage(score: number): void {
   try {
     window.localStorage.setItem(STORAGE_KEY, String(score));
   } catch {
+    // Ignore storage write failures in restricted browsing contexts.
   }
 }
 
