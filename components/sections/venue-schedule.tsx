@@ -11,7 +11,7 @@ const schedule = [
     day: "Thursday or Friday",
     title: "CBD Club Meetup",
     time: "1:30 PM - 2:30 PM",
-    details: "Preparations underway for a lunch time social games club and with competitive over-the-board chess games for all levels.",
+    details: "Preparations underway for a lunchtime social games club with competitive over-the-board chess games for all levels.",
   },
 ];
 
