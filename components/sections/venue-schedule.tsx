@@ -2,22 +2,16 @@ import { SectionTitle } from "@/components/ui/section-title"
 
 const schedule = [
   {
-    day: "Wednesday",
-    title: "Beginner Training Night",
-    time: "6:00 PM - 8:30 PM",
-    details: "Foundational tactics, opening ideas, and guided practice games.",
+    day: "Monday",
+    title: "Beginner Chess Training Night",
+    time: "5:00 PM - 6:30 PM",
+    details: "Foundational chess tactics, opening ideas, and guided practice games.",
   },
   {
-    day: "Thursday",
+    day: "Thursday or Friday",
     title: "CBD Club Meetup",
-    time: "6:30 PM - 10:00 PM",
-    details: "Social and competitive over-the-board games for all levels.",
-  },
-  {
-    day: "Saturday",
-    title: "Rapid Arena",
-    time: "2:00 PM - 5:00 PM",
-    details: "Swiss rapid rounds with standings and short post-game analysis.",
+    time: "1:30 PM - 2:30 PM",
+    details: "Preparations underway for a lunch time social games club and with competitive over-the-board chess games for all levels.",
   },
 ];
 

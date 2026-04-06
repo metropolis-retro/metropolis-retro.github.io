@@ -9,7 +9,7 @@ export function FinalCTA() {
           <p className="text-sm text-muted-foreground uppercase tracking-wider mb-6">Join Metropolis Retro</p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-balance">
-            Ready to play chess with us in Brisbane?
+            Ready to play games with us in Brisbane?
           </h2>
 
           <p className="mt-6 text-muted-foreground text-lg leading-relaxed">

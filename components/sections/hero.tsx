@@ -6,7 +6,7 @@ import { ArrowDown } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function Hero() {
-  const titleText = "Brisbane chess meetups for every level"
+  const titleText = "Brisbane games and social chess meetups for every level"
   const words = titleText.split(" ")
   const [maskReveal, setMaskReveal] = useState(0)
   const [opacity, setOpacity] = useState(0)
@@ -73,8 +73,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl leading-relaxed text-left text-lg text-muted-foreground ml-0">
-            We are an official chess club in Brisbane, Australia, running friendly meetups, structured club nights,
-            and competitive events for beginners through advanced players.
+            We are an official games and social club in Brisbane, Australia, running friendly meetups, structured club nights,
+            and competitive events for beginners through advanced players. We run a world chess team and games club on GitHub.
           </p>
 
           <div className="flex flex-row items-start gap-4 mt-10">

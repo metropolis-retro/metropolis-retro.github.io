@@ -30,7 +30,7 @@ export function About() {
               A Friendly Chess Community in Brisbane
             </SectionTitle>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Metropolis Retro brings together chess lovers across Brisbane for regular over-the-board meetups,
+              Metropolis Retro brings together games lovers across Brisbane for regular over-the-board meetups,
               practical training sessions, and social play in a welcoming environment.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
