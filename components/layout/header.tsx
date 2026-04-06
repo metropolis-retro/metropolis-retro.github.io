@@ -12,9 +12,8 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 const navItems = [
   { href: "#events", label: "Upcoming events", number: "01" },
   { href: "#about", label: "About", number: "02" },
-  { href: "#testimonials", label: "What members say", number: "03" },
-  { href: "#awards", label: "Club milestones", number: "04" },
-  { href: "#insights", label: "Latest updates", number: "05" },
+  { href: "#awards", label: "Club milestones", number: "03" },
+  { href: "#insights", label: "Latest updates", number: "04" },
 ];
 
 export function Header() {
