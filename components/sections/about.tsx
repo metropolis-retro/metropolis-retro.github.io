@@ -4,13 +4,15 @@ const skills = [
   "Weekly Club Meetups",
   "Beginner-Friendly Sessions",
   "Classical Play",
-  "Intro To Chess Variants",
+  "Introduction To Chess Variants",
   "Game Analysis",
   "Modern Board Games",
   "Blitz Training",
   "Junior Development",
   "Community Events",
-  "Learn Card Games",
+  "Card Games",
+  "Technology Workshops",
+  "GitHub Organizations"
 ];
 
 const stats = [
@@ -35,8 +37,8 @@ export function About() {
               practical training sessions, and social play in a welcoming environment.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Whether you are learning your first openings or preparing for tournament play, our club events are built
-              to help you improve, connect with others, and enjoy the game.
+              Whether you have just joined GitHub, learned your first card game or your preparing for chess tournament play, our
+                club events are built to help you improve, connect with others, and enjoy games.
             </p>
           </div>
 

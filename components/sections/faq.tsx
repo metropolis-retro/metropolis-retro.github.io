@@ -10,14 +10,14 @@ import { SectionTitle } from "@/components/ui/section-title"
 
 const faqs = [
   {
-    question: "Do I need a rating to join?",
+    question: "Do I need a chess rating to join?",
     answer:
       "No. We welcome unrated beginners, casual players, and experienced competitors. Sessions are structured to support mixed levels.",
   },
   {
     question: "What should I bring to a meetup?",
     answer:
-      "Bring a chess set if you can, but it is not mandatory. We recommend bringing a clock for timed formats and a notebook for analysis.",
+      "Bring a chess set if you can, but it is not mandatory. We recommend bringing a notebook for analysis.",
   },
   {
     question: "Are events beginner-friendly?",

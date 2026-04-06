@@ -12,7 +12,9 @@ const names = [
   "Breakfast Creek Hotel",
   "Tournament Player Tony",
   "Tradesmen Dan and Tim",
-  "Random father and son"
+  "Random father and son",
+  "Henry",
+  "lichess"
 ];
 
 export function ClientLogos() {

@@ -38,8 +38,8 @@ export function Footer() {
               Metropolis Retro
             </Link>
             <p className="mt-4 text-muted-foreground text-sm max-w-xs leading-relaxed">
-              Official chess club based in Brisbane, Australia, hosting meetups, training sessions, and community
-              chess events.
+              Official social club based in Brisbane, Australia, hosting meetups, training sessions, and community
+              chess and games events.
             </p>
             <div className="flex items-center gap-4 mt-6">
               {socialLinks.map((social) => (
