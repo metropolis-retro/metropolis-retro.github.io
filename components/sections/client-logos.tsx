@@ -2,10 +2,17 @@
 
 const names = [
   "John Bampton",
+  "Albion",
+  "Gazza and female friend",
+  "Uni Student Tim",
   "FIDE Master Stevan Jovic",
   "Seyyed Ali Mohammadiyeh",
   "Brisbane CBD",
+  "Chess Teacher Kieran",
   "Breakfast Creek Hotel",
+  "Tournament Player Tony",
+  "Tradesmen Dan and Tim",
+  "Random father and son"
 ];
 
 export function ClientLogos() {

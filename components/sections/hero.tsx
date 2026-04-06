@@ -108,8 +108,8 @@ export function Hero() {
 
       <div className="w-full mt-8">
         <Image
-          src="/images/designer.png"
-          alt="Metropolis Retro chess club meetup"
+          src="/images/gallery/third-event-beers-in-play.jpg"
+          alt="Arrived early for the 13th Metropolis Retro social club meetup at the Breakfast Creek Hotel"
           width={1200}
           height={800}
           className="w-full h-auto transition-all duration-100 ease-out"
