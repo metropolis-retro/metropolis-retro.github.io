@@ -31,28 +31,22 @@ export default function PacmanPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 md:pt-32">
-        <section className="py-8 md:py-12 border-b border-border">
-          <div className="max-w-[1280px] mx-auto px-6 md:px-12">
+      <main className="pt-14 md:pt-20">
+        <section className="border-b border-t border-border">
+          <div className="w-full py-6 px-4 md:px-6">
             <Link
               href="/games"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to games
             </Link>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl tracking-tight">Pac-Man</h1>
-            <p className="mt-4 text-muted-foreground max-w-2xl leading-relaxed">
-              Use arrow keys or WASD to navigate. Eat all the dots to win. Press Enter or Space to start.
-            </p>
           </div>
         </section>
 
-        <section className="py-8 md:py-12">
-          <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-            <PacmanEmbed />
-          </div>
-        </section>
+        <div className="w-full px-0">
+          <PacmanEmbed />
+        </div>
       </main>
       <Footer />
     </>

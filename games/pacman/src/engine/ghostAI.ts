@@ -16,6 +16,97 @@ const ALL_DIRS: Direction[] = [
   Direction.Right,
 ];
 
+function wrapCol(col: number): number {
+  if (col < 0) return COLS - 1;
+  if (col >= COLS) return 0;
+  return col;
+}
+
+interface NeighborTile {
+  dir: Direction;
+  x: number;
+  y: number;
+}
+
+function getWalkableNeighbors(
+  ghost: Ghost,
+  grid: number[][],
+): NeighborTile[] {
+  return ALL_DIRS.reduce<NeighborTile[]>((acc, d) => {
+    if (d === OPPOSITE[ghost.direction]) return acc;
+    const { dx, dy } = DIR_VECTORS[d];
+    const nx = wrapCol(ghost.x + dx);
+    const ny = ghost.y + dy;
+    if (isWalkable(grid, nx, ny, true)) acc.push({ dir: d, x: nx, y: ny });
+    return acc;
+  }, []);
+}
+
+function isReservedOrOccupied(
+  x: number,
+  y: number,
+  reserved: Set<string>,
+  occupied: Set<string> | null,
+  selfKey: string,
+): boolean {
+  const key = `${x},${y}`;
+  if (reserved.has(key)) return true;
+  if (occupied && key !== selfKey && occupied.has(key)) return true;
+  return false;
+}
+
+function isEnteringGhostHouse(
+  grid: number[][],
+  fromX: number,
+  fromY: number,
+  toX: number,
+  toY: number,
+): boolean {
+  if (toY < 0 || toY >= ROWS || toX < 0 || toX >= COLS) return false;
+  return grid[toY][toX] === TILE_GHOST_HOUSE && grid[fromY][fromX] !== TILE_GHOST_HOUSE;
+}
+
+/** Pick a random direction from candidates, applying tryChangeDirection. */
+function pickRandom(ghost: Ghost, candidates: NeighborTile[], grid: number[][]): boolean {
+  if (candidates.length === 0) return false;
+  const pick = candidates[Math.floor(Math.random() * candidates.length)];
+  tryChangeDirection(ghost, pick.dir, grid, true);
+  return true;
+}
+
+/** Try reversing as an absolute last resort. */
+function tryReverse(
+  ghost: Ghost,
+  grid: number[][],
+  reserved: Set<string>,
+): void {
+  const reverse = OPPOSITE[ghost.direction];
+  const { dx, dy } = DIR_VECTORS[reverse];
+  const nx = wrapCol(ghost.x + dx);
+  const ny = ghost.y + dy;
+  if (!isWalkable(grid, nx, ny, true) || reserved.has(`${nx},${ny}`)) return;
+  tryChangeDirection(ghost, reverse, grid, true);
+}
+
+function pickClosestDirection(
+  candidates: NeighborTile[],
+  grid: number[][],
+  ghost: Ghost,
+  target: { x: number; y: number },
+): Direction | null {
+  let bestDir: Direction | null = null;
+  let bestDist = Infinity;
+  for (const n of candidates) {
+    if (isEnteringGhostHouse(grid, ghost.x, ghost.y, n.x, n.y)) continue;
+    const dist = (n.x - target.x) ** 2 + (n.y - target.y) ** 2;
+    if (dist < bestDist) {
+      bestDist = dist;
+      bestDir = n.dir;
+    }
+  }
+  return bestDir;
+}
+
 function getTargetTile(
   ghost: Ghost,
   pacman: Entity,
@@ -67,144 +158,67 @@ export function decideGhostDirection(
   occupiedTiles: Set<string>
 ): void {
   const selfKey = `${ghost.x},${ghost.y}`;
-  const isOccupiedByOther = (x: number, y: number): boolean => {
-    const key = `${x},${y}`;
-    return key !== selfKey && occupiedTiles.has(key);
-  };
+  const neighbors = getWalkableNeighbors(ghost, grid);
 
   if (ghost.scared) {
-    const available = ALL_DIRS.filter((d) => {
-      if (d === OPPOSITE[ghost.direction]) return false;
-      const { dx, dy } = DIR_VECTORS[d];
-      let nx = ghost.x + dx;
-      const ny = ghost.y + dy;
-      if (nx < 0) nx = COLS - 1;
-      if (nx >= COLS) nx = 0;
-      if (reservedNextTiles.has(`${nx},${ny}`)) return false;
-      if (isOccupiedByOther(nx, ny)) return false;
-      return isWalkable(grid, nx, ny, true);
-    });
-    if (available.length > 0) {
-      const pick = available[Math.floor(Math.random() * available.length)];
-      tryChangeDirection(ghost, pick, grid, true);
-      return;
-    }
-
-    const fallback = ALL_DIRS.filter((d) => {
-      if (d === OPPOSITE[ghost.direction]) return false;
-      const { dx, dy } = DIR_VECTORS[d];
-      let nx = ghost.x + dx;
-      const ny = ghost.y + dy;
-      if (nx < 0) nx = COLS - 1;
-      if (nx >= COLS) nx = 0;
-      if (reservedNextTiles.has(`${nx},${ny}`)) return false;
-      return isWalkable(grid, nx, ny, true);
-    });
-    if (fallback.length > 0) {
-      const pick = fallback[Math.floor(Math.random() * fallback.length)];
-      tryChangeDirection(ghost, pick, grid, true);
-      return;
-    }
-
-    const reverse = OPPOSITE[ghost.direction];
-    const { dx, dy } = DIR_VECTORS[reverse];
-    let nx = ghost.x + dx;
-    const ny = ghost.y + dy;
-    if (nx < 0) nx = COLS - 1;
-    if (nx >= COLS) nx = 0;
-    if (isWalkable(grid, nx, ny, true) && !reservedNextTiles.has(`${nx},${ny}`) && !isOccupiedByOther(nx, ny)) {
-      tryChangeDirection(ghost, reverse, grid, true);
-      return;
-    }
-    if (isWalkable(grid, nx, ny, true) && !reservedNextTiles.has(`${nx},${ny}`)) {
-      tryChangeDirection(ghost, reverse, grid, true);
-    }
-    return;
+    decideScared(ghost, grid, neighbors, reservedNextTiles, occupiedTiles, selfKey);
+  } else {
+    decideHunt(ghost, pacman, blinky, grid, neighbors, reservedNextTiles, occupiedTiles, selfKey);
   }
+}
 
+function decideScared(
+  ghost: Ghost,
+  grid: number[][],
+  neighbors: NeighborTile[],
+  reserved: Set<string>,
+  occupied: Set<string>,
+  selfKey: string,
+): void {
+  const best = neighbors.filter(
+    (n) => !isReservedOrOccupied(n.x, n.y, reserved, occupied, selfKey),
+  );
+  if (pickRandom(ghost, best, grid)) return;
+
+  const relaxed = neighbors.filter(
+    (n) => !isReservedOrOccupied(n.x, n.y, reserved, null, selfKey),
+  );
+  if (pickRandom(ghost, relaxed, grid)) return;
+
+  tryReverse(ghost, grid, reserved);
+}
+
+function decideHunt(
+  ghost: Ghost,
+  pacman: Entity,
+  blinky: Ghost,
+  grid: number[][],
+  neighbors: NeighborTile[],
+  reserved: Set<string>,
+  occupied: Set<string>,
+  selfKey: string,
+): void {
   const target = getTargetTile(ghost, pacman, blinky);
 
-  let bestDir: Direction | null = null;
-  let bestDist = Infinity;
-
-  for (const d of ALL_DIRS) {
-    if (d === OPPOSITE[ghost.direction]) continue;
-
-    const { dx, dy } = DIR_VECTORS[d];
-    let nx = ghost.x + dx;
-    const ny = ghost.y + dy;
-    if (nx < 0) nx = COLS - 1;
-    if (nx >= COLS) nx = 0;
-
-    if (!isWalkable(grid, nx, ny, true)) continue;
-    if (reservedNextTiles.has(`${nx},${ny}`)) continue;
-    if (isOccupiedByOther(nx, ny)) continue;
-
-    if (
-      ny >= 0 && ny < ROWS && nx >= 0 && nx < COLS &&
-      grid[ny][nx] === TILE_GHOST_HOUSE &&
-      grid[ghost.y][ghost.x] !== TILE_GHOST_HOUSE
-    ) {
-      continue;
-    }
-
-    const dist = (nx - target.x) ** 2 + (ny - target.y) ** 2;
-    if (dist < bestDist) {
-      bestDist = dist;
-      bestDir = d;
-    }
-  }
-
-  if (bestDir !== null) {
-    tryChangeDirection(ghost, bestDir, grid, true);
+  const strict = neighbors.filter(
+    (n) => !isReservedOrOccupied(n.x, n.y, reserved, occupied, selfKey),
+  );
+  let best = pickClosestDirection(strict, grid, ghost, target);
+  if (best !== null) {
+    tryChangeDirection(ghost, best, grid, true);
     return;
   }
 
-  for (const d of ALL_DIRS) {
-    if (d === OPPOSITE[ghost.direction]) continue;
-
-    const { dx, dy } = DIR_VECTORS[d];
-    let nx = ghost.x + dx;
-    const ny = ghost.y + dy;
-    if (nx < 0) nx = COLS - 1;
-    if (nx >= COLS) nx = 0;
-
-    if (!isWalkable(grid, nx, ny, true)) continue;
-    if (reservedNextTiles.has(`${nx},${ny}`)) continue;
-
-    if (
-      ny >= 0 && ny < ROWS && nx >= 0 && nx < COLS &&
-      grid[ny][nx] === TILE_GHOST_HOUSE &&
-      grid[ghost.y][ghost.x] !== TILE_GHOST_HOUSE
-    ) {
-      continue;
-    }
-
-    const dist = (nx - target.x) ** 2 + (ny - target.y) ** 2;
-    if (dist < bestDist) {
-      bestDist = dist;
-      bestDir = d;
-    }
-  }
-
-  if (bestDir !== null) {
-    tryChangeDirection(ghost, bestDir, grid, true);
+  const relaxed = neighbors.filter(
+    (n) => !isReservedOrOccupied(n.x, n.y, reserved, null, selfKey),
+  );
+  best = pickClosestDirection(relaxed, grid, ghost, target);
+  if (best !== null) {
+    tryChangeDirection(ghost, best, grid, true);
     return;
   }
 
-  const reverse = OPPOSITE[ghost.direction];
-  const { dx, dy } = DIR_VECTORS[reverse];
-  let nx = ghost.x + dx;
-  const ny = ghost.y + dy;
-  if (nx < 0) nx = COLS - 1;
-  if (nx >= COLS) nx = 0;
-  if (isWalkable(grid, nx, ny, true) && !reservedNextTiles.has(`${nx},${ny}`) && !isOccupiedByOther(nx, ny)) {
-    tryChangeDirection(ghost, reverse, grid, true);
-    return;
-  }
-  if (isWalkable(grid, nx, ny, true) && !reservedNextTiles.has(`${nx},${ny}`)) {
-    tryChangeDirection(ghost, reverse, grid, true);
-  }
+  tryReverse(ghost, grid, reserved);
 }
 
 export function isInGhostHouse(ghost: Ghost, grid: number[][]): boolean {
@@ -226,10 +240,8 @@ export function moveOutOfHouse(
   const exitCol = GHOST_EXIT_COL[ghost.name];
   const tryDir = (dir: Direction): boolean => {
     const { dx, dy } = DIR_VECTORS[dir];
-    let nx = ghost.x + dx;
+    const nx = wrapCol(ghost.x + dx);
     const ny = ghost.y + dy;
-    if (nx < 0) nx = COLS - 1;
-    if (nx >= COLS) nx = 0;
     if (!isWalkable(grid, nx, ny, true)) return false;
     return tryChangeDirection(ghost, dir, grid, true);
   };
