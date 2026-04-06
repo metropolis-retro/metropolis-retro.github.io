@@ -113,6 +113,7 @@ repos:
       - id: check-added-large-files
         name: run check-added-large-files
         description: prevent giant files from being committed
+        args: ['--maxkb=2500']
       - id: check-json
         name: run check-json
         description: check JSON files for syntax errors
