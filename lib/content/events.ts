@@ -33,7 +33,7 @@ export const events: EventItem[] = [
     title: "Friday CBD Chess And Technology Workshop",
     category: "Weekly Meetup",
     description: "Casual and competitive chess games in Brisbane CBD with clocks, boards, and friendly pairings. Let us talk about GitHub, open-source and Chess960",
-    image: "/images/brisbane-cbd.jpg",
+    image: "/images/gallery/brisbane-cbd.jpg",
     tags: ["Brisbane CBD", "All Levels", "GitHub", "OTB", "Chess960"],
     format: "Casual + Rated Practice",
     time: "Every Friday, 1:30 PM",
