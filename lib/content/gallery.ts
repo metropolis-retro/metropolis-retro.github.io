@@ -11,18 +11,18 @@ export const galleryImages: GalleryImage[] = [
   {
     id: "1",
     title: "Board Game Night",
-    description: "Catan and other board games at our community gathering",
+    description: "Catan and other board games at our community gatherings",
     imageUrl: "/images/gallery/catan.jpg",
     aspect: "portrait",
     category: "community",
   },
   {
     id: "2",
-    title: "Chess in Action",
-    description: "Intense over-the-board play at the club",
+    title: "Hot Pink versus Green",
+    description: "The Breakfast Creek Hotel Since 1889",
     imageUrl: "/images/gallery/chess.jpg",
     aspect: "landscape",
-    category: "tournaments",
+    category: "events",
   },
   {
     id: "3",
@@ -37,7 +37,7 @@ export const galleryImages: GalleryImage[] = [
     title: "Fifth Event",
     description: "Highlights from our fifth community event",
     imageUrl: "/images/gallery/fifth-event.jpg",
-    aspect: "portrait",
+    aspect: "wide",
     category: "events",
   },
   {
@@ -51,9 +51,9 @@ export const galleryImages: GalleryImage[] = [
   {
     id: "6",
     title: "First Event — Game Two",
-    description: "Second game underway at our inaugural event",
+    description: "Second game final position at our inaugural event",
     imageUrl: "/images/gallery/first-event-second-game.jpg",
-    aspect: "portrait",
+    aspect: "wide",
     category: "events",
   },
   {
@@ -86,16 +86,33 @@ export const galleryImages: GalleryImage[] = [
     description: "Setting up early one day at the hotel",
     imageUrl: "/images/gallery/early-setup.jpg",
     aspect: "portrait",
-    category: "training",
+    category: "events",
   },
   {
     id: "11",
     title: "The Big Issue",
-    description: "A memorable moment from the club",
+    description: "We support The Big Issue",
     imageUrl: "/images/gallery/the-big-issue.jpg",
-    aspect: "landscape",
+    aspect: "wide",
     category: "community",
   },
+  {
+    id: "12",
+    title: "Twelfth Event",
+    description: "Table 8 in the beer garden is our regular Monday night hangout",
+    imageUrl: "/images/gallery/twelfth-event.png",
+    aspect: "wide",
+    category: "events",
+  },
+  {
+    id: "13",
+    title: "Build Create Think",
+    description: "144 square 2-player experiments",
+    imageUrl: "/images/gallery/build-create-think.png",
+    aspect: "portrait",
+    category: "community",
+  },
+
 ]
 
 export const galleryCategories = Array.from(new Set(galleryImages.map((img) => img.category).filter(Boolean))) as string[]

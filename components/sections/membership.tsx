@@ -5,8 +5,8 @@ import { SectionTitle } from "@/components/ui/section-title"
 const benefits = [
   "Priority access to weekly events",
   "Member-only training sessions",
-  "Seasonal tournament eligibility",
-  "Structured improvement pathways",
+  "Free entry into Metropolis simuls",
+    "Support the local community"
 ];
 
 export function Membership() {

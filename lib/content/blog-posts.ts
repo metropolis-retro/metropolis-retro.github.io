@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to improve between club nights",
     excerpt:
       "A practical weekly routine to turn casual games into steady rating and decision-making improvement.",
-    coverImage: "/images/bg-1.png",
+    coverImage: "/images/",
     publishedAt: "2026-03-10",
     readTime: "6 min read",
     category: "Training",
@@ -58,7 +58,7 @@ export const blogPosts: BlogPost[] = [
     title: "Rapid time management for club events",
     excerpt:
       "Simple decision rules to avoid clock collapses and finish your games with more practical chances.",
-    coverImage: "/images/bg-2.png",
+    coverImage: "/images/",
     publishedAt: "2026-03-14",
     readTime: "5 min read",
     category: "Competition",
@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     title: "Opening repertoire for busy players",
     excerpt:
       "How to choose compact opening systems that are easier to remember and useful across many club pairings.",
-    coverImage: "/images/bg-3.png",
+    coverImage: "/images/",
     publishedAt: "2026-03-18",
     readTime: "7 min read",
     category: "Openings",
@@ -124,6 +124,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+    /*
   {
     id: 4,
     slug: "building-confidence-for-your-first-tournament",
@@ -160,6 +161,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+     */
 ]
 
 export function getBlogPostBySlug(slug: string) {
