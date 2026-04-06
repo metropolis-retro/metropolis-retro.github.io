@@ -82,9 +82,9 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "10",
-    title: "Top Pitfalls",
-    description: "Learning from common chess mistakes together",
-    imageUrl: "/images/gallery/top-pitfalls.jpg",
+    title: "Early Setup",
+    description: "Setting up early one day at the hotel",
+    imageUrl: "/images/gallery/early-setup.jpg",
     aspect: "portrait",
     category: "training",
   },
