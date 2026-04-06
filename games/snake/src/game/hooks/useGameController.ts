@@ -6,7 +6,7 @@ import { Difficulty } from "../../types";
 import { useGameLoop } from "./useGameLoop";
 import { useInput } from "./useInput";
 import { useHighScore } from "./useHighScore";
-import { playEat, playPowerUp, playGameOver, playLevelUp, playStart } from "../sound";
+import { playEat, playPowerUp, playGameOver, playLevelUp, playStart, resumeAudioContext } from "../sound";
 
 function arePowerUpsEqual(a: readonly ActivePowerUp[], b: readonly ActivePowerUp[]): boolean {
   if (a.length !== b.length) return false;
@@ -128,7 +128,7 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
     }
   }, []);
 
-  const onStart = useCallback(() => {
+  const onStart = useCallback(async () => {
     const state = stateRef.current;
     if (state.status === GameStatus.Playing) return;
 
@@ -143,6 +143,7 @@ export function useGameController(canvasRef: React.RefObject<HTMLCanvasElement |
       height: config.gridHeight * config.cellSize,
     });
 
+    await resumeAudioContext();
     playStart();
     frameCountRef.current = 0;
     renderFrame();

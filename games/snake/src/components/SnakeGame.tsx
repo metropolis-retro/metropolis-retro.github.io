@@ -43,18 +43,11 @@ export function SnakeGame({ className = "" }: SnakeGameProps) {
     const onFullscreenChange = () => {
       const inFullscreen = Boolean(document.fullscreenElement);
       setIsFullscreen(inFullscreen);
-
-      if (inFullscreen) {
-        document.body.classList.add("show-system-cursor");
-      } else {
-        document.body.classList.remove("show-system-cursor");
-      }
     };
 
     document.addEventListener("fullscreenchange", onFullscreenChange);
     return () => {
       document.removeEventListener("fullscreenchange", onFullscreenChange);
-      document.body.classList.remove("show-system-cursor");
     };
   }, []);
 
@@ -85,7 +78,7 @@ export function SnakeGame({ className = "" }: SnakeGameProps) {
   return (
     <div
       ref={containerRef}
-      className={`relative flex flex-col items-center justify-center w-full h-full min-h-[400px] bg-slate-950 select-none touch-manipulation cursor-default ${className}`}
+      className={`relative flex flex-col items-center justify-center w-full h-full min-h-[400px] bg-slate-950 select-none touch-manipulation cursor-default ${isFullscreen ? "show-system-cursor" : ""} ${className}`}
       style={isFullscreen ? { cursor: "default" } : undefined}
     >
       <div className="absolute top-2 right-2 z-30 flex items-center gap-2">

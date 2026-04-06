@@ -106,7 +106,7 @@ export function MagneticCursor() {
 
       <style jsx global>{`
         @media (min-width: 768px) {
-          body:not(.show-system-cursor) * {
+          body:not(.show-system-cursor) *:not(.show-system-cursor):not(.show-system-cursor *) {
             cursor: none !important;
           }
         }

@@ -10,10 +10,17 @@ function getAudioContext(): AudioContext | null {
     if (!AudioCtxClass) return null;
     audioCtx = new AudioCtxClass();
   }
-  if (audioCtx.state === "suspended") {
-    void audioCtx.resume();
-  }
   return audioCtx;
+}
+
+export async function resumeAudioContext(): Promise<void> {
+  const ctx = getAudioContext();
+  if (!ctx || ctx.state !== "suspended") return;
+  try {
+    await ctx.resume();
+  } catch {
+    // Ignore resume failures caused by browser autoplay policies.
+  }
 }
 
 function playTone(

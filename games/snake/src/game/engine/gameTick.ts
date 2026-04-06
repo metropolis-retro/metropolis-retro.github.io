@@ -12,6 +12,8 @@ export interface TickResult {
   leveledUp: boolean;
 }
 
+const SPEED_SCALING_FACTOR = 10;
+
 export function gameTick(state: GameState, config: GameConfig, now: number): TickResult {
   const result: TickResult = {
     ate: false,
@@ -23,7 +25,7 @@ export function gameTick(state: GameState, config: GameConfig, now: number): Tic
   if (state.status !== GameStatus.Playing) return result;
 
   const effectiveSpeed = state.speed * getSpeedMultiplier(state);
-  const interval = 1000 / effectiveSpeed * 10;
+  const interval = (1000 / effectiveSpeed) * SPEED_SCALING_FACTOR;
 
   if (now - state.lastMoveTime < interval) return result;
   state.lastMoveTime = now;
