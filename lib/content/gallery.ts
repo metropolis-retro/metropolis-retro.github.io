@@ -18,19 +18,19 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "2",
-    title: "Hot Pink versus Green",
-    description: "The Breakfast Creek Hotel Since 1889",
-    imageUrl: "/images/gallery/chess.jpg",
-    aspect: "landscape",
-    category: "events",
-  },
-  {
-    id: "3",
     title: "C.O.O.L. Chess",
     description: "Chess literature from our club library collection",
     imageUrl: "/images/gallery/cool-chess.jpg",
     aspect: "portrait",
     category: "community",
+  },
+  {
+    id: "3",
+    title: "Hot Pink versus Green",
+    description: "The Breakfast Creek Hotel Since 1889",
+    imageUrl: "/images/gallery/chess.jpg",
+    aspect: "wide",
+    category: "events",
   },
   {
     id: "4",
@@ -82,14 +82,6 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "10",
-    title: "Early Setup",
-    description: "Setting up early one day at the hotel",
-    imageUrl: "/images/gallery/early-setup.jpg",
-    aspect: "portrait",
-    category: "events",
-  },
-  {
-    id: "11",
     title: "The Big Issue",
     description: "We support The Big Issue",
     imageUrl: "/images/gallery/the-big-issue.jpg",
@@ -97,11 +89,19 @@ export const galleryImages: GalleryImage[] = [
     category: "community",
   },
   {
-    id: "12",
+    id: "11",
     title: "Twelfth Event",
     description: "Table 8 in the beer garden is our regular Monday night hangout",
     imageUrl: "/images/gallery/twelfth-event.png",
     aspect: "wide",
+    category: "events",
+  },
+  {
+    id: "12",
+    title: "Early Setup",
+    description: "Setting up early one day at the hotel",
+    imageUrl: "/images/gallery/early-setup.jpg",
+    aspect: "portrait",
     category: "events",
   },
   {
