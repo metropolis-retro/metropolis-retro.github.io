@@ -82,14 +82,14 @@ repos:
         files: \.md$
         stages: [manual]
 
-  # - repo: https://github.com/oxipng/oxipng
-  #  rev: v10.1.0
-  #  hooks:
-  #    - id: oxipng
-  #      name: run oxipng
-  #      description: check PNG files with oxipng
-  #      args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
-  #      stages: [manual]
+  - repo: https://github.com/oxipng/oxipng
+    rev: v10.1.0
+    hooks:
+      - id: oxipng
+        name: run oxipng
+        description: check PNG files with oxipng
+        args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
+        stages: [manual]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
