@@ -45,11 +45,11 @@ export function ClientLogos() {
         className={`group relative max-w-[1280px] mx-auto px-6 md:px-12 ${marqueeMask}`}
       >
         <div className="relative flex items-center min-h-[3rem] md:min-h-[3.25rem] cursor-default">
-          <div className="flex items-center gap-x-4 md:gap-x-6 animate-marquee px-2 group-hover:[animation-play-state:paused]">
+          <div className="flex items-center animate-marquee group-hover:[animation-play-state:paused]">
             {[...names, ...names].map((client, index) => (
               <span
                 key={`${client}-${index}`}
-                className="shrink-0 whitespace-nowrap px-4 py-2 text-sm font-medium border border-border rounded-full hover:bg-secondary transition-colors cursor-default"
+                className="shrink-0 whitespace-nowrap mx-2 md:mx-3 px-4 py-2 text-sm font-medium border border-border rounded-full hover:bg-secondary transition-colors cursor-default"
               >
                 {client}
               </span>
