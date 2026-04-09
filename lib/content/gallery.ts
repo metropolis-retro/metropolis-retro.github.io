@@ -18,19 +18,19 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "2",
-    title: "Hot Pink versus Green",
-    description: "The Breakfast Creek Hotel Since 1889",
-    imageUrl: "/images/gallery/chess.jpg",
-    aspect: "landscape",
-    category: "events",
-  },
-  {
-    id: "3",
     title: "C.O.O.L. Chess",
     description: "Chess literature from our club library collection",
     imageUrl: "/images/gallery/cool-chess.jpg",
     aspect: "portrait",
     category: "community",
+  },
+  {
+    id: "3",
+    title: "Hot Pink versus Green",
+    description: "The Breakfast Creek Hotel Since 1889",
+    imageUrl: "/images/gallery/chess.jpg",
+    aspect: "wide",
+    category: "events",
   },
   {
     id: "4",
@@ -82,14 +82,6 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "10",
-    title: "Early Setup",
-    description: "Setting up early one day at the hotel",
-    imageUrl: "/images/gallery/early-setup.jpg",
-    aspect: "portrait",
-    category: "events",
-  },
-  {
-    id: "11",
     title: "The Big Issue",
     description: "We support The Big Issue",
     imageUrl: "/images/gallery/the-big-issue.jpg",
@@ -97,11 +89,19 @@ export const galleryImages: GalleryImage[] = [
     category: "community",
   },
   {
-    id: "12",
+    id: "11",
     title: "Twelfth Event",
     description: "Table 8 in the beer garden is our regular Monday night hangout",
     imageUrl: "/images/gallery/twelfth-event.png",
     aspect: "wide",
+    category: "events",
+  },
+  {
+    id: "12",
+    title: "Early Setup",
+    description: "Setting up early one day at the hotel",
+    imageUrl: "/images/gallery/early-setup.jpg",
+    aspect: "portrait",
     category: "events",
   },
   {
@@ -112,7 +112,46 @@ export const galleryImages: GalleryImage[] = [
     aspect: "portrait",
     category: "community",
   },
-
+  {
+    id: "14",
+    title: "Trivial Pursuit Mini Card Packs",
+    description: "Quick-play trivia packed with the decades biggest events, trends, fads, entertainment, and more!",
+    imageUrl: "/images/gallery/trivial-pursuit-mini-packs-front.jpeg",
+    aspect: "landscape",
+    category: "events",
+  },
+  {
+    id: "15",
+    title: "Free Stickers",
+    description: "We regularly give away free stickers at events!",
+    imageUrl: "/images/gallery/free-stickers.png",
+    aspect: "landscape",
+    category: "community",
+  },
+  {
+    id: "16",
+    title: "Waddingtons OF LONDON",
+    description: "A storied British brand, synonymous with high-quality playing cards since they first entered the market in 1922. Best known for their Waddingtons Number 1 series",
+    imageUrl: "/images/gallery/waddingtons-of-london-playing-cards.jpeg",
+    aspect: "wide",
+    category: "events",
+  },
+  {
+    id: "17",
+    title: "LEAP® PQ9907S",
+    description: "Digital Chess Timer with delay and bonus",
+    imageUrl: "/images/gallery/LEAP-PQ9907S.jpeg",
+    aspect: "landscape",
+    category: "events",
+  },
+  {
+    id: "18",
+    title: "FIVE CROWNS",
+    description: "The five-suited rummy-style card game",
+    imageUrl: "/images/gallery/five-crowns-front.jpeg",
+    aspect: "landscape",
+    category: "events",
+  },
 ]
 
 export const galleryCategories = Array.from(new Set(galleryImages.map((img) => img.category).filter(Boolean))) as string[]

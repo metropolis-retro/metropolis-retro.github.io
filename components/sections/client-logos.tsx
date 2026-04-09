@@ -14,7 +14,7 @@ const names = [
   "Tradesmen Dan and Tim",
   "Random father and son",
   "Henry",
-  "lichess"
+  "Lichess"
 ];
 
 export function ClientLogos() {

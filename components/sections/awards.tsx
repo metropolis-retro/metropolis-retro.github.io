@@ -9,7 +9,7 @@ const awards = [
   { title: "Club launch in Brisbane", year: "2025", organization: "Metropolis Retro", link: "#" },
   { title: "First official weekly meetup series", year: "2025", organization: "Community Program", link: "#" },
   { title: "11th event at The Breakfast Creek Hotel", year: "2026", organization: "Community Program", link: "#" },
-  { title: "Club launch on Discord, Telegram and lichess", year: "2026", organization: "Metropolis Retro", link: "#" },
+  { title: "Club launch on Discord, Lichess and Telegram", year: "2026", organization: "Metropolis Retro", link: "#" },
   { title: "Growing Brisbane chess network", year: "2026", organization: "Local Community", link: "#" },
   { title: "Club launch on Instagram and YouTube", year: "2026", organization: "Metropolis Retro", link: "#" },
 ];

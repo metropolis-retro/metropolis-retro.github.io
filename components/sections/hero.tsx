@@ -39,8 +39,8 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden">
-      <div className="absolute -right-32 md:-right-48 top-32 md:top-40 w-[500px] h-[500px] md:w-[750px] md:h-[750px] pointer-events-none animate-orb-rotate -z-10 scale-125">
-        <Image src="/images/quaternity-opening-setup.png" alt="" width={750} height={750} className="w-full h-full" priority />
+      <div className="hidden md:block absolute md:-right-48 md:top-40 w-[400px] h-[400px] lg:w-[650px] lg:h-[650px] pointer-events-none animate-orb-rotate -z-10 scale-125">
+        <Image src="/images/quaternity-opening-setup.png" alt="" width={813} height={813} className="w-full h-full" sizes="(min-width: 1024px) 813px, (min-width: 768px) 500px, 0px" priority />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-20 md:py-32 md:pb-4 pb-4 pt-4 md:pt-32">

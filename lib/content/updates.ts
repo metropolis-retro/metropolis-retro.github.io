@@ -46,19 +46,6 @@ export const updates: UpdateItem[] = [
       "The current event rhythm includes Monday night beginner social club workshops, Friday CBD lunchtime technology events, and monthly online chess simuls. A chess" +
         " simul (simultaneous exhibition) is an event where one strong player (often a Master) plays multiple games at once against several opponents.",
   },
-    /*
-  {
-    id: 4,
-    slug: "pairing-flow-improvements",
-    title: "Pairing format improvements",
-    excerpt: "We refined pairing flow to reduce downtime and improve round transitions during busy nights.",
-    image: "/images/bg-2.png",
-    date: "Mar 12, 2026",
-    readTime: "4 min read",
-    content:
-      "We updated pairing flow to reduce start delays during peak attendance and improve fairness across mixed rating groups.",
-  },
-     */
 ];
 
 export function getUpdateBySlug(slug: string) {

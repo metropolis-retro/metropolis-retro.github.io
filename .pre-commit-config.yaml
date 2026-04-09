@@ -57,12 +57,12 @@ repos:
         files: ^\.github/dependabot\.yml$
 
   # GO-based
-  # - repo: https://github.com/gitleaks/gitleaks
-  #   rev: v8.30.0
-  #   hooks:
-  #     - id: gitleaks
-  #       name: Run gitleaks
-  #       description: Check for secrets with gitleaks
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+        name: Run gitleaks
+        description: Check for secrets with gitleaks
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.2
@@ -82,14 +82,14 @@ repos:
         files: \.md$
         stages: [manual]
 
-  # - repo: https://github.com/oxipng/oxipng
-  #  rev: v10.1.0
-  #  hooks:
-  #    - id: oxipng
-  #      name: run oxipng
-  #      description: check PNG files with oxipng
-  #      args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
-  #      stages: [manual]
+  - repo: https://github.com/oxipng/oxipng
+    rev: v10.1.0
+    hooks:
+      - id: oxipng
+        name: run oxipng
+        description: check PNG files with oxipng
+        args: ['--fix', '-o', '4', '--strip', 'safe', '--alpha']
+        stages: [manual]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -113,7 +113,7 @@ repos:
       - id: check-added-large-files
         name: run check-added-large-files
         description: prevent giant files from being committed
-        args: ['--maxkb=3500']
+        args: ['--maxkb=7750']
       - id: check-json
         name: run check-json
         description: check JSON files for syntax errors
@@ -155,15 +155,12 @@ repos:
   #      description: Run Biome linter and formatter for JSON files
   #      additional_dependencies: ["@biomejs/biome"]
 
-  #  - repo: https://github.com/rhysd/actionlint
-  #    rev: v1.7.11
-  #    hooks:
-  #      - id: actionlint
-  #        name: run actionlint
-  #        description: actionlint is a static checker for GitHub Actions workflow files
-  #        args:
-  #          - -ignore
-  #          - 'SC2015'
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+        name: run actionlint
+        description: actionlint is a static checker for GitHub Actions workflow files
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 3.6.1
@@ -174,7 +171,7 @@ repos:
         alias: ec
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v10.1.0
+    rev: v10.2.0
     hooks:
       - id: eslint
         name: run eslint

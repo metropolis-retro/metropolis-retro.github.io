@@ -22,9 +22,9 @@ export const blogPosts: BlogPost[] = [
     title: "How to improve between club nights",
     excerpt:
       "A practical weekly routine to turn casual games into steady rating and decision-making improvement.",
-    coverImage: "/images/",
-    publishedAt: "2026-03-10",
-    readTime: "6 min read",
+    coverImage: "/images/gallery/books.png",
+    publishedAt: "2026-04-07",
+    readTime: "2 min read",
     category: "Training",
     tags: ["Improvement", "Study Plan", "Club Players"],
     author: "Metropolis Retro Coaching Team",
@@ -37,16 +37,9 @@ export const blogPosts: BlogPost[] = [
         ],
       },
       {
-        heading: "Review your own games first",
-        paragraphs: [
-          "Before opening an engine, write down where you felt uncertain and what alternatives you considered. This captures your decision process.",
-          "Engine checks are more valuable after your own analysis because they reveal thinking gaps instead of only showing move differences.",
-        ],
-      },
-      {
         heading: "Build a two-session training cycle",
         paragraphs: [
-          "Session one: solve 15 to 20 tactical puzzles and annotate one game. Session two: play two rapid games and compare outcomes against your focus area.",
+          "Session one: solve 10 to 15 tactical puzzles and annotate one game. Session two: play two blitz games and compare outcomes against your focus area.",
           "This loop creates consistent progress without requiring heavy daily study time.",
         ],
       },
@@ -54,114 +47,60 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
-    slug: "rapid-time-management-for-club-events",
-    title: "Rapid time management for club events",
+    slug: "card-games-for-club-events",
+    title: "Card games for club events",
     excerpt:
-      "Simple decision rules to avoid clock collapses and finish your games with more practical chances.",
-    coverImage: "/images/",
-    publishedAt: "2026-03-14",
-    readTime: "5 min read",
-    category: "Competition",
-    tags: ["Rapid", "Time Management", "Tournament Prep"],
-    author: "Metropolis Retro Tournament Desk",
+      "Master the most popular card games for all ages.",
+    coverImage: "/images/gallery/five-crowns-front.jpeg",
+    publishedAt: "2026-04-03",
+    readTime: "3 min read",
+    category: "Social",
+    tags: ["Luck", "Strategy", "Trivia"],
+    author: "Metropolis Retro Social Desk",
     content: [
       {
-        heading: "Budget your time by phase",
+        heading: "Classic and modern card games for all ages",
         paragraphs: [
-          "In rapid formats, allocate most of your deep thinks to critical middlegame moments, not familiar opening moves.",
-          "Entering move 20 with enough clock lets you convert better positions and defend worse ones more resourcefully.",
-        ],
-      },
-      {
-        heading: "Use the 20-second checkpoint",
-        paragraphs: [
-          "When you feel stuck, force a quick candidate scan at 20 seconds: checks, captures, and threats. Then decide if the position deserves extra time.",
-          "This keeps your clock moving while still preventing one-move blunders.",
-        ],
-      },
-      {
-        heading: "Practice with realistic constraints",
-        paragraphs: [
-          "Training with the same time control as club events improves practical instincts faster than unlimited analysis games.",
-          "Replicate event conditions once or twice per week to normalize pressure.",
+          "UNO Show ’Em No Mercy is a high-stakes version of the classic featuring 56 extra cards, including" +
+          " a \"Wild Draw 10\" and a rule that eliminates anyone holding 25 cards. Five Crowns is a five-suited" +
+          " rummy-style game where the wild cards change every round, challenging players to build sets and runs over" +
+          " eleven levels. Trivial Pursuit Mini Packs offer a portable, board-free experience with 240 questions" +
+          " usually themed by specific decades like the 80s or 90s. Classic Card Games refer to traditional favorites" +
+          " played with a standard deck, such as Rummy, Spades, or Poker, which focus on matching or trick-taking." +
+          "While UNO and Five Crowns rely on luck and strategy, Trivial Pursuit tests your knowledge across various" +
+          " pop-culture categories. The mini trivia packs are designed for quick wins, requiring only five correct" +
+          " answers to finish a match. In contrast, No Mercy allows players to stack penalties, making it much more" +
+          " aggressive than a standard game night. Together, these options cater to everyone from competitive" +
+          " strategists to trivia buffs looking for travel-friendly entertainment.",
         ],
       },
     ],
   },
-  {
-    id: 3,
-    slug: "opening-repertoire-for-busy-players",
-    title: "Opening repertoire for busy players",
-    excerpt:
-      "How to choose compact opening systems that are easier to remember and useful across many club pairings.",
-    coverImage: "/images/",
-    publishedAt: "2026-03-18",
-    readTime: "7 min read",
-    category: "Openings",
-    tags: ["Openings", "Repertoire", "Beginner Friendly"],
-    author: "Metropolis Retro Analysis Group",
-    content: [
-      {
-        heading: "Prefer structures over memorization",
-        paragraphs: [
-          "For most club players, understanding pawn structures and piece plans gives better long-term results than memorizing long tactical lines.",
-          "Choose openings that repeatedly lead to positions you understand.",
-        ],
-      },
-      {
-        heading: "Use one core system per color",
-        paragraphs: [
-          "A compact repertoire reduces pre-game stress and post-game confusion. Keep one primary setup as White and one versus 1.e4 and 1.d4 as Black.",
-          "Consistency creates stronger pattern recall during practical play.",
-        ],
-      },
-      {
-        heading: "Track recurring mistakes",
-        paragraphs: [
-          "After each meetup, note one opening decision that cost time or position quality. Add a short correction note to your repertoire file.",
-          "Small corrections across several weeks produce measurable gains.",
-        ],
-      },
-    ],
-  },
-    /*
-  {
-    id: 4,
-    slug: "building-confidence-for-your-first-tournament",
-    title: "Building confidence for your first tournament",
-    excerpt:
-      "A calm, realistic preparation checklist for players entering their first rated event.",
-    coverImage: "/images/bg-2.png",
-    publishedAt: "2026-03-22",
-    readTime: "5 min read",
-    category: "Mindset",
-    tags: ["Tournament", "Mindset", "Beginners"],
-    author: "Metropolis Retro Community Team",
-    content: [
-      {
-        heading: "Define success beyond result",
-        paragraphs: [
-          "Your first tournament should prioritize process goals: time usage, move quality, and emotional control. Rating outcomes follow over time.",
-          "Process goals reduce pressure and improve post-event learning.",
-        ],
-      },
-      {
-        heading: "Prepare your event routine",
-        paragraphs: [
-          "Pack essentials the night before, arrive early, and establish a warm-up pattern with a few tactical exercises.",
-          "A repeatable routine gives stability when competitive stress rises.",
-        ],
-      },
-      {
-        heading: "Review with intention",
-        paragraphs: [
-          "After the event, analyze one win and one loss in detail. Focus on turning points and practical decisions, not only tactical misses.",
-          "This balanced review keeps confidence high while still accelerating growth.",
-        ],
-      },
-    ],
-  },
-     */
+    {
+        id: 3,
+        slug: "chess-clocks-for-club-events",
+        title: "Chess clocks for club events",
+        excerpt:
+            "LEAP® PQ9907S Digital Chess Timer with delay and bonus",
+        coverImage: "/images/gallery/LEAP-PQ9907S.jpeg",
+        publishedAt: "2026-03-25",
+        readTime: "3 min read",
+        category: "Training",
+        tags: ["Club Players", "Time Management"],
+        author: "Metropolis Retro Coaching Team",
+        content: [
+            {
+                heading: "Standardized with LEAP®",
+                paragraphs: [
+                    "Using the same model and brand of chess clock across a club or tournament ensures operational consistency, meaning players don't have to relearn button layouts between rounds. This uniformity reduces accidental errors during high-pressure time scrambles and creates a level playing field where every board offers the same tactile response and display readability.\n" +
+                    "For organizers, a standardized fleet of clocks simplifies tournament setup because the programming sequence is identical for every device. This allows arbiters to resolve disputes or add time penalties much faster, as they are already intimately familiar with the specific interface and menu system of that model.\n" +
+                    "The LEAP® PQ9907S is a standout choice for this type of bulk use because it balances professional features with extreme affordability. It supports essential competitive timing modes, including increments and delays, making it suitable for both casual club nights and serious rated matches.\n" +
+                    "Players benefit from its user-friendly interface, featuring a large, durable \"seesaw\" button and a memory function that saves the last used settings for instant play. Its lightweight, compact design also makes it highly portable, fitting easily into any standard chess bag for travel or school use.\n" +
+                    "Ultimately, while it is more budget-friendly than flagship FIDE-approved models, the LEAP® PQ9907S provides the reliability and customisation needed for modern play. It includes toggleable audible alerts and clear digital displays, making it an ideal \"best value\" option for expanding a chess community."
+                ]
+            }
+        ]
+    },
 ]
 
 export function getBlogPostBySlug(slug: string) {
