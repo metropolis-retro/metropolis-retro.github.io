@@ -10,6 +10,7 @@ retro-futuristic engine.
 
 ---
 
+[![Basic Tests Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/basic-tests.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/basic-tests.yml)
 [![ls-lint Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/ls-lint.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/ls-lint.yml)
 
 ---
