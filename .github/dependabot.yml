@@ -1,6 +1,18 @@
 ---
 version: 2
 updates:
+  - package-ecosystem: 'bun'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 3
+    groups:
+      bun-dependencies:
+        patterns:
+          - '*'
+    cooldown:
+      default-days: 7
+
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
