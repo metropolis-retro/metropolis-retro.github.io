@@ -6,7 +6,7 @@ import { ArrowDown } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function Hero() {
-  const titleText = "Brisbane chess meetups for every level"
+  const titleText = "Brisbane games and social chess meetups for every level"
   const words = titleText.split(" ")
   const [maskReveal, setMaskReveal] = useState(0)
   const [opacity, setOpacity] = useState(0)
@@ -39,15 +39,14 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center pt-20 relative overflow-hidden">
-      <div className="absolute -right-32 md:-right-48 top-32 md:top-40 w-[500px] h-[500px] md:w-[750px] md:h-[750px] pointer-events-none animate-orb-rotate -z-10 scale-125">
-        <Image src="/images/orb.png" alt="" width={750} height={750} className="w-full h-full" priority />
+      <div className="hidden md:block absolute md:-right-48 md:top-40 w-[400px] h-[400px] lg:w-[650px] lg:h-[650px] pointer-events-none animate-orb-rotate -z-10 scale-125">
+        <Image src="/images/quaternity-opening-setup.png" alt="" width={813} height={813} className="w-full h-full" sizes="(min-width: 1024px) 813px, (min-width: 768px) 500px, 0px" priority />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-12 py-20 md:py-32 md:pb-4 pb-4 pt-4 md:pt-32">
         <div className="max-w-4xl">
           <p className="text-muted-foreground mb-6 text-lg font-normal">Metropolis Retro Chess Club</p>
 
-          {/* Main Title with animated words */}
           <h1 className="text-5xl sm:text-6xl lg:text-[96px] font-semibold tracking-tight leading-[1] text-balance md:text-9xl">
             {words.map((word, index) => (
               <span
@@ -74,8 +73,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl leading-relaxed text-left text-lg text-muted-foreground ml-0">
-            We are an official chess club in Brisbane, Australia, running friendly meetups, structured club nights,
-            and competitive events for beginners through advanced players.
+            We are an official games and social club in Brisbane, Australia, running friendly meetups, structured club nights,
+            and competitive events for beginners through advanced players. We run a world chess team and games club on GitHub.
           </p>
 
           <div className="flex flex-row items-start gap-4 mt-10">
@@ -109,8 +108,8 @@ export function Hero() {
 
       <div className="w-full mt-8">
         <Image
-          src="/images/designer.png"
-          alt="Metropolis Retro chess club meetup"
+          src="/images/gallery/third-event-beers-in-play.jpg"
+          alt="Arrived early for the 13th Metropolis Retro social club meetup at the Breakfast Creek Hotel"
           width={1200}
           height={800}
           className="w-full h-auto transition-all duration-100 ease-out"

@@ -1,43 +1,62 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Shuffle, RefreshCw } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useThemeMode } from "@/components/theme-provider"
+
+const ICONS = {
+  light: Sun,
+  dark: Moon,
+  random: Shuffle,
+} as const
+
+const LABELS = {
+  light: "Light mode — click for dark",
+  dark: "Dark mode — click for random",
+  random: "Random mode — click for light",
+} as const
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { mode, cycleMode, shuffleRandom } = useThemeMode()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
     return (
-      <button
-        className={cn(
-          "relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary transition-colors",
-          className,
-        )}
-        aria-label="Toggle theme"
-      >
-        <span className="h-4 w-4" />
-      </button>
+      <div className={cn("flex items-center gap-1", className)}>
+        <button
+          className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary transition-colors"
+          aria-label="Toggle theme"
+        >
+          <span className="h-4 w-4" />
+        </button>
+      </div>
     )
   }
 
-  const isDark = resolvedTheme === "dark"
+  const Icon = ICONS[mode]
 
   return (
-    <button
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={cn(
-        "relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary transition-colors hover:bg-accent cursor-pointer",
-        className,
+    <div className={cn("flex items-center gap-1", className)}>
+      <button
+        onClick={cycleMode}
+        className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary transition-colors hover:bg-accent cursor-pointer"
+        aria-label={LABELS[mode]}
+      >
+        <Icon className="h-4 w-4" />
+      </button>
+
+      {mode === "random" && (
+        <button
+          onClick={shuffleRandom}
+          className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary transition-colors hover:bg-accent cursor-pointer"
+          aria-label="Regenerate random palette"
+        >
+          <RefreshCw className="h-3.5 w-3.5" />
+        </button>
       )}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-    >
-      <Sun className="h-4 w-4 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
-    </button>
+    </div>
   )
 }

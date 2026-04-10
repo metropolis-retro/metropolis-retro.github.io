@@ -10,7 +10,6 @@ export function GradientBar() {
       const selectedWorksSection = document.querySelector("#events")
       if (selectedWorksSection) {
         const rect = selectedWorksSection.getBoundingClientRect()
-        // Show gradient when Selected Works section is in viewport
         const isSectionVisible = rect.top < window.innerHeight && rect.bottom > 0
         setIsVisible(isSectionVisible)
       }

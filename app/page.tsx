@@ -49,7 +49,6 @@ export default function HomePage() {
         <VenueSchedule />
         <Membership />
         <ClientLogos />
-        <Testimonials />
         <Awards />
         <Insights />
         <Faq />

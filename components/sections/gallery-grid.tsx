@@ -1,6 +1,5 @@
 "use client"
 
-import type React from "react"
 import Image from "next/image"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
@@ -59,7 +58,6 @@ export function GalleryGrid({ images }: GalleryGridProps) {
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm flex items-center justify-center p-4"

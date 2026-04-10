@@ -10,7 +10,6 @@ export function SelectedWorks() {
   return (
     <section id="works" className="py-20 md:py-10 md:pt-32 pb-4">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
-        {/* Section Header */}
         <div className="flex items-center justify-between mb-12 md:mb-16">
           <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
             Upcoming events
@@ -37,7 +36,6 @@ export function SelectedWorks() {
             >
               <Link href={`/events/${work.slug}`} className="group block pt-10">
                 <article className="overflow-hidden rounded-2xl md:rounded-3xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                  {/* Image */}
                   <div className="relative aspect-[2/1] overflow-hidden bg-secondary">
                     <Image
                       src={work.image || "/placeholder.svg"}
@@ -47,7 +45,6 @@ export function SelectedWorks() {
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="p-3 md:p-3">
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -60,7 +57,6 @@ export function SelectedWorks() {
                       />
                     </div>
 
-                    {/* Tags */}
                     <div className="flex flex-wrap gap-2 mt-4">
                       {work.tags.map((tag) => (
                         <span
@@ -78,7 +74,6 @@ export function SelectedWorks() {
           ))}
         </div>
 
-        {/* Mobile View All */}
         <div className="md:hidden mt-8 text-center">
           <Link
             href="/events"

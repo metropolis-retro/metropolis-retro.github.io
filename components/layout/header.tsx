@@ -12,9 +12,8 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 const navItems = [
   { href: "#events", label: "Upcoming events", number: "01" },
   { href: "#about", label: "About", number: "02" },
-  { href: "#testimonials", label: "What members say", number: "03" },
-  { href: "#awards", label: "Club milestones", number: "04" },
-  { href: "#insights", label: "Latest updates", number: "05" },
+  { href: "#awards", label: "Club milestones", number: "03" },
+  { href: "#insights", label: "Latest updates", number: "04" },
 ];
 
 export function Header() {
@@ -84,7 +83,6 @@ export function Header() {
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-12">
           <nav className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
             <Link
               href="/"
               onClick={(e) => {
@@ -99,8 +97,6 @@ export function Header() {
             >
               Metropolis Retro
             </Link>
-
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
@@ -110,7 +106,6 @@ export function Header() {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
-                  {/* <span className="text-xs ml-1 opacity-50">({item.number})</span> */}
                 </Link>
               ))}
               <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -121,7 +116,6 @@ export function Header() {
               </Link>
             </div>
 
-            {/* CTA Button + Theme Toggle */}
             <div className="hidden md:flex items-center gap-3">
               <ThemeToggle />
               <Link
@@ -137,7 +131,6 @@ export function Header() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center gap-2">
               <ThemeToggle />
               <button onClick={() => setIsMobileMenuOpen(true)} className="p-2 -mr-2 cursor-pointer" aria-label="Open menu">
@@ -148,7 +141,6 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-background md:hidden">
           <div className="flex min-h-full flex-col py-4 px-8">
