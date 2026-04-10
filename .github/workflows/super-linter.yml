@@ -31,6 +31,7 @@ jobs:
         env:
           VALIDATE_BIOME_LINT: true
           VALIDATE_BIOME_FORMAT: true
+          VALIDATE_CHECKOV: true
           VALIDATE_EDITORCONFIG: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_GITHUB_ACTIONS_ZIZMOR: true
