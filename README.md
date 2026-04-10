@@ -8,7 +8,12 @@ enthusiasts of chess, classic gaming, and vintage aesthetics. Hosted on
 platform merges timeless 64-square logic with a high-performance,
 retro-futuristic engine.
 
------
+---
+
+[![Basic Tests Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/basic-tests.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/basic-tests.yml)
+[![ls-lint Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/ls-lint.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/ls-lint.yml)
+
+---
 
 ## ⚡ High-Performance Tech Stack
 
