@@ -14,9 +14,12 @@ permissions:
   contents: read
 
 jobs:
-  pre-commit:
-    name: Run prek
-    runs-on: ubuntu-latest
+  prek:
+    name: 🏃🏼 prek on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
     steps:
       - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
