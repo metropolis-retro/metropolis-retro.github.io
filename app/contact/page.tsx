@@ -35,7 +35,7 @@ export default function ContactPage() {
         <section className="py-16 md:py-20 border-b border-border">
           <div className="max-w-[1280px] mx-auto px-6 md:px-12">
             <p className="text-sm uppercase tracking-wider text-muted-foreground mb-6">Contact</p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight max-w-4xl">Join the club and play with us in Brisbane.</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight max-w-4xl">Join the club and play with us in Brisbane and on Lichess.</h1>
             <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Send us a message for meetup details, venue info, and upcoming event registration.
             </p>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <dt className="text-muted-foreground">Regular meetup days</dt>
-                  <dd className="mt-1 font-medium">Wednesday, Thursday, Saturday</dd>
+                  <dd className="mt-1 font-medium">Monday, Friday and once a month online for the club simul</dd>
                 </div>
               </dl>
             </div>

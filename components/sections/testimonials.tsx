@@ -89,7 +89,6 @@ export function Testimonials() {
       <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-20 hidden lg:block" />
 
       <div className="hidden lg:block pl-6 md:pl-12">
-        {/* Section Header */}
         <div className="mb-12 md:mb-16 max-w-[1280px]">
           <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
             What members say
@@ -110,7 +109,6 @@ export function Testimonials() {
                 key={`${testimonial.id}-${index}`}
                 className="relative flex-shrink-0 w-[85vw] md:w-[400px] p-6 md:p-8 border bg-card hover:shadow-lg transition-shadow overflow-hidden border-border md:px-6 md:py-6 rounded-3xl"
               >
-                {/* Author Info */}
                 <div className="flex items-center gap-3 mb-4">
                   <Image
                     src={testimonial.avatar || "/placeholder.svg"}
@@ -125,7 +123,6 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                {/* Quote */}
                 <blockquote className="text-base leading-relaxed font-semibold text-foreground relative z-10">
                   "{testimonial.quote}"
                 </blockquote>
@@ -153,7 +150,6 @@ export function Testimonials() {
                 key={`reverse-${testimonial.id}-${index}`}
                 className="relative flex-shrink-0 w-[85vw] md:w-[400px] p-6 md:p-8 border bg-card hover:shadow-lg transition-shadow overflow-hidden border-border md:px-6 md:py-6 rounded-3xl"
               >
-                {/* Author Info */}
                 <div className="flex items-center gap-3 mb-4">
                   <Image
                     src={testimonial.avatar || "/placeholder.svg"}
@@ -168,7 +164,6 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                {/* Quote */}
                 <blockquote className="text-base leading-relaxed font-semibold text-foreground relative z-10">
                   "{testimonial.quote}"
                 </blockquote>
@@ -184,7 +179,6 @@ export function Testimonials() {
       </div>
 
       <div className="lg:hidden max-w-[1280px] mx-auto px-6 md:px-12">
-        {/* Section Header */}
         <div className="mb-12 md:mb-16">
           <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
             What members say
@@ -202,7 +196,6 @@ export function Testimonials() {
               }}
             >
               <article className="relative p-6 md:p-8 border bg-card transition-shadow overflow-hidden border-border rounded-3xl">
-                {/* Author Info */}
                 <div className="flex items-center gap-3 mb-4">
                   <Image
                     src={testimonial.avatar || "/placeholder.svg"}
@@ -217,7 +210,6 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                {/* Quote */}
                 <blockquote className="text-base leading-relaxed font-semibold text-foreground relative z-10">
                   "{testimonial.quote}"
                 </blockquote>

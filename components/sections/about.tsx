@@ -2,14 +2,17 @@
 
 const skills = [
   "Weekly Club Meetups",
-  "Rapid Chess Nights",
   "Beginner-Friendly Sessions",
   "Classical Play",
-  "Blitz Events",
-  "Tournament Pairings",
+  "Introduction To Chess Variants",
   "Game Analysis",
+  "Modern Board Games",
+  "Blitz Training",
   "Junior Development",
   "Community Events",
+  "Card Games",
+  "Technology Workshops",
+  "GitHub Organizations"
 ];
 
 const stats = [
@@ -25,24 +28,21 @@ export function About() {
     <section id="about" className="py-20 border-border border-t-0 md:py-10 md:pb-32 md:pt-32">
       <div className="max-w-[1280px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left Content */}
           <div>
             <SectionTitle className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-balance">
-              A Friendly Chess Community in Brisbane
+              A Friendly Games and Chess Community in Brisbane
             </SectionTitle>
             <p className="mt-6 text-muted-foreground leading-relaxed">
-              Metropolis Retro brings together chess lovers across Brisbane for regular over-the-board meetups,
+              Metropolis Retro brings together games lovers across Brisbane for regular over-the-board meetups,
               practical training sessions, and social play in a welcoming environment.
             </p>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Whether you are learning your first openings or preparing for tournament play, our club events are built
-              to help you improve, connect with others, and enjoy the game.
+              Whether you have just joined GitHub, learned your first card game or your preparing for chess tournament play, our
+                club events are built to help you improve, connect with others, and enjoy games.
             </p>
           </div>
 
-          {/* Right Content */}
           <div>
-            {/* Skills */}
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">What we run</h3>
               <div className="flex flex-wrap gap-2">
@@ -57,7 +57,6 @@ export function About() {
               </div>
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center p-4 bg-secondary rounded-2xl">
