@@ -5,7 +5,6 @@ import { notFound } from "next/navigation"
 
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { CommentsSection } from "@/components/blog/comments-section"
 import { getBlogPostBySlug, slugifyBlogTaxonomy } from "@/lib/content/blog-posts"
 import { BLOG_TITLE_BASE, SITE_URL, pageKeywords } from "@/lib/seo"
 
@@ -126,8 +125,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ))}
               </div>
             </article>
-
-            <CommentsSection postSlug={post.slug} />
           </div>
         </section>
       </main>
