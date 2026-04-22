@@ -1,7 +1,13 @@
 ---
 name: Super-Linter
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
 
 permissions: {}
 
@@ -23,16 +29,18 @@ jobs:
       - name: Super-Linter
         uses: super-linter/super-linter@9e863354e3ff62e0727d37183162c4a88873df41 # v8.6.0
         env:
+          VALIDATE_BIOME_LINT: true
+          VALIDATE_BIOME_FORMAT: true
+          VALIDATE_CHECKOV: true
           VALIDATE_EDITORCONFIG: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_GITHUB_ACTIONS_ZIZMOR: true
           VALIDATE_GIT_MERGE_CONFLICT_MARKERS: true
           VALIDATE_GITLEAKS: true
           VALIDATE_JSON: true
+          VALIDATE_JSON_PRETTIER: true
           VALIDATE_MARKDOWN: true
           VALIDATE_PRE_COMMIT: true
           # VALIDATE_SPELL_CODESPELL: true
           VALIDATE_YAML: true
-          # VALIDATE_BIOME_LINT: true
-          # VALIDATE_BIOME_FORMAT: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

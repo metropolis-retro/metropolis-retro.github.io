@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "target": "ES6",
     "skipLibCheck": true,
@@ -23,21 +19,11 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@games/snake": [
-        "./games/snake/src/App.tsx"
-      ],
-      "@games/snake/*": [
-        "./games/snake/src/*"
-      ],
-      "@games/pacman": [
-        "./games/pacman/src/App.tsx"
-      ],
-      "@games/pacman/*": [
-        "./games/pacman/src/*"
-      ]
+      "@/*": ["./*"],
+      "@games/pacman": ["./games/pacman/src/App.tsx"],
+      "@games/pacman/*": ["./games/pacman/src/*"],
+      "@games/snake": ["./games/snake/src/App.tsx"],
+      "@games/snake/*": ["./games/snake/src/*"]
     }
   },
   "include": [
@@ -47,7 +33,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
