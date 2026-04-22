@@ -199,7 +199,6 @@ repos:
         args: [--strict, -c=.github/linters/.yaml-lint.yml]
         types: [yaml]
         files: \.ya?ml$
-        exclude: '(^|/)(docker-compose.*\.ya?ml)$'
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
     rev: v1.23.1
