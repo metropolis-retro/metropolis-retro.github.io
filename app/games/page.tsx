@@ -45,9 +45,9 @@ const games: GameCard[] = [
   {
     title: "Snake",
     description: "Guide the snake to eat food and grow longer without hitting the walls or yourself.",
-    href: "#",
+    href: "/games/snake",
     emoji: "🐍",
-    available: false,
+    available: true,
   },
   {
     title: "Tetris",

@@ -21,7 +21,9 @@
     "paths": {
       "@/*": ["./*"],
       "@games/pacman": ["./games/pacman/src/App.tsx"],
-      "@games/pacman/*": ["./games/pacman/src/*"]
+      "@games/pacman/*": ["./games/pacman/src/*"],
+      "@games/snake": ["./games/snake/src/App.tsx"],
+      "@games/snake/*": ["./games/snake/src/*"]
     }
   },
   "include": [
