@@ -2,22 +2,17 @@ import { SectionTitle } from "@/components/ui/section-title"
 
 const schedule = [
   {
-    day: "Wednesday",
-    title: "Beginner Training Night",
-    time: "6:00 PM - 8:30 PM",
-    details: "Foundational tactics, opening ideas, and guided practice games.",
+    day: "Monday",
+    title: "Beginner Chess Training And Card Games Night",
+    time: "5:00 PM - 6:30 PM",
+    details: "Foundational chess tactics, opening ideas, and guided practice games. Play classic card games with Waddingtons of London cards. Jump back in time with Trivial" +
+        " Pursuit mini card packs covering 1980s and 2010s pop culture, movies, music, news and more.",
   },
   {
-    day: "Thursday",
-    title: "CBD Club Meetup",
-    time: "6:30 PM - 10:00 PM",
-    details: "Social and competitive over-the-board games for all levels.",
-  },
-  {
-    day: "Saturday",
-    title: "Rapid Arena",
-    time: "2:00 PM - 5:00 PM",
-    details: "Swiss rapid rounds with standings and short post-game analysis.",
+    day: "Friday",
+    title: "CBD Chess Technology Workshop Networking Event",
+    time: "1:30 PM - 2:30 PM",
+    details: "Preparations underway for a lunchtime social games club with competitive over-the-board chess games for all levels. Talk about GitHub, open-source and new technologies.",
   },
 ];
 

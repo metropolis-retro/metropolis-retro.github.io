@@ -24,7 +24,7 @@ export type BlogArchiveViewModel = {
 
 export const blogIndexViewModel: BlogArchiveViewModel = {
   eyebrow: "Metropolis Retro Blog",
-  title: "Strategy, training, and practical lessons from Brisbane club chess.",
+  title: "Strategy, training, and practical lessons from Brisbane games club.",
   description: "Explore every article, then jump into dedicated category and tag archives for more focused reading paths.",
   posts: blogPosts,
 }
@@ -32,15 +32,15 @@ export const blogIndexViewModel: BlogArchiveViewModel = {
 export const blogIndexMetadata: Metadata = {
   title: "Blog",
   description:
-    "Read Metropolis Retro blog posts on chess training, tournament preparation, openings, and practical improvement for club players.",
-  keywords: pageKeywords(["chess blog", "Brisbane chess articles", "club training posts"]),
+    "Read Metropolis Retro blog posts on card games, chess training, modern boardgames, open-source and practical improvements for club players and developers.",
+  keywords: pageKeywords(["Chess blog", "Card games", "Brisbane chess articles", "open-source", "Boardgames"]),
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
     title: `Blog | ${TITLE_BASE}`,
     description:
-      "Read Metropolis Retro blog posts on chess training, tournament preparation, openings, and practical improvement for club players.",
+      "Read Metropolis Retro blog posts on card games, chess training, modern boardgames, open-source and practical improvements for club players and developers.",
     url: `${SITE_URL}/blog`,
     type: "website",
   },
@@ -48,7 +48,7 @@ export const blogIndexMetadata: Metadata = {
     card: "summary_large_image",
     title: `Blog | ${TITLE_BASE}`,
     description:
-      "Read Metropolis Retro blog posts on chess training, tournament preparation, openings, and practical improvement for club players.",
+      "Read Metropolis Retro blog posts on card games, chess training, modern boardgames, open-source and practical improvements for club players and developers.",
   },
 }
 
@@ -74,7 +74,7 @@ export function getBlogCategoryArchiveBySlug(slug: string): BlogArchiveViewModel
   return {
     eyebrow: "Blog Category",
     title: `${category} articles for club players`,
-    description: `Browse every Metropolis Retro article filed under ${category}. These posts focus on practical lessons, sharper preparation, and stronger decision-making for Brisbane chess players.`,
+    description: `Browse every Metropolis Retro article filed under ${category}. These posts focus on practical lessons, sharper preparation, and stronger decision-making for Brisbane games players.`,
     posts: getBlogPostsByCategory(category),
     activeCategory: category,
   }

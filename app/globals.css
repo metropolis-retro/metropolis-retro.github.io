@@ -157,8 +157,10 @@
   }
 }
 
-.animate-marquee {
-  animation: marquee 30s linear infinite;
+@layer components {
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+  }
 }
 
 @keyframes scroll-left {

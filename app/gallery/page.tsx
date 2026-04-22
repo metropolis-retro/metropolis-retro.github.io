@@ -9,15 +9,17 @@ import { galleryImages } from "@/lib/content/gallery"
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Explore our photo gallery showcasing tournaments, training sessions, community events, and members of Metropolis Retro chess club in Brisbane.",
-  keywords: pageKeywords(["chess club gallery", "tournament photos", "chess training images"]),
+    "Explore the vibrant life of a community gaming club, showcasing everything from intense board game nights and chess" +
+      " literature to relaxed social gatherings at the Breakfast Creek Hotel. The collection also features dedicated product shots," +
+      " highlighting iconic items like the Waddingtons of London playing cards and Trivial Pursuit mini packs that fuel our weekly events.",
+  keywords: pageKeywords(["chess club gallery", "relaxed social gatherings", "iconic weekly events"]),
   alternates: {
     canonical: "/gallery",
   },
   openGraph: {
     title: `Gallery | ${TITLE_BASE}`,
     description:
-      "Browse photos from our tournaments, training sessions, and community gatherings at Metropolis Retro.",
+      "Browse photos from our events, training sessions, and community gatherings at Metropolis Retro.",
     url: `${SITE_URL}/gallery`,
     type: "website",
   },
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `Gallery | ${TITLE_BASE}`,
     description:
-      "Browse photos from our tournaments, training sessions, and community gatherings at Metropolis Retro.",
+      "Browse photos from our events, training sessions, and community gatherings at Metropolis Retro.",
   },
 }
 
@@ -39,7 +41,7 @@ export default function GalleryPage() {
             <p className="text-sm uppercase tracking-wider text-muted-foreground mb-6">Visual Archive</p>
             <h1 className="text-4xl md:text-6xl lg:text-7xl tracking-tight max-w-4xl">Gallery</h1>
             <p className="mt-8 text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Discover moments from our tournaments, training sessions, and community events at Metropolis Retro.
+              Discover moments from our events, training sessions, and community gatherings at Metropolis Retro.
             </p>
           </div>
         </section>

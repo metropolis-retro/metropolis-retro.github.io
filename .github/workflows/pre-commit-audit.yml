@@ -8,8 +8,8 @@ permissions:
   contents: read
 
 jobs:
-  pre-commit:
-    name: Run pre-commit
+  prek:
+    name: Run prek
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
@@ -23,5 +23,5 @@ jobs:
       - uses: j178/prek-action@53276d8b0d10f8b6672aa85b4588c6921d0370cc # v2.0.1
         with:
           install-only: true
-      - name: Run audit pre-commit hooks
-        run: prek run --config .pre-commit-config-audit.yaml --all-files --show-diff-on-failure
+      - name: Run audit prek hooks
+        run: prek run --config .pre-commit-config-audit.yaml --all-files --color=always --show-diff-on-failure

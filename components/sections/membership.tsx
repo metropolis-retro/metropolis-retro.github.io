@@ -5,8 +5,8 @@ import { SectionTitle } from "@/components/ui/section-title"
 const benefits = [
   "Priority access to weekly events",
   "Member-only training sessions",
-  "Seasonal tournament eligibility",
-  "Structured improvement pathways",
+  "Free entry into Metropolis simuls",
+    "Support the local community"
 ];
 
 export function Membership() {
@@ -29,8 +29,8 @@ export function Membership() {
 
         <div className="rounded-3xl border border-border bg-card p-6 md:p-10">
           <p className="text-sm text-muted-foreground max-w-2xl">
-            Join Metropolis Retro to get consistent access to events, coaching pathways, and a strong Brisbane chess
-            network.
+            Join Metropolis Retro to get consistent access to events, coaching pathways, and a strong Brisbane games
+            and technology network.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
