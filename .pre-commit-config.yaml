@@ -148,7 +148,7 @@ repos:
         description: Forbid files which have a UTF-8 Unicode replacement character
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: "v2.4.10"
+    rev: "v2.4.12"
     hooks:
       - id: biome-check
         name: run biome-check
@@ -171,7 +171,7 @@ repos:
         alias: ec
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v10.2.0
+    rev: v10.2.1
     hooks:
       - id: eslint
         name: run eslint
@@ -201,7 +201,7 @@ repos:
         files: \.ya?ml$
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.23.1
+    rev: v1.24.1
     hooks:
       - id: zizmor
         name: run zizmor
