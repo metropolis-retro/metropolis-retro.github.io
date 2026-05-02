@@ -6,7 +6,10 @@
     "lint": "eslint .",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3000"
+    "start": "next start -p 3000",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "test:update": "bun test --update-snapshots"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

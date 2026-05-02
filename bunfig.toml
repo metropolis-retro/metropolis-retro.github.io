@@ -1,0 +1,3 @@
+[test]
+# Snapshot files are stored alongside test files in __snapshots__ directories
+root = "./tests"
