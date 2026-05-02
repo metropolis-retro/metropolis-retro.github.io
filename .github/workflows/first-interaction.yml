@@ -24,6 +24,30 @@ jobs:
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           issue_message: |
-            Thanks for opening this issue! We appreciate your contribution.
+            ## 👋 Welcome to Metropolis Retro!
+
+            Thanks for opening your first issue! 🎉
+
+            We genuinely appreciate you taking the time to contribute to our community.
+            A maintainer will review your issue shortly.
+
+            While you wait, feel free to:
+            - 📖 Read through our [README](https://github.com/metropolis-retro/metropolis-retro.github.io#readme) to get familiar with the project
+            - 💬 Join our community on [Discord](https://discord.gg/hKUH56YHXp) — say hi, ask questions, or share ideas!
+
+            We look forward to working with you! 🕹️
           pr_message: |
-            Thanks for your first pull request! We appreciate your contribution.
+            ## 🎉 Your First Pull Request — Welcome!
+
+            Congratulations on opening your first pull request to **Metropolis Retro**! 🚀
+
+            Thank you for contributing — every move counts, and we're thrilled to have you on the board. ♟️
+
+            Here's what happens next:
+            - ✅ Our CI checks will run automatically — please ensure they all pass
+            - 👀 A maintainer will review your changes as soon as possible
+            - 💬 We may leave feedback or request small adjustments — it's all part of the process!
+
+            In the meantime, come hang out with us on [Discord](https://discord.gg/hKUH56YHXp) — the community would love to meet you! 🎮
+
+            Thanks again, and welcome to the team! 🏆

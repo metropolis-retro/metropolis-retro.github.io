@@ -1,25 +1,25 @@
 ---
+# Reusable workflow: run manual prek hooks
 # https://github.com/j178/prek
-name: Manual hooks
+name: Reusable – Manual prek hooks
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - '*'
+  workflow_call:
+    inputs:
+      os:
+        description: 'Runner OS to use'
+        type: string
+        required: false
+        default: 'ubuntu-latest'
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   prek:
-    name: Run prek on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest]
+    name: 🏃🏼 prek manual on ${{ inputs.os }}
+    runs-on: ${{ inputs.os }}
+    permissions:
+      contents: read
     steps:
       - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
