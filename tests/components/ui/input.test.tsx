@@ -34,7 +34,7 @@ describe('Input', () => {
   })
 
   test('accepts custom className', () => {
-    const html = renderToStaticMarkup(<Input className="w-full" />)
+    const html = renderToStaticMarkup(<Input className="mt-4" />)
     expect(html).toMatchSnapshot()
   })
 })
