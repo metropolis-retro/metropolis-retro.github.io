@@ -17,5 +17,6 @@ games/*/dist/
 !components.json
 !next.config.mjs
 !package.json
+!package-lock.json*
 !postcss.config.mjs
 !tsconfig.json
