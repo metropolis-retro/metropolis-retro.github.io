@@ -7,6 +7,7 @@ import {
   BrandGitHubIcon,
   BrandLinkedInIcon,
   BrandTwitterIcon,
+  BrandYouTubeIcon,
 } from "@/components/icons/brand-social-icons"
 
 const socialLinks = [
@@ -14,6 +15,7 @@ const socialLinks = [
   { href: "https://www.linkedin.com", icon: BrandLinkedInIcon, label: "LinkedIn" },
   { href: "https://github.com", icon: BrandGitHubIcon, label: "GitHub" },
   { href: "https://dribbble.com", icon: BrandDribbbleIcon, label: "Dribbble" },
+  { href: "https://www.youtube.com/@metropolisretro", icon: BrandYouTubeIcon, label: "YouTube" },
 ];
 
 const footerLinks = [

@@ -10,23 +10,17 @@ on:
     branches:
       - '*'
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
-  prek:
-    name: Run prek on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest]
-    steps:
-      - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-      - uses: j178/prek-action@cbc2f23eb5539cf20d82d1aabd0d0ecbcc56f4e3 # v2.0.2
-        with:
-          install-only: true
-      - name: Run manual prek hooks
-        run: prek run --all-files --color=always --hook-stage manual --show-diff-on-failure
+  prek-macos:
+    name: Manual hooks (macos-latest)
+    uses: ./.github/workflows/reusable-prek-manual.yml
+    with:
+      os: macos-latest
+
+  prek-ubuntu:
+    name: Manual hooks (ubuntu-latest)
+    uses: ./.github/workflows/reusable-prek-manual.yml
+    with:
+      os: ubuntu-latest
