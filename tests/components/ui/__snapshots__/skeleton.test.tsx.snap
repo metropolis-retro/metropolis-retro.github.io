@@ -1,0 +1,9 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`Skeleton renders with default props 1`] = `"<div data-slot="skeleton" class="bg-accent animate-pulse rounded-md"></div>"`;
+
+exports[`Skeleton renders with height and width classes 1`] = `"<div data-slot="skeleton" class="bg-accent animate-pulse rounded-md h-4 w-[250px]"></div>"`;
+
+exports[`Skeleton renders as a circular avatar placeholder 1`] = `"<div data-slot="skeleton" class="bg-accent animate-pulse size-12 rounded-full"></div>"`;
+
+exports[`Skeleton renders multiple skeletons as a group 1`] = `"<div><div data-slot="skeleton" class="bg-accent animate-pulse rounded-md h-4 w-full"></div><div data-slot="skeleton" class="bg-accent animate-pulse rounded-md h-4 w-3/4"></div><div data-slot="skeleton" class="bg-accent animate-pulse rounded-md h-4 w-1/2"></div></div>"`;
