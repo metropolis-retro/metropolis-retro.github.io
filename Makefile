@@ -44,7 +44,7 @@ prek-update: ## Autoupdate prek hooks and refresh uv lock
 
 build-pacman: ## Build Pac-Man game standalone (optional, for Vite dev)
 	@echo "$(BLUE)Building Pac-Man game (standalone)...$(NC)"
-	cd games/pacman && npm install && npm run build
+	cd games/pacman && bun install && bun run build
 	@echo "$(GREEN)Pac-Man build complete.$(NC)"
 
 build-games: build-pacman ## Build all games

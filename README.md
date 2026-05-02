@@ -170,10 +170,10 @@ a few are intentionally tracked.
 | ---- | ------------ | ---- |
 | `.next/` | `next build` / `next dev` | Build & dev server |
 | `node_modules/` | `bun install` | Dependency install |
-| `games/pacman/node_modules/` | `npm install` (inside `games/pacman/`) | Game build |
-| `games/pacman/dist/` | `npm run build` (inside `games/pacman/`) | Pac-Man game build |
-| `games/snake/node_modules/` | `npm install` (inside `games/snake/`) | Game build |
-| `games/snake/dist/` | `npm run build` (inside `games/snake/`) | Snake game build |
+| `games/pacman/node_modules/` | `bun install` (inside `games/pacman/`) | Game build |
+| `games/pacman/dist/` | `bun run build` (inside `games/pacman/`) | Pac-Man game build |
+| `games/snake/node_modules/` | `bun install` (inside `games/snake/`) | Game build |
+| `games/snake/dist/` | `bun run build` (inside `games/snake/`) | Snake game build |
 | `next-env.d.ts` | `next dev` / `next build` | TypeScript type generation |
 | `*.tsbuildinfo` | `tsc` / Next.js incremental builds | TypeScript incremental build |
 | `.venv/` | `uv sync` | Python virtual environment |
