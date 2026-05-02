@@ -9,14 +9,15 @@ on:
     types:
       - opened
 
-permissions:
-  issues: write
-  pull-requests: write
+permissions: {}
 
 jobs:
   first-interaction:
     name: 🌓 Greetings Earthling
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
     steps:
       - name: 🏃🏼 Run First Interaction
         uses: actions/first-interaction@1c4688942c71f71d4f5502a26ea67c331730fa4d
