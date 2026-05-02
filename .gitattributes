@@ -20,6 +20,7 @@
 *.env*      text eol=lf
 Makefile    text eol=lf
 Dockerfile* text eol=lf
+*.svg       text eol=lf
 
 # Python
 *.py        text eol=lf
@@ -30,7 +31,6 @@ Dockerfile* text eol=lf
 *.jpeg      binary
 *.gif       binary
 *.ico       binary
-*.svg       binary
 *.webp      binary
 *.avif      binary
 *.woff      binary
@@ -41,3 +41,4 @@ Dockerfile* text eol=lf
 *.pdf       binary
 *.zip       binary
 *.gz        binary
+*.lockb     binary
