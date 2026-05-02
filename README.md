@@ -186,5 +186,6 @@ a few are intentionally tracked.
 | `bun.lock` | `bun install` | Bun lockfile |
 
 > **Note:** Run `make clean` to remove `.next/`, `node_modules/`, and `.venv/`
-> in one step. Snapshot files under `tests/**/__snapshots__/` should be
+> in one step. Generate or refresh snapshot files under
+> `tests/**/__snapshots__/` with `bun run test:update`; they should be
 > committed once generated — they are the baseline for regression detection.
