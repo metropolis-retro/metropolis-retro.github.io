@@ -72,6 +72,13 @@ repos:
         description: check spelling with codespell
         args: [--config=.github/linters/.codespellrc]
 
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.32.0
+    hooks:
+      - id: typos
+        name: run typos
+        description: check spelling with the typos Rust crate
+
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.6
     hooks:
