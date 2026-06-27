@@ -171,7 +171,6 @@ repos:
         name: run eslint
         description: ESLint statically analyzes your code to quickly find problems
         entry: eslint --config eslint.config.mjs --fix
-        language: node
         files: \.(js|mjs|cjs|ts|mts|cts|jsx|tsx)$
         additional_dependencies:
           - "@eslint/js"
