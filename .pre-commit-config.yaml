@@ -169,10 +169,14 @@ repos:
     hooks:
       - id: eslint
         name: run eslint
-        description: ESLint statically analyzes your code to quickly find problems.
+        description: ESLint statically analyzes your code to quickly find problems
         entry: eslint --config eslint.config.mjs --fix
         language: node
         files: \.(js|mjs|cjs|ts|mts|cts|jsx|tsx)$
+        additional_dependencies:
+          - "@eslint/js"
+          - "globals"
+          - "typescript-eslint"
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: a4d5d37e66ebcd6b3705204a1d6dbb56dea66338 # frozen: v0.49.0
