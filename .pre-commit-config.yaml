@@ -1,6 +1,6 @@
 ---
 default_stages: [pre-commit, pre-push]
-minimum_prek_version: "0.2.22"
+minimum_prek_version: "0.3.4"
 default_language_version:
   python: python3
   node: 24.14.1
@@ -48,24 +48,18 @@ repos:
         entry: bun install
         language: system
         pass_filenames: false
-      - id: validate-dependabot-yml
-        name: validate dependabot.yml
-        description: ensures the dependabot config file is valid
-        entry: validate-dependabot-yaml
-        language: node
-        additional_dependencies: ['@bugron/validate-dependabot-yaml@0.3.3']
-        files: ^\.github/dependabot\.yml$
+        stages: [manual]
 
   # GO-based
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.30.1
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e # frozen: v8.30.1
     hooks:
       - id: gitleaks
         name: Run gitleaks
         description: Check for secrets with gitleaks
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.2
+    rev: 2ccb47ff45ad361a21071a7eedda4c37e6ae8c5a # frozen: v2.4.2
     hooks:
       - id: codespell
         name: run codespell
@@ -73,7 +67,7 @@ repos:
         args: [--config=.github/linters/.codespellrc]
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.6
+    rev: ad1b27d73581aa16cca06fc4a0761fc563ffe8e8 # frozen: v1.5.6
     hooks:
       - id: chmod
         name: Set file permissions
@@ -83,7 +77,7 @@ repos:
         stages: [manual]
 
   - repo: https://github.com/oxipng/oxipng
-    rev: v10.1.1
+    rev: 628e241e23f368097883807fa6e985ccf7c00357 # frozen: v10.1.1
     hooks:
       - id: oxipng
         name: run oxipng
@@ -92,7 +86,7 @@ repos:
         stages: [manual]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # frozen: v6.0.0
     hooks:
       - id: trailing-whitespace
         name: run trailing-whitespace
@@ -141,14 +135,14 @@ repos:
         description: replaces or checks mixed line ending
 
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.10.0
+    rev: 3a6eb0fadf60b3cccfd80bad9dbb6fae7e47b316 # frozen: v1.10.0
     hooks:
       - id: text-unicode-replacement-char
         name: run check for no unicode replacement char
         description: Forbid files which have a UTF-8 Unicode replacement character
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: "v2.5.0"
+    rev: 19865851e014cbe6138e295365f95ca51bf953f8 # frozen: v2.5.1
     hooks:
       - id: biome-check
         name: run biome-check
@@ -156,14 +150,14 @@ repos:
         additional_dependencies: ["@biomejs/biome"]
 
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.12
+    rev: 914e7df21a07ef503a81201c76d2b11c789d3fca # frozen: v1.7.12
     hooks:
       - id: actionlint
         name: run actionlint
         description: actionlint is a static checker for GitHub Actions workflow files
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.6.1
+    rev: bebfac867564fbd992e5b45379b4b0568d5cb85b # frozen: 3.6.1
     hooks:
       - id: editorconfig-checker
         name: run editorconfig-checker
@@ -171,7 +165,7 @@ repos:
         alias: ec
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v10.5.0
+    rev: 97a8e4af05a8fa8a0ed79d2fbd1f4c86bf1a0178 # frozen: v10.5.0
     hooks:
       - id: eslint
         name: run eslint
@@ -181,7 +175,7 @@ repos:
         files: \.(js|mjs|cjs|ts|mts|cts|jsx|tsx)$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.49.0
+    rev: a4d5d37e66ebcd6b3705204a1d6dbb56dea66338 # frozen: v0.49.0
     hooks:
       - id: markdownlint
         name: run markdownlint
@@ -191,7 +185,7 @@ repos:
         files: \.md$
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.38.0
+    rev: cba56bcde1fdd01c1deb3f945e69764c291a6530 # frozen: v1.38.0
     hooks:
       - id: yamllint
         name: run yamllint
@@ -201,7 +195,7 @@ repos:
         files: \.ya?ml$
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.25.2
+    rev: e3eebf65325ccc992422292cb7a4baee967cf815 # frozen: v1.26.1
     hooks:
       - id: zizmor
         name: run zizmor
