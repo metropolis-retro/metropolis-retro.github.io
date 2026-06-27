@@ -48,7 +48,6 @@ repos:
         entry: bun install
         language: system
         pass_filenames: false
-        stages: [manual]
 
   # GO-based
   - repo: https://github.com/gitleaks/gitleaks
@@ -172,10 +171,6 @@ repos:
         description: ESLint statically analyzes your code to quickly find problems
         entry: eslint --config eslint.config.mjs --fix
         files: \.(js|mjs|cjs|ts|mts|cts|jsx|tsx)$
-        additional_dependencies:
-          - "@eslint/js"
-          - "globals"
-          - "typescript-eslint"
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
     rev: a4d5d37e66ebcd6b3705204a1d6dbb56dea66338 # frozen: v0.49.0
