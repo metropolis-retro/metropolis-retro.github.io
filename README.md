@@ -11,7 +11,13 @@ retro-futuristic engine.
 ---
 
 [![Basic Tests Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/basic-tests.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/basic-tests.yml)
+[![Docker Build & Smoke Test Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/docker-build-test.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/docker-build-test.yml)
+[![First Interaction Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/first-interaction.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/first-interaction.yml)
 [![ls-lint Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/ls-lint.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/ls-lint.yml)
+[![Audit Hooks Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/pre-commit-audit.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/pre-commit-audit.yml)
+[![Manual Hooks Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/pre-commit-manual.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/pre-commit-manual.yml)
+[![Standard Hooks Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/pre-commit.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/pre-commit.yml)
+[![Super-Linter Workflow Status](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/super-linter.yml/badge.svg?branch=main)](https://github.com/metropolis-retro/metropolis-retro.github.io/actions/workflows/super-linter.yml)
 
 ---
 
