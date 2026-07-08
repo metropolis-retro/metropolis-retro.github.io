@@ -164,7 +164,7 @@ repos:
         alias: ec
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 97a8e4af05a8fa8a0ed79d2fbd1f4c86bf1a0178 # frozen: v10.5.0
+    rev: 8763fc929b6232999d541a3d8eb49965a6b71afb # frozen: v10.6.0
     hooks:
       - id: eslint
         name: run eslint
