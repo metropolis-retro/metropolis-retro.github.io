@@ -141,7 +141,7 @@ repos:
         description: Forbid files which have a UTF-8 Unicode replacement character
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: 19865851e014cbe6138e295365f95ca51bf953f8 # frozen: v2.5.1
+    rev: 53525e29648f6e0d6a7b0cfaa67276478d3b1906 # frozen: v2.5.2
     hooks:
       - id: biome-check
         name: run biome-check
