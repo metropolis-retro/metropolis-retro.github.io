@@ -12,7 +12,7 @@ requires-python = ">=3.13"
 
 [dependency-groups]
 dev = [
-    "prek==0.4.8",
+    "prek==0.4.9",
 ]
 
 [tool.uv]
