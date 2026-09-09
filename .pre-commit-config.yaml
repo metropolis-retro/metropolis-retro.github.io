@@ -141,7 +141,7 @@ repos:
         description: Forbid files which have a UTF-8 Unicode replacement character
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: 055c65a8144b42a1f56908484127aec0c614fb85 # frozen: v2.5.10
+    rev: c4d01b70e92b66e6a88739145624279889634e92 # frozen: v2.5.11
     hooks:
       - id: biome-check
         name: run biome-check
@@ -193,7 +193,7 @@ repos:
         files: \.ya?ml$
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: 451b56af716f9f0d0c2b816503a3fd0cf8b036fa # frozen: v1.29.0
+    rev: cef8b8350da46d8114c7e6b7272aebdccdf193ce # frozen: v1.30.0
     hooks:
       - id: zizmor
         name: run zizmor
