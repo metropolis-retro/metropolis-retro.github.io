@@ -141,7 +141,7 @@ repos:
         description: Forbid files which have a UTF-8 Unicode replacement character
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: 742ab683a70977bd4648797d799ddd6b5496ae87 # frozen: v2.5.13
+    rev: df12125767e3be2d945f0239811b308ff2a32c3f # frozen: v2.5.14
     hooks:
       - id: biome-check
         name: run biome-check
@@ -164,7 +164,7 @@ repos:
         alias: ec
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 8ba198123f6fb414e19d879a1270d6d72116d89b # frozen: v10.10.0
+    rev: 809d037d62978decc620b5a55e8ee5b8b54d8d65 # frozen: v10.11.0
     hooks:
       - id: eslint
         name: run eslint
