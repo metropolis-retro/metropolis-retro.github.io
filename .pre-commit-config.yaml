@@ -141,7 +141,7 @@ repos:
         description: Forbid files which have a UTF-8 Unicode replacement character
 
   - repo: https://github.com/biomejs/pre-commit
-    rev: f9fccc969fb42a59a17a1a430df9f38851f9b2da # frozen: v2.6.3
+    rev: eb45ebf3cb7c3a872b3ff0814883e8ab81fc451f # frozen: v2.6.4
     hooks:
       - id: biome-check
         name: run biome-check
@@ -164,7 +164,7 @@ repos:
         alias: ec
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 7ab6b7f5c5befd162fb5ddddc4af4c1b4fbfe11d # frozen: v10.13.0
+    rev: 28bccd32cd8c825b0d0913b486f8ef0f56bfb08a # frozen: v10.14.0
     hooks:
       - id: eslint
         name: run eslint
@@ -193,7 +193,7 @@ repos:
         files: \.ya?ml$
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: c92afdf2c6ca336aaa8f39e2bd8d48f62dbd8e1f # frozen: v1.31.1
+    rev: 06a39750ec31860bb44f2acf67182c40016cd1e7 # frozen: v1.32.0
     hooks:
       - id: zizmor
         name: run zizmor
